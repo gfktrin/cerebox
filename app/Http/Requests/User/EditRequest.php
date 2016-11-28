@@ -13,7 +13,7 @@ class EditRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;//trocar essa merda
     }
 
     /**
@@ -24,7 +24,8 @@ class EditRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'email' => 'required'
         ];
     }
 }
