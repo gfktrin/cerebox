@@ -17,10 +17,16 @@
                             <div class="form-group">
                                 <label for="edit-user-name" class="control-label">Nome</label>
                                 <input type="text" name="name" id="edit-user-name" class="form-control" value="{{ old('name',$user->name) }}">
+                                @if($erros->has('name'))
+                                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="edit-user-email" class="control-label">Email</label>
                                 <input type="text" name="email" id="edit-user-email" class="form-control" value="{{ old('email',$user->email) }}">
+                                @if($erros->has('email'))
+                                    <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Salvar" class="btn btn-success">
