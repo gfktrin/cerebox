@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'pt-BR',
+    'locale' => 'pt_BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +168,7 @@ return [
          */
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...

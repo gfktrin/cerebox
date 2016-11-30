@@ -60,6 +60,8 @@ return [
         'name' => 'Example',
     ],
 
+    'contact_to' => 'lucasmgonzalez1992@gmail.com',
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

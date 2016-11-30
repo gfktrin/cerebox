@@ -8,7 +8,39 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        Você está na página de contato
+                        @if(Session::has('contact-success'))
+                            <div class="alert alert-success">{{ Session::get('contact-success') }}</div>
+                        @endif
+                        <form action="{{ action('ContactController@sendMessage') }}" class="form" method="POST">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="contact-name" class="control-label">Nome</label>
+                                <input type="text" name="name" id="contact-name" class="form-control" value="{{ old('name') }}">
+                                @if($errors->has('name'))
+                                    <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email" class="control-label">Email</label>
+                                <input type="text" name="email" id="contact-email" class="form-control" value="{{ old('email') }}">
+                                @if($errors->has('email'))
+                                    <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message" class="control-label">Mensagem</label>
+                                <textarea name="message" id="contact-message" class="form-control" rows="10">{{ old('message') }}</textarea>
+                                @if($errors->has('message'))
+                                    <div class="alert alert-danger">{{ $errors->first('message') }}</div>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Enviar" class="btn btn-success" >
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

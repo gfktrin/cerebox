@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function edit(EditRequest $request){
-        $inputs = $request->all();
+        $inputs = $request->except('_token');
 
         $user = User::find($inputs['user_id']);
         $user->update($inputs);
@@ -17,7 +17,7 @@ class UserController extends Controller
         if($request->ajax()) {
             return $user;
         }else{
-            \Session::flash('success', 'Perfil alterado');
+            \Session::flash('success', trans('application-messages.UserController.edit.success'));
             return redirect()->action('HomeController@editUser');
         }
     }
