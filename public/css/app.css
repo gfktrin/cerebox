@@ -11390,4 +11390,17 @@ hr.on-light {
   opacity: 0;
 }
 
+body > .content {
+  margin-top: -22px;
+}
+
+body > .content #home {
+  margin-bottom: 25px;
+}
+
+.navbar.navbar-default {
+  background-color: white;
+  color: #868686;
+}
+
 /*# sourceMappingURL=app.css.map */
