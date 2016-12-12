@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
@@ -90,11 +91,11 @@
                     </div>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <i class="material-icons" aria-hidden="true">navigate_before</i>
                         <span class="sr-only">Previous</span>
                     </a>
                     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <i class="material-icons" aria-hidden="true">navigate_next</i>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>

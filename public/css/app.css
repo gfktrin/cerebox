@@ -11398,6 +11398,28 @@ body > .content #home {
   margin-bottom: 25px;
 }
 
+.carousel-control .material-icons {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  z-index: 5;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: -10px;
+  font-size: 30px;
+}
+
+.carousel-control.left .material-icons {
+  left: 50%;
+  margin-left: -10px;
+}
+
+.carousel-control.right.material-icons {
+  right: 50%;
+  margin-right: -10px;
+}
+
 .navbar.navbar-default {
   background-color: white;
   color: #868686;
