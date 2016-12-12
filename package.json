@@ -14,5 +14,11 @@
     "lodash": "^4.16.2",
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3"
+  },
+  "dependencies": {
+    "bootstrap-material-design": "^0.5.10",
+    "buble": "^0.14.2",
+    "buble-loader": "^0.3.2",
+    "vue-loader": "^10.0.2"
   }
 }

@@ -168,7 +168,7 @@ return [
          */
 
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //Rocketeer\RocketeerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +230,7 @@ return [
         //Package Aliases
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        //'Rocketeer' => Rocketeer\Facades\Rocketeer::class
 
     ],
 

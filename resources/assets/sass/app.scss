@@ -6,4 +6,8 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Bootstrap Material
+@import "../lib/bootstrap-material-design/sass/bootstrap-material-design";
+@import "../lib/bootstrap-material-design/sass/ripples";

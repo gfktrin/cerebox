@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/cerebox":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/cerebox","hostpath":"/var/www/html/cerebox","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/var/www/html/cerebox","disabled":false,"__vagrantfile":true}}}
