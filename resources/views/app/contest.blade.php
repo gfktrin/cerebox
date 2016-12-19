@@ -16,7 +16,7 @@
         </div>
 
 
-        @foreach($contest->projects as $project)
+        @foreach($contest->projects()->where('approved',1)->get() as $project)
             <div class="col-md-4">
                 <div class="panel project-card">
                     <div class="panel-body">
