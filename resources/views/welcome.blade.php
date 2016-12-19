@@ -36,7 +36,10 @@
                     <div class="panel">
                         <div class="panel-body">
                             <div class="panel-img">
-                                <img src="{{ asset('images/penguin2.jpg') }}" width="100%" alt="penguin">
+                                <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
+
+                                    <img src="{{ asset('images/penguin2.jpg') }}" width="100%" alt="penguin">
+                                </a>
                             </div>
                             <h3>
                                 <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
