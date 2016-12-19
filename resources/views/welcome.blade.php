@@ -31,36 +31,22 @@
 
         <!--Concursos-->
         <section class="row">
-            <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="panel-img">
-                            <img src="{{ asset('images/penguin2.jpg') }}" width="100%" alt="penguin">
+            @foreach($contests as $contest)
+                <div class="col-md-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="panel-img">
+                                <img src="{{ asset('images/penguin2.jpg') }}" width="100%" alt="penguin">
+                            </div>
+                            <h3>
+                                <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
+                                    {{ $contest->title }}
+                                </a>
+                            </h3>
                         </div>
-                        <h3>Concurso 1</h3>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="panel-img">
-                            <img src="{{ asset('images/penguin1.jpg') }}" width="100%"  alt="penguin">
-                        </div>
-                        <h3>Concurso 2</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="panel-img">
-                            <img src="{{ asset('images/penguin3.jpg') }}" width="100%" alt="penguin">
-                        </div>
-                        <h3>Concurso 3</h3>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </section>
 
         <section class="row">
