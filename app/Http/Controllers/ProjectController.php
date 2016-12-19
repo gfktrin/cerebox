@@ -42,11 +42,15 @@ class ProjectController extends Controller
     public function approve(Request $request, Project $project){
         $project->approve();
 
+        return redirect()->action('AdminController@retrieveContest',['contest' => $project->contest->id]); //todo Temporary fix
+
         return $project;
     }
 
     public function refuse(Request $request, Project $project){
         $project->refuse();
+
+        return redirect()->action('AdminController@retrieveContest',['contest' => $project->contest->id]); //todo Temporary fix
 
         return $project;
     }
