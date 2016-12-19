@@ -10,11 +10,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!--Fonts-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
+        window.webRoot = '{{ url('') }}'
+
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
         ]); ?>
@@ -49,6 +54,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ action('AdminController@users') }}">Usuários</a></li>
+                    <li><a href="{{ action('AdminController@contests') }}">Concursos</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -80,5 +86,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+@yield('scripts')
 </body>
 </html>

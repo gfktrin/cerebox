@@ -1,8 +1,7 @@
 body{
-  & > .content{
-    margin-top:-22px;
-
+  & > #app > .content{
     #home {
+      margin-top:-22px;
       margin-bottom:25px;
     }
   }

@@ -12,6 +12,7 @@
 
     <!--Fonts-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -65,6 +66,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ action('HomeController@editUser') }}">Editar Perfil</a></li>
+                                    <li><a href="{{ action('HomeController@myProjects') }}">Meus Projetos</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -84,7 +86,9 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="content">
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->

@@ -19,6 +19,8 @@
     "bootstrap-material-design": "^0.5.10",
     "buble": "^0.14.2",
     "buble-loader": "^0.3.2",
+    "lightbox2": "^2.9.0",
+    "moment": "^2.17.1",
     "vue-loader": "^10.0.2"
   }
 }

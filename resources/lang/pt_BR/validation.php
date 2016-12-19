@@ -115,7 +115,12 @@ return [
     */
 
     'attributes'           => [
-        //
+        'name' => 'nome',
+        'title' => 'título',
+        'begins_at' => 'começa em',
+        'ends_at' => 'termina_em',
+        'email' => 'email',
+        ''
     ],
 
 ];

@@ -2,6 +2,10 @@
 
 namespace Cerebox\Providers;
 
+use Cerebox\Contest;
+use Cerebox\Policies\ContestPolicy;
+use Cerebox\Policies\ProjectPolicy;
+use Cerebox\Project;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -13,7 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Cerebox\Model' => 'Cerebox\Policies\ModelPolicy',
+        Contest::class => ContestPolicy::class,
+        Project::class => ProjectPolicy::class
     ];
 
     /**

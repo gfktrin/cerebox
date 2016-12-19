@@ -6,18 +6,17 @@
  */
 
 require('./bootstrap');
+require('./admin/load');
+require('./app/load');
 
 $(function(){
     $.material.init();
-});
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the body of the page. From here, you may begin adding components to
- * the application, or feel free to tweak this setup for your needs.
- */
 
-// Vue.component('example', require('./components/Example.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
+
+    $('input[type=datetime]').datetimepicker({
+        useCurrent : true,
+        format : 'YYYY-MM-DD HH:mm:ss',
+        sideBySide : true,
+        showTodayButton : true
+    });
+});

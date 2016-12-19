@@ -44,3 +44,8 @@ Vue.http.interceptors.push((request, next) => {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+//Other Requires
+window.moment = require('moment');
+require('../../../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js');
+require('lightbox2');

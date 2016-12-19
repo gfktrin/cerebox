@@ -2,6 +2,7 @@
 
 namespace Cerebox\Http\Controllers;
 
+use Cerebox\Contest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -39,6 +40,34 @@ class HomeController extends Controller
     public function editUser(){
         return view('app.edit-user')->with([
             'user' => \Auth::user()
+        ]);
+    }
+
+    public function submitProject(Contest $contest){
+        return view('app.submit-project')->with([
+            'contest' => $contest,
+            'user' => \Auth::user()
+        ]);
+    }
+
+    public function myProjects(){
+        $user = \Auth::user();
+        $projects = $user->projects()->with('contest')->get();
+
+        return view('app.my-projects')->with([
+            'user' => $user,
+            'projects' => $projects
+        ]);
+    }
+
+    public function contest($slug){
+        $contest = Contest::where('slug',$slug)->get()->first();
+
+        if(is_null($contest))
+            return abort(404);
+
+        return view('app.contest')->with([
+            'contest' => $contest
         ]);
     }
 }

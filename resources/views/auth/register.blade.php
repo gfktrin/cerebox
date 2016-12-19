@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -7,6 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Cadastro</div>
                 <div class="panel-body">
+                    <div class="row text-center">
+                        <a href="{{ action('Auth\LoginController@redirectToFacebook') }}"
+                           class="btn btn-raised btn-info">
+                            Login com Facebook
+                        </a>
+                    </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 

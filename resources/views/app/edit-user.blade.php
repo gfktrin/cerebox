@@ -28,7 +28,7 @@
                                     <div class="alert alert-danger">{{ $errors->first('email') }}</div>
                                 @endif
                             </div>
-                            <div class="form-group">
+                            <div class="form-group pull-right">
                                 <input type="submit" value="Salvar" class="btn btn-success">
                             </div>
                         </form>

@@ -12,6 +12,13 @@
 @import "../lib/bootstrap-material-design/sass/bootstrap-material-design";
 @import "../lib/bootstrap-material-design/sass/ripples";
 
+//Other
+@import "../../../bower_components/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
+@import "./lightbox.min.css";
+
 //App
-@import "welcome";
+@import "admin";
+@import "contest";
 @import "navbar";
+@import "submit-project";
+@import "welcome";

@@ -2,6 +2,8 @@
 
 namespace Cerebox\Providers;
 
+use Cerebox\Contest;
+use Cerebox\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -26,6 +28,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        //Model Binding
+        Route::model('user',User::class);
+        Route::model('contest',Contest::class);
     }
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function edit(EditRequest $request){
+    public function edit(EditRequest $request, User $user){
         $inputs = $request->except('_token');
 
         $user = User::find($inputs['user_id']);
