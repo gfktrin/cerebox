@@ -77,7 +77,13 @@
                                         {{ $project->author->name }}
                                     </a>
                                 </td>
-                                <td>{{ $project->filename }}</td>
+                                <td>
+                                    <a href="{{ asset('project_images/'.$project->filename) }}"
+                                       data-lightbox="{{ $project->filename }}"
+                                       data-title="{{ $project->contest->title }}">
+                                        <i class="material-icons">image</i>
+                                    </a>
+                                </td>
                                 <td>
                                     <a href="{{ action('ProjectController@approve', ['project' => $project->id]) }}"
                                        class="btn btn-raised btn-success btn-sm">
