@@ -79,8 +79,8 @@
                                 </td>
                                 <td>
                                     <a href="{{ asset('project_images/'.$project->filename) }}"
-                                       data-lightbox="{{ $project->filename }}"
-                                       data-title="{{ $project->contest->title }}">
+                                       data-lightbox="pending_projects"
+                                       data-title="{{ $project->author->name }}">
                                         <i class="material-icons">image</i>
                                     </a>
                                 </td>
@@ -118,8 +118,8 @@
                             </td>
                             <td>
                                 <a href="{{ asset('project_images/'.$project->filename) }}"
-                                   data-lightbox="{{ $project->filename }}"
-                                   data-title="{{ $project->contest->title }}">
+                                   data-lightbox="approved_projects"
+                                   data-title="{{ $project->author->name }}">
                                     <i class="material-icons">image</i>
                                 </a>
                             </td>
