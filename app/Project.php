@@ -33,4 +33,16 @@ class Project extends Model
     public function refuse(){
         $this->delete();
     }
+
+    public function getStatus(){
+        if($this->approved){
+            return  'approved';
+        }else{
+            if(is_null($this->deleted_at)){
+                return 'pending';
+            }else{
+                return 'refused';
+            }
+        }
+    }
 }

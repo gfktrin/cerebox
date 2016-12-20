@@ -13,7 +13,11 @@ class EditRequest extends FormRequest
      */
     public function authorize()
     {
-        return \Auth::user()->id == $this->request->get('user_id');//trocar essa merda
+        $edit_user = $this->route('user');
+
+        $user = \Auth::user();
+
+        return $user->admin || $user->id == $edit_user->id;
     }
 
     /**
@@ -23,7 +27,7 @@ class EditRequest extends FormRequest
      */
     public function rules()
     {
-        $user_id = $this->request->get('user_id');
+        $user_id = $this->route('user')->id;
 
         return [
             'name' => 'required',

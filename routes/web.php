@@ -38,10 +38,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('concurso/{contest}/enviar-projeto', 'HomeController@submitProject');
 	Route::get('meus-projetos', 'HomeController@myProjects');
 
-	Route::post('usuario/editar', 'UserController@edit');
-	Route::post('projeto/criar', 'ProjectController@create');
+    Route::post('usuario/{user}/editar', 'UserController@edit');
+    Route::post('projeto/criar', 'ProjectController@create');
 
-	//Admin com prefixo
+    //Admin com prefixo
 	Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 		Route::get('/', function () {
 			return redirect('admin/home');
