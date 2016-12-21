@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -47,6 +46,7 @@ Vue.http.interceptors.push((request, next) => {
 
 //Other Requires
 window.moment = require('moment');
-require('./bootstrap-datetimepicker.js');
+require('sweetalert');
+require('eonasdan-bootstrap-datetimepicker');
 require('lightbox2');
-require('./freewall');
+require('freewall');

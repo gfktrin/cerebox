@@ -11,9 +11,14 @@
                         @if(Session::has('success'))
                             <div class="alert alert-success">{{ Session::get('success') }}</div>
                         @endif
-                        <form action="{{ action('UserController@edit') }}" class="form" method="POST">
+                        <form action="{{ action('UserController@edit',['user' => $user->id]) }}"
+                              data-redirect="{{ action('HomeController@editUser') }}"
+                              class="form"
+                              id="update-user"
+                              method="POST">
+
                             {{ csrf_field() }}
-                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+
                             <div class="form-group">
                                 <label for="edit-user-name" class="control-label">Nome</label>
                                 <input type="text" name="name" id="edit-user-name" class="form-control" value="{{ old('name',$user->name) }}">
@@ -21,6 +26,7 @@
                                     <div class="alert alert-danger">{{ $errors->first('name') }}</div>
                                 @endif
                             </div>
+
                             <div class="form-group">
                                 <label for="edit-user-email" class="control-label">Email</label>
                                 <input type="text" name="email" id="edit-user-email" class="form-control" value="{{ old('email',$user->email) }}">
@@ -28,6 +34,7 @@
                                     <div class="alert alert-danger">{{ $errors->first('email') }}</div>
                                 @endif
                             </div>
+
                             <div class="form-group pull-right">
                                 <input type="submit" value="Salvar" class="btn btn-success">
                             </div>
