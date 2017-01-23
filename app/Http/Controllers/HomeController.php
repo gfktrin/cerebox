@@ -63,11 +63,24 @@ class HomeController extends Controller
     public function contest($slug){
         $contest = Contest::where('slug',$slug)->get()->first();
 
+        $vote = \Auth::user()->votes()->where('contest_id',$contest->id)->get()->first();
+
         if(is_null($contest))
             return abort(404);
 
         return view('app.contest')->with([
-            'contest' => $contest
+            'contest' => $contest,
+            'vote' => $vote
         ]);
+    }
+
+    public function openContests(){
+        return view('app.open-contests')->with([
+            'contests' => Contest::open()->get()
+        ]);
+    }
+
+    public function paymentReturn(){
+        return view('app.payment-return');
     }
 }

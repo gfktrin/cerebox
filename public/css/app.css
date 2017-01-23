@@ -12906,10 +12906,24 @@ body.stop-scrolling {
   font-size: 16px;
 }
 
-.contest .project-card .votes .material-icons {
-  font-size: 16px;
+.contest .project-card .votes a {
   position: relative;
-  top: 3px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.contest .project-card .votes a:hover, .contest .project-card .votes a:focus, .contest .project-card .votes a:active {
+  text-decoration: none;
+}
+
+.contest .project-card .votes a .material-icons {
+  font-size: 16px;
+}
+
+.contest .project-card .votes a .material-icons.active, .contest .project-card .votes a .material-icons:hover, .contest .project-card .votes a .material-icons:focus, .contest .project-card .votes a .material-icons:active {
+  color: indianred;
+  text-decoration: none;
 }
 
 .navbar.navbar-default {
@@ -12928,6 +12942,11 @@ body.stop-scrolling {
 body > #app > .content #home {
   margin-top: -22px;
   margin-bottom: 25px;
+}
+
+#home .carousel-inner > .item > img {
+  max-height: calc(100vh - 62px);
+  width: 100%;
 }
 
 .carousel-control .material-icons {

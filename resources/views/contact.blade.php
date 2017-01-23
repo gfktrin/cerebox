@@ -50,7 +50,8 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" value="Enviar" class="btn btn-success" >
+                                <input type="submit" value="Enviar" class="btn btn-success pull-right">
+                                <div class="clearfix"></div>
                             </div>
                         </form>
                     </div>

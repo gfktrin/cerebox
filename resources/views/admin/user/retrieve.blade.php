@@ -47,6 +47,7 @@
                             <th>Concurso</th>
                             <th>Arte</th>
                             <th>Status</th>
+                            <th>Status do Pagamento</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +64,12 @@
                                     </a>
                                 </td>
                                 <td>{{ $project->getStatus() }}</td>
+                                <td>
+                                    @php($invoice = $user->invoices()->fromProject($project->author)->get()->first())
+                                    <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
+                                        {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

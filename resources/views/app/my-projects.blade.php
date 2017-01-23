@@ -5,15 +5,17 @@
         <div class="panel">
             <h4 class="panel-heading">Meus projetos</h4>
             <div class="panel-body">
-                @php($pending_projects = $projects->filter(function($item){ return !$item->approved ? $item : null; }))
-                @if(count($pending_projects))
-                    <h4>Pendentes</h4>
-                    <table class="table table-hover">
-                        <thead>
-                            <th>Concurso</th>
-                            <th>Arte</th>
-                        </thead>
-                        <tbody>
+                <h4>Envios Pendentes</h4>
+                <table class="table table-hover">
+                    <thead>
+                    <th>Concurso</th>
+                    <th>Arte</th>
+                    <th>Status do Pagamento</th>
+                    </thead>
+
+                    <tbody>
+                        @php($pending_projects = $projects->filter(function($item){ return !$item->approved ? $item : null; }))
+                        @if(count($pending_projects))
                             @foreach($pending_projects as $project)
                                 <tr>
                                     <td>{{ $project->contest->title }}</td>
@@ -24,11 +26,15 @@
                                             <i class="material-icons">image</i>
                                         </a>
                                     </td>
+                                    <td>
+                                        @php($invoice = $project->invoices()->fromUser(Auth::user()->id)->get()->first())
+                                        {{ $invoice->getStatus() }}
+                                    </td>
                                 </tr>
                             @endforeach
-                        </tbody>
-                    </table>
-                @endif
+                        @endif
+                    </tbody>
+                </table>
 
                 @php($approved_projects = $projects->filter(function($item){ return $item->approved ? $item : null; }))
                 <h4>Aprovados</h4>

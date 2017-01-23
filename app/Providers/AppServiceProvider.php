@@ -14,7 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //Inicializando PagSeguro
+        \PagSeguro\Library::initialize();
+        \PagSeguro\Configuration\Configure::setEnvironment(getenv('PAGSEGURO_ENV'));//production or sandbox
+        \PagSeguro\Configuration\Configure::setAccountCredentials(
+            getenv('PAGSEGURO_EMAIL'),
+            getenv('PAGSEGURO_TOKEN_SANDBOX')
+        );
+
+
     }
 
     /**

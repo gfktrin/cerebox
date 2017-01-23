@@ -3,6 +3,7 @@
 namespace Cerebox\Providers;
 
 use Cerebox\Contest;
+use Cerebox\Invoice;
 use Cerebox\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -32,6 +33,7 @@ class RouteServiceProvider extends ServiceProvider
         //Model Binding
         Route::model('user',User::class);
         Route::model('contest',Contest::class);
+        Route::model('invoice',Invoice::class);
     }
 
     /**

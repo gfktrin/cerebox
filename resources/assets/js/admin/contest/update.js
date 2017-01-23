@@ -5,7 +5,7 @@ $(function(){
 
         var form = $(this);
 
-        App.Form.submit(form,{
+        App.Form.submit(this,{
             title: 'Dados atualizados',
             type: "success",
             closeOnConfirm: false,

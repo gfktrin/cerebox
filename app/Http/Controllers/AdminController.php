@@ -3,6 +3,7 @@
 namespace Cerebox\Http\Controllers;
 
 use Cerebox\Contest;
+use Cerebox\Invoice;
 use Cerebox\User;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,16 @@ class AdminController extends Controller
             'contest' => $contest,
             'pending_projects' => $pending_projects,
             'approved_projects' => $approved_projects
+        ]);
+    }
+
+    public function createInvoice(){
+        return view('admin.invoice.create');
+    }
+
+    public function retrieveInvoice(Invoice $invoice){
+        return view('admin.invoice.retrieve')->with([
+            'invoice' => $invoice
         ]);
     }
 }

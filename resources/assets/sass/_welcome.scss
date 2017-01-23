@@ -7,6 +7,14 @@ body{
   }
 }
 
+
+#home{
+  .carousel-inner > .item > img{
+    max-height: calc(100vh - 62px);
+    width:100%;
+  }
+}
+
 .carousel-control{
   .material-icons{
     position: absolute;

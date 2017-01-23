@@ -16,11 +16,11 @@
                 </div>
             </div>
             <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <a class="left carousel-control" href="#slider-home" role="button" data-slide="prev">
                 <i class="material-icons" aria-hidden="true">navigate_before</i>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <a class="right carousel-control" href="#slider-home" role="button" data-slide="next">
                 <i class="material-icons" aria-hidden="true">navigate_next</i>
                 <span class="sr-only">Next</span>
             </a>

@@ -4,7 +4,7 @@
     <div class="col-md-8 col-md-offset-2">
         <div class="panel">
             <div class="panel-body">
-                <form action="{{ action('ProjectController@create') }}"
+                <form action="{{ action('ProjectController@submit') }}"
                       data-redirect="{{ action('HomeController@myProjects') }}"
                       id="submit-project"
                       class="form"

@@ -26,7 +26,19 @@
                             <img src="{{ asset('project_images/'.$project->filename) }}">
                         </a>
                         <div class="caption">Autor: {{ $project->author->name }}</span>
-                        <div class="votes"><i class="material-icons">favorite</i> {{ $project->votes->count() }} </div>
+                        <div class="votes">
+                            @if(!is_null($vote) && $vote->project_id == $project->id)
+                                <a href="{{ action('ProjectController@vote',['project' => $project]) }}" disabled>
+                                    <i class="material-icons active">favorite</i>
+                                </a>
+                            @else
+                                <a href="{{ action('ProjectController@vote',['project' => $project]) }}">
+                                    <i class="material-icons active">favorite</i>
+                                </a>
+                            @endif
+                            </a>
+                            {{ $project->votes->count() }}
+                        </div>
                     </div>
                 </div>
             </div>

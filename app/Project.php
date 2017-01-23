@@ -25,6 +25,10 @@ class Project extends Model
         return $this->hasMany(Vote::class, 'project_id');
     }
 
+    public function invoices(){
+        return $this->hasMany(Invoice::class,'project_id');
+    }
+
     public function approve(){
         $this->approved = 1;
         $this->save();

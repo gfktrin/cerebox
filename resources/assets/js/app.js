@@ -25,49 +25,62 @@ window.App = {
 
     Form: {
         submit : function(form, success_message, success_callback, error_callback){
-            var action = form.attr('action');
+            var $form = $(form);
 
-            var data = form.serialize();
+            var action = $form.attr('action');
 
-            var submitButton = $('[type=submit]',form);
+            var data = new FormData(form);
+
+            var submitButton = $('[type=submit]',$form);
             submitButton.button('loading');
 
             //Reset errors
-            $('.help-block.error',form).remove();
+            $('.help-block.error', $form).remove();
             $('.form-group.has-error').removeClass('has-error');
 
-            $.post(action,data,function(response){
-                if(success_message instanceof Object){
-                    swal(success_message,success_callback)
-                }else{
-                    swal({
-                        title: success_message,
-                        type: "success"
-                    },success_callback);
-                }
-            }).fail(function(response){
-                submitButton.button('reset');
-                switch (response.status){
-                    case 400:
-                        alert(response.responseText);
-                        break;
-                    case 403:
-                        alert(response.responseText);
-                        break;
-                    case 422:
-                        var errors = response.responseJSON;
-                        $.each(errors, function(key,value){
-                            var error = $('<span></span>').addClass('help-block error').text(value[0]);
-                            $('[name='+key+']',form).parents('.form-group').addClass('has-error').append(error);
+            $.post({
+                url: action,
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response){
+                    if(success_message instanceof Object){
+                        swal(success_message,function(){
+                            success_callback(response)
+                        })
+                    }else{
+                        swal({
+                            title: success_message,
+                            type: "success"
+                        },function(){
+                            success_callback(response);
                         });
-                        break;
-                    case 500:
-                        alert(response.responseText);
-                        break;
-                }
+                    }
+                },
+                error: function(response){
+                    submitButton.button('reset');
+                    switch (response.status){
+                        case 400:
+                            alert(response.responseText);
+                            break;
+                        case 403:
+                            alert(response.responseText);
+                            break;
+                        case 422:
+                            var errors = response.responseJSON;
+                            $.each(errors, function(key,value){
+                                var error = $('<span></span>').addClass('help-block error').text(value[0]);
+                                $('[name='+key+']',$form).parents('.form-group').addClass('has-error').append(error);
+                            });
+                            break;
+                        case 500:
+                            alert(response.responseText);
+                            break;
+                    }
 
-                if(error_callback)
-                    error_callback();
+                    if(error_callback)
+                        error_callback(response);
+                }
             });
         }
     }

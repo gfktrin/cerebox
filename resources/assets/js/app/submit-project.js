@@ -32,13 +32,14 @@ $(function(){
 
         var form = $(this);
 
-        App.Form.submit(form,{
-            title: 'Projeto enviado com sucesso',
+        App.Form.submit(this,{
+            title: 'Projeto enviado',
+            text: 'Para terminar o processo de envio de projeto, você será redirecionado para o pagamento da inscrição.',
             type: "success",
             closeOnConfirm: false,
             showLoaderOnConfirm: true
-        },function(){
-            window.location = form.data('redirect');
+        },function(response){
+            window.location = response.redirect_url
         });
 
         return false;

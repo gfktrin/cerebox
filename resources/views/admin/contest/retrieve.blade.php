@@ -63,10 +63,11 @@
                     <h4>Pendentes</h4>
                     <table class="table table-hover">
                         <thead>
-                        <th>Id</th>
-                        <th>Autor</th>
-                        <th>Arte</th>
-                        <th></th>
+                            <th>Id</th>
+                            <th>Autor</th>
+                            <th>Arte</th>
+                            <th>Status do Pagamento</th>
+                            <th></th>
                         </thead>
                         <tbody>
                         @foreach($contest->projects()->where('approved',0)->get() as $project)
@@ -82,6 +83,12 @@
                                        data-lightbox="pending_projects"
                                        data-title="{{ $project->author->name }}">
                                         <i class="material-icons">image</i>
+                                    </a>
+                                </td>
+                                <td>
+                                    @php($invoice = $project->invoices()->fromUser($project->author)->get()->first())
+                                    <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
+                                        {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
                                     </a>
                                 </td>
                                 <td>
@@ -103,9 +110,10 @@
                 <h4>Aprovados</h4>
                 <table class="table table-hover">
                     <thead>
-                    <th>Id</th>
-                    <th>Autor</th>
-                    <th>Arte</th>
+                        <th>Id</th>
+                        <th>Autor</th>
+                        <th>Arte</th>
+                        <th>Status pagamento</th>
                     </thead>
                     <tbody>
                     @foreach($contest->projects()->where('approved',1)->get() as $project)
@@ -121,6 +129,12 @@
                                    data-lightbox="approved_projects"
                                    data-title="{{ $project->author->name }}">
                                     <i class="material-icons">image</i>
+                                </a>
+                            </td>
+                            <td>
+                                @php($invoice = $project->invoices()->fromUser($project->author)->get()->first())
+                                <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
+                                    {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
                                 </a>
                             </td>
                         </tr>

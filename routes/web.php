@@ -13,16 +13,20 @@
 
 Route::get('/', function () {
 	return view('welcome')->with([
-		'contests' => Cerebox\Contest::where('begins_at', '<=', date('Y-m-d H:i:s'))
-			->where('ends_at', '>=', date('Y-m-d H:i:s'))
-			->get(),
+		'contests' => Cerebox\Contest::open()->get()->take(3),
 	]);
+});
+
+Route::get('teste',function(){
+    $transaction_id = '5BDA2FCB-1E76-4C91-A6B5-CDBEB82EB053';
+
 });
 
 Auth::routes();
 
 Route::get('home', 'HomeController@index');
 Route::get('como-participar', 'HomeController@howToParticipate');
+Route::get('concursos-abertos', 'HomeController@openContests');
 Route::get('login-redirect', 'HomeController@loginRedirect');
 Route::get('concurso/{slug}', 'HomeController@contest');
 
@@ -32,6 +36,9 @@ Route::post('contato/enviar', 'ContactController@sendMessage');
 Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
 Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
+Route::get('fatura/retorno','InvoiceController@paymentReturn');
+Route::post('fatua/notificacao','InvoiceController@notification');
+
 Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('editar-perfil', 'HomeController@editUser');
@@ -40,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('usuario/{user}/editar', 'UserController@edit');
     Route::post('projeto/criar', 'ProjectController@create');
+    Route::post('projeto/enviar','ProjectController@submit');
+
+    Route::get('projeto/{project}/votar','ProjectController@vote');
 
     //Admin com prefixo
 	Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -53,9 +63,11 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('concursos', 'AdminController@contests');
 		Route::get('concurso/criar', 'AdminController@createContest');
 		Route::get('concurso/{contest}', 'AdminController@retrieveContest');
+        Route::get('fatura/{invoice}','AdminController@retrieveInvoice');
 
 		Route::get('project/{project}/approve', 'ProjectController@approve');
 		Route::get('project/{project}/refuse', 'ProjectController@refuse');
+
 
 	});
 
@@ -64,5 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('concurso/criar', 'ContestController@create');
 		Route::post('concurso/{contest}/editar', 'ContestController@update');
 		Route::post('concurso/{contest}/apagar', 'ContestController@delete');
+
+		Route::post('fatura/{invoice}/editar','InvoiceController@update');
+		Route::get('fatura/{invoice}/sincronizar-meio-de-pagamento','InvoiceController@updateStatus');
 	});
 });

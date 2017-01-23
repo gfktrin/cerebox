@@ -47,17 +47,18 @@ class LoginController extends Controller
 
         $user = User::where('facebook_id',$facebook_user->id)->get()->first();
 
-        if(is_null($user))
+        if(is_null($user)){
             $user = User::where('email', $facebook_user->email)->get()->first();
-
-        if(!is_null($user))
-            $user->facebook_id = $facebook_user->id;
-        else
-            $user = User::create([
-                'name' => $facebook_user->name,
-                'email' => $facebook_user->email,
-                'facebook_id' => $facebook_user->id
-            ]);
+            if(!is_null($user)){
+                $user->facebook_id = $facebook_user->id;
+            }else{
+                $user = User::create([
+                    'name' => $facebook_user->name,
+                    'email' => $facebook_user->email,
+                    'facebook_id' => $facebook_user->id
+                ]);
+            }
+        }
 
         \Auth::login($user);
 

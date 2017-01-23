@@ -5,7 +5,7 @@ $(function(){
 
         var form = $(this);
 
-        App.Form.submit(form,{
+        App.Form.submit(this,{
             title: 'Concurso Criado',
             type: "success",
             closeOnConfirm: false,
