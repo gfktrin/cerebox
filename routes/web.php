@@ -37,7 +37,7 @@ Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
 Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
 Route::get('fatura/retorno','InvoiceController@paymentReturn');
-Route::post('fatura/notificacao','InvoiceController@notification');
+Route::any('fatura/notificacao','InvoiceController@notification');
 
 Route::group(['middleware' => 'auth'], function () {
 
