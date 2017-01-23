@@ -30,7 +30,7 @@
                                         @php($invoice = $project->invoices()->fromUser(Auth::user()->id)->get()->first())
                                         {{ $invoice->getStatus() }}
                                         @if($invoice->status == 0)
-                                            <a href="{{ $invoice->redirectUrl() }}" title="Efetuar pagamento">
+                                            <a href="{{ $invoice->paymentUrl() }}" title="Efetuar pagamento">
                                                 <i class="material-icons">payment</i>
                                             </a>
                                         @endif
