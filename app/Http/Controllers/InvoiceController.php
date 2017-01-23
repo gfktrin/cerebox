@@ -26,6 +26,8 @@ class InvoiceController extends Controller
         $notification_type = $request->get('notificationType');
         $notification_code = $request->get('notificationCode');
 
+        \Log::info('Notificação Recebida - '.$notification_code);
+
         $response = Notification::search(\PagSeguro\Configuration\Configure::getAccountCredentials(), $notification_code);
 
         $invoice = Invoice::where('transaction_id',$response->getCode())->get()->first();
