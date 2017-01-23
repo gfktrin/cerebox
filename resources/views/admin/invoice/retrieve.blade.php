@@ -8,16 +8,13 @@
             </div>
             
             <div class="panel-body">
-                @if(!is_null($invoice->transaction_id))
-                    <div>
-                        <a href="{{ action('InvoiceController@updateStatus',['invoice' => $invoice]) }}"
-                           class="btn btn-raised btn-info pull-right">
-                            Sincronizar com Meio de Pagamento
-                        </a>
-                        <div class="clearfix"></div>
-                    </div>
-
-                @endif
+                <div>
+                    <a href="{{ action('InvoiceController@updateStatus',['invoice' => $invoice]) }}"
+                       class="btn btn-raised btn-info pull-right">
+                        Sincronizar com Meio de Pagamento
+                    </a>
+                    <div class="clearfix"></div>
+                </div>
                 <form action="{{ action('InvoiceController@update',['invoice' => $invoice]) }}"
                       class="form"
                       id="update-invoice"

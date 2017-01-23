@@ -212,12 +212,21 @@ class Invoice extends Model
     public function updateInfo(){
         $date = new \Carbon\Carbon('NOW -6 months');
 
-        $response = \PagSeguro\Services\Transactions\Search\Code::search(
-            \PagSeguro\Configuration\Configure::getAccountCredentials(),
-            $this->transaction_id,[
-                'initial_date' => $date->format('c')
-            ]
-        );
+        try {
+            $response = \PagSeguro\Services\Transactions\Search\Code::search(
+                \PagSeguro\Configuration\Configure::getAccountCredentials(),
+                $this->transaction_id, [
+                    'initial_date' => $date->format('c')
+                ]
+            );
+        }catch(\Exception $e){
+            $response = \PagSeguro\Services\Transactions\Search\Reference::search(
+                \PagSeguro\Configuration\Configure::getAccountCredentials(),
+                $this->id, [
+                    'initial_date' => $date->format('c')
+                ]
+            );
+        }
 
         $this->status = $response->getStatus();
 

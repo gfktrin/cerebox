@@ -28,12 +28,12 @@
                         <div class="caption">Autor: {{ $project->author->name }}</span>
                         <div class="votes">
                             @if(!is_null($vote) && $vote->project_id == $project->id)
-                                <a href="{{ action('ProjectController@vote',['project' => $project]) }}" disabled>
+                                <a href="{{ action('ProjectController@removeVote',['project' => $project]) }}" disabled>
                                     <i class="material-icons active">favorite</i>
                                 </a>
                             @else
                                 <a href="{{ action('ProjectController@vote',['project' => $project]) }}">
-                                    <i class="material-icons active">favorite</i>
+                                    <i class="material-icons">favorite</i>
                                 </a>
                             @endif
                             </a>

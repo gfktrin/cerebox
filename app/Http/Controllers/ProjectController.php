@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function submit(CreateRequest $request){
+    public function submit(CreateRequest $request)
+    {
         $inputs = $request->except('art','_token');
 
         $file = $request->file('art');
@@ -33,7 +34,8 @@ class ProjectController extends Controller
         ];
     }
 
-    public function create(CreateRequest $request){
+    public function create(CreateRequest $request)
+    {
         $inputs = $request->except('art','_token');
 
         $file = $request->file('art');
@@ -48,7 +50,8 @@ class ProjectController extends Controller
         return $project;
     }
 
-    public function update(UpdateRequest $request, Project $project){
+    public function update(UpdateRequest $request, Project $project)
+    {
         $inputs = $request->except('_token');
 
         if($request->hasFile('art')){
@@ -63,7 +66,8 @@ class ProjectController extends Controller
         $project->update($inputs);
     }
 
-    public function approve(Request $request, Project $project){
+    public function approve(Request $request, Project $project)
+    {
         $project->approve();
 
         return redirect()->action('AdminController@retrieveContest',['contest' => $project->contest->id]); //todo Temporary fix
@@ -71,7 +75,8 @@ class ProjectController extends Controller
         return $project;
     }
 
-    public function refuse(Request $request, Project $project){
+    public function refuse(Request $request, Project $project)
+    {
         $project->refuse();
 
         return redirect()->action('AdminController@retrieveContest',['contest' => $project->contest->id]); //todo Temporary fix
@@ -79,7 +84,9 @@ class ProjectController extends Controller
         return $project;
     }
 
-    public function vote(Request $request, Project $project){
+    //todo Remove daqui - acho que deveria estar em ContestController
+    public function vote(Request $request, Project $project)
+    {
         $user = \Auth::user();
 
         $previous_vote = Vote::where([
@@ -97,6 +104,21 @@ class ProjectController extends Controller
 
         if($request->ajax())
             return $vote;
+        else
+            return redirect()->back();
+    }
+
+    public function removeVote(Request $request, Project $project)
+    {
+        $user = \Auth::user();
+
+        Vote::where([
+            'user_id' => $user->id,
+            'contest_id' => $project->contest->id
+        ])->delete();
+
+        if($request->ajax())
+            return [];
         else
             return redirect()->back();
     }

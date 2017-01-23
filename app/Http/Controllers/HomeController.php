@@ -63,7 +63,10 @@ class HomeController extends Controller
     public function contest($slug){
         $contest = Contest::where('slug',$slug)->get()->first();
 
-        $vote = \Auth::user()->votes()->where('contest_id',$contest->id)->get()->first();
+        if(\Auth::check())
+            $vote = \Auth::user()->votes()->where('contest_id',$contest->id)->get()->first();
+        else
+            $vote = null;
 
         if(is_null($contest))
             return abort(404);

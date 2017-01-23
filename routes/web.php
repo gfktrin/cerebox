@@ -37,7 +37,7 @@ Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
 Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
 Route::get('fatura/retorno','InvoiceController@paymentReturn');
-Route::post('fatua/notificacao','InvoiceController@notification');
+Route::post('fatura/notificacao','InvoiceController@notification');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('projeto/enviar','ProjectController@submit');
 
     Route::get('projeto/{project}/votar','ProjectController@vote');
+    Route::get('projeto/{project}/remover-voto','ProjectController@removeVote');
 
     //Admin com prefixo
 	Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
