@@ -9,7 +9,7 @@ class InvoiceController extends Controller
 {
     public function paymentReturn(Request $request)
     {
-        $invoice = Invoice::find($request->get('invoice_id'));
+        $invoice = Invoice::where('id',$request->get('invoice_id'))->get()->first();
 
         $invoice->transaction_id = $request->get('transaction_id');
 
