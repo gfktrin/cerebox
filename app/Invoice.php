@@ -123,7 +123,15 @@ class Invoice extends Model
         $payment->setRedirectUrl($invoice->redirectUrl());
 
         //Customer information
-        $payment->setSender()->setName($user->name);
+
+        //Gambiarra Fix
+        $exploded_name = explode(' ',$user->name);
+        if(count($exploded_name) < 2)
+            $name = $user->name.' Cerebox';
+        else
+            $name = $user->name;
+
+        $payment->setSender()->setName($name);
         $payment->setSender()->setEmail($user->email);
 
         $payment->acceptPaymentMethod()->groups(
