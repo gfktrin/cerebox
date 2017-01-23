@@ -99,7 +99,8 @@ class Invoice extends Model
     }
 
     public function getStatus(){
-        return self::$status[$this->status];
+        if(is_null($this->status)) return self::$status[0];
+        else return self::$status[$this->status];
     }
 
     public static function create(array $attributes = [])
