@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('teste',function(){
-    $transaction_id = '5BDA2FCB-1E76-4C91-A6B5-CDBEB82EB053';
+    \Cerebox\Invoice::create(['user_id' => 1]);
 
 });
 

@@ -143,6 +143,7 @@ class Invoice extends Model
 
         }catch(\Exception $e){
             //todo lidar com essa merda
+            \Log::critical('Deu ruim no pagamento - '.$e->getMessage());
         }
 
         return $invoice;
