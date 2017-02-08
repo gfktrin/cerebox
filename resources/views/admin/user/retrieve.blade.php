@@ -65,7 +65,7 @@
                                 </td>
                                 <td>{{ $project->getStatus() }}</td>
                                 <td>
-                                    @php($invoice = $user->invoices()->fromProject($project->author)->get()->first())
+                                    @php($invoice = $user->invoices()->fromProject($project->id)->get()->first())
                                     <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
                                         {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
                                     </a>

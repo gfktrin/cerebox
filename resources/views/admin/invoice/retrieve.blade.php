@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Fatura</h4>
             </div>
@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <div>
                     <a href="{{ action('InvoiceController@updateStatus',['invoice' => $invoice]) }}"
-                       class="btn btn-raised btn-info pull-right">
+                       class="btn btn-raised btn-primary pull-right">
                         Sincronizar com Meio de Pagamento
                     </a>
                     <div class="clearfix"></div>
