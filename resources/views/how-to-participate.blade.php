@@ -5,7 +5,7 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h2 class="text-center">Como Participar</h2>
+                    <h2 class="text-center text-primary">Como Participar</h2>
                     <p>
                         Para participar dos concursos da Cerebox basta seguir alguns passos muito simples. Você poderá encontrar todas as informações necessárias aqui e dentro de pouquíssimo tempo já estará pronto para divulgar sua arte com a internet, amigos e nossos queridos usuários!
                     <p>

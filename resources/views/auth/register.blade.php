@@ -9,7 +9,8 @@
                 <div class="panel-body">
                     <div class="row text-center">
                         <a href="{{ action('Auth\LoginController@redirectToFacebook') }}"
-                           class="btn btn-raised btn-info">
+                           class="btn btn-social btn-facebook">
+                            <span class="fa fa-facebook"></span>
                             Login com Facebook
                         </a>
                     </div>

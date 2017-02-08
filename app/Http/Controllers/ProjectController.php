@@ -127,4 +127,11 @@ class ProjectController extends Controller
         else
             return redirect()->back();
     }
+
+    public function delete(Request $request, Project $project)
+    {
+        $project->delete();
+
+        return redirect()->back();
+    }
 }

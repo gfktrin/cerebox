@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2 contest">
-        <h1>Concurso: {{ $contest->title }}</h1>
+        <h1 class="text-primary">Concurso: {{ $contest->title }}</h1>
 
-        <h4>Artes: </h4>
+        <h4 class="text-primary">Artes: </h4>
 
         <div class="row">
-            @if(Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0)
+            @if(Auth::guest() || Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0)
                 <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
-                   class="btn btn-info btn-raised pull-right">
+                   class="btn btn-primary btn-raised pull-right">
                     Enviar projeto
                 </a>
             @endif

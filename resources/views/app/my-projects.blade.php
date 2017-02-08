@@ -49,7 +49,7 @@
                     <thead>
                         <th>Concurso</th>
                         <th>Arte</th>
-                        <th>Votes</th>
+                        <th>Votos</th>
                     </thead>
                     <tbody>
                     @foreach($approved_projects as $project)

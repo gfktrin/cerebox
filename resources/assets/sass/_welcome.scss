@@ -38,3 +38,25 @@ body{
     margin-right: -10px;
   }
 }
+
+.panel{
+  &.panel-default > .panel-heading{
+    background-color: $brand-primary;
+    color:white;
+  }
+}
+
+.btn:not(.btn-raised){
+  color:$brand-primary;
+}
+
+.btn.btn-facebook,.btn.btn-facebook:not(.btn-raised){
+  color:white;
+  &:hover,&:active,&:focus{
+    color:black;
+  }
+}
+
+.text-primary{
+  color:$brand-primary;
+}

@@ -23,6 +23,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script src="https://use.fontawesome.com/64f3d0c6e3.js"></script>
 </head>
 <body>
     <div id="app">
@@ -40,7 +41,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Cerebox') }}
+                        {{-- config('app.name', 'Cerebox') --}}
+                        <img src="{{ asset('images/cerebox-logo.jpg') }}" alt="Cerebox Logo">
                     </a>
                 </div>
 

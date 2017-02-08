@@ -14,10 +14,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eonasdan-bootstrap-datetimepicker": "^4.17.45"
+    "eonasdan-bootstrap-datetimepicker": "^4.17.45",
+    "bootstrap-social": "^5.1.1"
   }
 }

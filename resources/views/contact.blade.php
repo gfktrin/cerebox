@@ -5,7 +5,7 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h2 class="text-center">Fale Conosco</h2>
+                    <h2 class="text-center text-primary">Fale Conosco</h2>
                     @if(Session::has('contact-success'))
                         <div class="alert alert-success">{{ Session::get('contact-success') }}</div>
                     @endif
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" value="Enviar" class="btn btn-success pull-right">
+                                <input type="submit" value="Enviar" class="btn btn-primary pull-right">
                                 <div class="clearfix"></div>
                             </div>
                         </form>

@@ -40,3 +40,9 @@
     }
   }
 }
+
+#input-contest-search{
+  & ~ .input-group-addon{
+    color:$brand-primary;
+  }
+}

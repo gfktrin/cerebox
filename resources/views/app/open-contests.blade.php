@@ -13,7 +13,7 @@
                 </div>
             </div>
         </form>
-        <h1>Concursos Abertos</h1>
+        <h1 class="text-primary">Concursos Abertos</h1>
         @foreach($contests as $contest)
             <div class="col-md-4 contest" data-search="{{ strtolower($contest->title) }}">
                 <div class="panel">

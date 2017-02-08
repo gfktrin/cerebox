@@ -30,7 +30,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('welcome')->with([
+            'contests' => Contest::open()->get()->take(3),
+        ]);;
     }
 
     public function howToParticipate(){

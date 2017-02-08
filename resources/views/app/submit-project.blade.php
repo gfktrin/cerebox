@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="form-group pull-right">
-                        <input type="submit" value="Enviar" class="btn btn-success">
+                        <input type="submit" value="Enviar" class="btn btn-primary">
                     </div>
                 </form>
             </div>

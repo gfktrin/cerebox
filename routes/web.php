@@ -11,11 +11,7 @@
 |
  */
 
-Route::get('/', function () {
-	return view('welcome')->with([
-		'contests' => Cerebox\Contest::open()->get()->take(3),
-	]);
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('teste',function(){
     $notification_code = 'BC00D52EF29BF29BDBDFF4567FA9183BCA81';
@@ -30,7 +26,7 @@ Route::get('teste',function(){
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index');
+//Route::get('home', 'HomeController@index');
 Route::get('como-participar', 'HomeController@howToParticipate');
 Route::get('retorno-pagamento', 'HomeController@paymentReturn');
 Route::get('concursos-abertos', 'HomeController@openContests');
@@ -75,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 		Route::get('project/{project}/approve', 'ProjectController@approve');
 		Route::get('project/{project}/refuse', 'ProjectController@refuse');
-
+        Route::get('project/{project}/delete', 'ProjectController@delete');
 
 	});
 

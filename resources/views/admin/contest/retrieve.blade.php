@@ -70,7 +70,7 @@
                             <th></th>
                         </thead>
                         <tbody>
-                        @foreach($contest->projects()->where('approved',0)->get() as $project)
+                        @foreach($contest->projects()->where('approved',0)->with('votes')->get() as $project)
                             <tr>
                                 <td>{{ $project->id }}</td>
                                 <td>
@@ -114,6 +114,8 @@
                         <th>Autor</th>
                         <th>Arte</th>
                         <th>Status pagamento</th>
+                        <th>Votos</th>
+                        <th></th>
                     </thead>
                     <tbody>
                     @foreach($contest->projects()->where('approved',1)->get() as $project)
@@ -135,6 +137,16 @@
                                 @php($invoice = $project->invoices()->fromUser($project->author)->get()->first())
                                 <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
                                     {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
+                                </a>
+                            </td>
+
+                            <td>
+                                {{ $project->votes->count() }}
+                            </td>
+
+                            <td>
+                                <a href="{{ action('ProjectController@delete',['project' => $project]) }}" class="btn btn-raised btn-danger" title="Remover Projeto">
+                                    <i class="material-icons">delete</i>
                                 </a>
                             </td>
                         </tr>
