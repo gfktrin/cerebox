@@ -57,7 +57,9 @@
                 <div class="panel">
                     <div class="panel-body">
                         <h2 class="text-center">Quem Somos</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum congue metus, at blandit nulla mollis quis. Aenean rutrum urna nunc, ut maximus nulla molestie vitae. Suspendisse molestie eros purus, vitae gravida sapien rutrum eu. Quisque lacinia ac tellus id venenatis. Praesent lorem risus, bibendum at tortor non, feugiat gravida nisl. Fusce nec lobortis libero, eu ultrices magna. Mauris at sodales lacus. Suspendisse sed libero cursus, malesuada nisi nec, efficitur turpis. Proin lobortis feugiat odio, at vestibulum tellus feugiat at. Nunc id mi ipsum.</p>
+                        <p>
+                            O Cerebox foi idealizado por uma única pessoa. Uma pessoa sem nenhuma maestria com o desenho ou a música (arrisco-me em um pouco muito pouco com a escrita), mas que talvez, por ser estudante de engenharia, percebeu um problema comum entre os seus amigos músicos, desenhistas, escritores, autores e artistas: o lapso criativo, que oscila e passa por longos períodos de seca. Problema este que silencia o talento de muitos e acaba por fazer com que, até mesmo quando em hobbie, artistas habilidosos desanimem ou passem a ser verdadeiras máquinas de cópia, reproduzindo conteúdo apenas para não “perder a prática”. O Cerebox possui a proposta de amenizar este mal cabal, oferecendo o randomizador, um “gerador de ideias” que te permite escolher categorias do seu interesse para oferecer-lhe palavras dentro destes tópicos. Conheça novas palavras, lapide suas ideias, exercite sua criatividade e tente dar asas à sua imaginação. Este é o desafio que eu, idealizador do Cerebox, uma única pessoa que teve o apoio de inúmeros amigos e colaboradores, lanço para vocês!
+                        </p>
                     </div>
                 </div>
             </div>

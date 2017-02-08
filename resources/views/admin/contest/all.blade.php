@@ -18,7 +18,7 @@
                     <th></th>
                     </thead>
                     <tbody>
-                    @foreach($contests as $contest)
+                    @foreach($contests->sortByDesc('id') as $contest)
                         <tr>
                             <td>{{ $contest->id }}</td>
                             <td>{{ $contest->title }}</td>

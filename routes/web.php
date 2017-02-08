@@ -32,6 +32,7 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index');
 Route::get('como-participar', 'HomeController@howToParticipate');
+Route::get('retorno-pagamento', 'HomeController@paymentReturn');
 Route::get('concursos-abertos', 'HomeController@openContests');
 Route::get('login-redirect', 'HomeController@loginRedirect');
 Route::get('concurso/{slug}', 'HomeController@contest');
