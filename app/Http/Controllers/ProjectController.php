@@ -3,6 +3,7 @@
 namespace Cerebox\Http\Controllers;
 
 use Cerebox\Http\Requests\Project\CreateRequest;
+use Cerebox\Http\Requests\Project\SubmitRequest;
 use Cerebox\Http\Requests\Project\UpdateRequest;
 use Cerebox\Invoice;
 use Cerebox\Project;
@@ -12,7 +13,7 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function submit(CreateRequest $request)
+    public function submit(SubmitRequest $request)
     {
         $inputs = $request->except('art','_token');
 
