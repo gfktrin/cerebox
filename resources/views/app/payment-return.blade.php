@@ -7,7 +7,7 @@
 
                 <h2 class="text-center">Pagamento está sendo processado</h2>
 
-                <p class="text-center">Seu pagamentoe está sendo processado. Você pode acompanhar o status na área "Meus projetos"</p>
+                <p class="text-center">Seu pagamento está sendo processado. Você pode acompanhar o status na área "Meus projetos"</p>
 
             </div>
         </div>
