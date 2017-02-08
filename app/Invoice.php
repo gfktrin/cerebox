@@ -93,9 +93,9 @@ class Invoice extends Model
 
     public function scopeFromProject($query,$project){
         if($project instanceof Project)
-            return $query->where('user_id',$project->id);
+            return $query->where('project_id',$project->id);
         else
-            return $query->where('user_id',$project);
+            return $query->where('project_id',$project);
     }
 
     public function getStatus(){
