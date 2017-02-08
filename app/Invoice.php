@@ -224,13 +224,16 @@ class Invoice extends Model
 //            $curl = curl_init();
 //            curl_setopt_array($curl,[
 //                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions',
-//                CURLOPT_POST => [
+//                CURLOPT_POST => 1,
+//                CURLOPT_POSTFIELDS => [
 //                    'email' => env('PAGSEGURO_EMAIL'),
 //                    'token' => env('PAGSEGURO_TOKEN_SANDBOX'),
 //                    'reference' => $this->id,
 //                    'initialDate' => $date->format('c')
 //                ]
 //            ]);
+//            $response = curl_exec($curl);
+//            curl_close($curl);
 
             $response = \PagSeguro\Services\Transactions\Search\Reference::search(
                 \PagSeguro\Configuration\Configure::getAccountCredentials(),

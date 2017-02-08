@@ -34,7 +34,6 @@ Route::get('home', 'HomeController@index');
 Route::get('como-participar', 'HomeController@howToParticipate');
 Route::get('retorno-pagamento', 'HomeController@paymentReturn');
 Route::get('concursos-abertos', 'HomeController@openContests');
-Route::get('login-redirect', 'HomeController@loginRedirect');
 Route::get('concurso/{slug}', 'HomeController@contest');
 
 Route::get('contato', 'ContactController@index');
@@ -47,6 +46,7 @@ Route::get('fatura/retorno','InvoiceController@paymentReturn');
 Route::any('fatura/notificacao','InvoiceController@notification');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('login-redirect', 'HomeController@loginRedirect');
 
 	Route::get('editar-perfil', 'HomeController@editUser');
 	Route::get('concurso/{contest}/enviar-projeto', 'HomeController@submitProject');

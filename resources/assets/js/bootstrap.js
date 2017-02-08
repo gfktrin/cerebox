@@ -7,6 +7,7 @@ window._ = require('lodash');
  */
 
 window.$ = window.jQuery = require('jquery');
+require('jquery-migrate');
 require('bootstrap-sass');
 require('bootstrap-material-design');
 
@@ -22,6 +23,6 @@ require('bootstrap-material-design');
 //Other Requires
 window.moment = require('moment');
 require('sweetalert');
-require('eonasdan-bootstrap-datetimepicker');
+require('./../../../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker');
 require('lightbox2');
 require('freewall');

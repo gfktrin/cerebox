@@ -1,0 +1,23 @@
+{
+  "name": "cerebox",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Luke Gonzalez <lucasmgonzalez1992@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lucasmgonzalez/cerebox",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "eonasdan-bootstrap-datetimepicker": "^4.17.45"
+  }
+}
