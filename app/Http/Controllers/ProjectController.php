@@ -7,6 +7,7 @@ use Cerebox\Http\Requests\Project\UpdateRequest;
 use Cerebox\Invoice;
 use Cerebox\Project;
 use Cerebox\Vote;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -22,7 +23,11 @@ class ProjectController extends Controller
 
         $inputs['filename'] = $filename;
 
-        $project =  Project::create($inputs);
+        try{
+            $project =  Project::create($inputs);
+        }catch(QueryException $e){
+            return response([ 'art' => ['Você já enviou uma arte para este concurso'] ],422);
+        }
 
         $invoice = Invoice::create([
             'user_id' => \Auth::user()->id,

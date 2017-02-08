@@ -68,6 +68,9 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ action('HomeController@editUser') }}">Editar Perfil</a></li>
                                     <li><a href="{{ action('HomeController@myProjects') }}">Meus Projetos</a></li>
+                                    @if(Auth::user()->admin)
+                                        <li><a href="{{ action('AdminController@home') }}">Área Administrativa</a></li>
+                                    @endif
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

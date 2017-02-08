@@ -39,7 +39,9 @@ $(function(){
             closeOnConfirm: false,
             showLoaderOnConfirm: true
         },function(response){
-            window.location = response.redirect_url
+            window.location = response.redirect_url;
+        },function(){
+            $(".help-block.error").css({position:'relative'}).show();
         });
 
         return false;
