@@ -40,12 +40,12 @@ class Project extends Model
 
     public function getStatus(){
         if($this->approved){
-            return  'approved';
+            return  'aprovado';
         }else{
             if(is_null($this->deleted_at)){
-                return 'pending';
+                return 'pendente';
             }else{
-                return 'refused';
+                return 'recusado';
             }
         }
     }

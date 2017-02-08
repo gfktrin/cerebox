@@ -2,8 +2,9 @@
 
 namespace Cerebox;
 
-use Illuminate\Notifications\Notifiable;
+use Cerebox\Invoice;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Cerebox\User
@@ -59,5 +60,9 @@ class User extends Authenticatable
 
     public function votes(){
         return $this->hasMany(Vote::class, 'user_id');
+    }
+
+    public function invoices(){
+        return $this->hasMany(Invoice::class,'user_id','id');
     }
 }

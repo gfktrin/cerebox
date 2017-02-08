@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel">
+        <div class="panel panel-default">
             <h4 class="panel-heading">Concursos</h4>
             <div class="panel-body">
                 <div class="pull-right">
-                    <a href="{{ action('AdminController@createContest') }}" class="btn btn-info btn-raised">Criar concurso</a>
+                    <a href="{{ action('AdminController@createContest') }}" class="btn btn-primary btn-raised">Criar concurso</a>
                 </div>
                 <table class="table table-hover table-responsive">
                     <thead>

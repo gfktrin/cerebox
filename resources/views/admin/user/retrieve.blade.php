@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel">
+        <div class="panel panel-default">
             <h4 class="panel-heading">Usuário</h4>
             <div class="panel-body">
                 <form action="{{ action('UserController@edit',['user' => $user]) }}"
