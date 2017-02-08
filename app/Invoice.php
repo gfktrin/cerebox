@@ -210,7 +210,7 @@ class Invoice extends Model
     }
 
     public function updateInfo(){
-        $date = new \Carbon\Carbon('NOW -6 months');
+        $date = new \Carbon\Carbon('NOW -1 month');
 
         try {
             $response = \PagSeguro\Services\Transactions\Search\Code::search(
@@ -221,27 +221,36 @@ class Invoice extends Model
             );
         }catch(\Exception $e){
 
-//            $curl = curl_init();
-//            curl_setopt_array($curl,[
-//                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions',
-//                CURLOPT_POST => 1,
-//                CURLOPT_POSTFIELDS => [
-//                    'email' => env('PAGSEGURO_EMAIL'),
-//                    'token' => env('PAGSEGURO_TOKEN_SANDBOX'),
-//                    'reference' => $this->id,
-//                    'initialDate' => $date->format('c')
-//                ]
-//            ]);
-//            $response = curl_exec($curl);
-//            curl_close($curl);
+            $curl = curl_init();
+            curl_setopt_array($curl,[
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions?email='.env('PAGSEGURO_EMAIL').'&token='.env('PAGSEGURO_TOKEN_SANDBOX').'&reference='.$this->id.'&initialDate='.$date->format('c'),
+            ]);
 
-            $response = \PagSeguro\Services\Transactions\Search\Reference::search(
+            $response = curl_exec($curl);
+
+            $response = simplexml_load_string($response);
+
+            curl_close($curl);
+
+            $this->transaction_id = $response->transactions->transaction->code->__toString();
+
+            $this->save();
+
+            $response = \PagSeguro\Services\Transactions\Search\Code::search(
                 \PagSeguro\Configuration\Configure::getAccountCredentials(),
-                $this->id, [
-                    'initial_date' => $date->format('c'),
-                    'final_date' => $date->addMonth(7)->format('c')
+                $this->transaction_id, [
+                    'initial_date' => $date->format('c')
                 ]
             );
+
+//            Essa merda está bugado. Obrigado PagSeguro
+//            $response = \PagSeguro\Services\Transactions\Search\Reference::search(
+//                \PagSeguro\Configuration\Configure::getAccountCredentials(),
+//                $this->id, [
+//                    'initial_date' => $date->format('c'),
+//                ]
+//            );
         }
 
         $this->status = $response->getStatus();
