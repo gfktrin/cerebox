@@ -220,10 +220,23 @@ class Invoice extends Model
                 ]
             );
         }catch(\Exception $e){
+
+//            $curl = curl_init();
+//            curl_setopt_array($curl,[
+//                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions',
+//                CURLOPT_POST => [
+//                    'email' => env('PAGSEGURO_EMAIL'),
+//                    'token' => env('PAGSEGURO_TOKEN_SANDBOX'),
+//                    'reference' => $this->id,
+//                    'initialDate' => $date->format('c')
+//                ]
+//            ]);
+
             $response = \PagSeguro\Services\Transactions\Search\Reference::search(
                 \PagSeguro\Configuration\Configure::getAccountCredentials(),
                 $this->id, [
-                    'initial_date' => $date->format('c')
+                    'initial_date' => $date->format('c'),
+                    'final_date' => $date->addMonth(7)->format('c')
                 ]
             );
         }

@@ -18,7 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('teste',function(){
-    \Cerebox\Invoice::create(['user_id' => 1]);
+    $notification_code = 'BC00D52EF29BF29BDBDFF4567FA9183BCA81';
+
+    $response = \PagSeguro\Services\Application\Search\Notification::search(
+        \PagSeguro\Configuration\Configure::getAccountCredentials(),
+        $notification_code);
+
+    dd($response);
 
 });
 

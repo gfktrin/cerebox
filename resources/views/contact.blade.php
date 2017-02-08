@@ -9,6 +9,7 @@
                     @if(Session::has('contact-success'))
                         <div class="alert alert-success">{{ Session::get('contact-success') }}</div>
                     @endif
+
                     <div class="col-md-6">
                         <br>
                         <br>
