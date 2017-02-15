@@ -13,6 +13,15 @@ class UserController extends Controller
 
         $user->update($inputs);
 
+        if(isset($inputs['zipcode']) && !empty($inputs['zipcode'])){
+            $address = $user->address;
+            if(is_null($address)){
+                $user->address()->create($inputs);
+            }else{
+                $address->update($inputs);
+            }
+        }
+
         //Only Super Admin
         $auth_user = \Auth::user();
         if($auth_user->admin){

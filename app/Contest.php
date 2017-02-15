@@ -26,4 +26,16 @@ class Contest extends Model
     public function votes(){
         return $this->hasMany(Vote::class, 'contest_id');
     }
+
+    public function ranking($project_id = null){
+        $projects = $this->projects()->withCount('votes')->get();
+        
+        $ranking = array_flip($projects->sortByDesc('votes_count')->pluck('id')->all());
+
+        foreach($ranking as $key => $place){
+            $ranking[$key] += 1;
+        }
+
+        return is_null($project_id) ? $ranking : $ranking[$project_id];
+    }
 }

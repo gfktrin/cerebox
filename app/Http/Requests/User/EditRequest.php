@@ -31,7 +31,15 @@ class EditRequest extends FormRequest
 
         return [
             'name' => 'required',
-            'email' => "required|unique:users,email,$user_id"
+            'email' => "required|unique:users,email,$user_id",
+            'nickname' => 'required',
+            'phone' => 'required',
+            'zipcode' => 'required',
+            'address' => 'required',
+            'number' => 'required',
+            'complement' => 'required',
+            'city' => 'required',
+            'state' => 'required'
         ];
     }
 }

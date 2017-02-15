@@ -70,7 +70,8 @@ window.App = {
                             var errors = response.responseJSON;
                             $.each(errors, function(key,value){
                                 var error = $('<span></span>').addClass('help-block error').text(value[0]);
-                                $('[name='+key+']',$form).parents('.form-group').addClass('has-error').append(error);
+                                $('[name='+key+']',$form).parents('.form-group').addClass('has-error');
+                                $('[name='+key+']',$form).parent().append(error);
                             });
                             break;
                         case 500:

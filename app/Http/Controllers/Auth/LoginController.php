@@ -49,6 +49,7 @@ class LoginController extends Controller
 
         if(is_null($user)){
             $user = User::where('email', $facebook_user->email)->get()->first();
+
             if(!is_null($user)){
                 $user->facebook_id = $facebook_user->id;
             }else{
@@ -57,6 +58,10 @@ class LoginController extends Controller
                     'email' => $facebook_user->email,
                     'facebook_id' => $facebook_user->id
                 ]);
+
+                \Auth::login($user);
+
+                return redirect()->action('HomeController@editUser');
             }
         }
 

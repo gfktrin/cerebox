@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2">
-        <form action="#" method="POST">
+        <!--<form action="#" method="POST">
             <div class="form-group label-floating">
                 <label for="input-contest-search" class="control-label">Procurar...</label>
                 <div class="input-group">
@@ -12,7 +12,7 @@
                     </span>
                 </div>
             </div>
-        </form>
+        </form>-->
         <h1 class="text-primary">Concursos Abertos</h1>
         @foreach($contests as $contest)
             <div class="col-md-4 contest" data-search="{{ strtolower($contest->title) }}">

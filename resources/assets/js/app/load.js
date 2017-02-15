@@ -3,3 +3,5 @@
  */
 require('./submit-project');
 require('./open-contests');
+require('./register');
+require('./edit-user');

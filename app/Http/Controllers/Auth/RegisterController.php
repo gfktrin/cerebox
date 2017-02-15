@@ -2,10 +2,11 @@
 
 namespace Cerebox\Http\Controllers\Auth;
 
-use Cerebox\User;
-use Validator;
+use Cerebox\Address;
 use Cerebox\Http\Controllers\Controller;
+use Cerebox\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Validator;
 
 class RegisterController extends Controller
 {
@@ -51,6 +52,14 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'nickname' => 'required',
+            'phone' => 'required',
+            'zipcode' => 'required',
+            'address' => 'required',
+            'number' => 'required',
+            'complement' => 'required',
+            'city' => 'required',
+            'state' => 'required'
         ]);
     }
 
@@ -62,10 +71,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'nickname' => $data['nickname'],
+            'phone' => $data['phone']
         ]);
+
+        $user->address()->create([
+            'zipcode' => $data['zipcode'],
+            'address' => $data['address'],
+            'number' => $data['number'],
+            'complement' => $data['complement'],
+            'city' => $data['city'],
+            'state' => $data['state']
+        ]);
+
+        return $user;
     }
 }

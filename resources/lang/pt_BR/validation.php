@@ -115,12 +115,21 @@ return [
     */
 
     'attributes'           => [
-        'name' => 'nome',
-        'title' => 'título',
+        'address' => 'endereço',
+        'art' => 'arte',
         'begins_at' => 'começa em',
-        'ends_at' => 'termina_em',
+        'city' => 'cidade',
+        'complement' => 'complemento',
         'email' => 'email',
-        ''
+        'ends_at' => 'termina_em',
+        'name' => 'nome',
+        'nickname' => 'apelido',
+        'number' => 'número',
+        'password' => 'senha',
+        'phone' => 'telefone',
+        'state' => 'estado',
+        'title' => 'título',
+        'zipcode' => 'cep',
     ],
 
 ];

@@ -2,6 +2,7 @@
 
 namespace Cerebox;
 
+use Cerebox\Address;
 use Cerebox\Invoice;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,7 +41,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','nickname','phone'
     ];
 
     /**
@@ -64,5 +65,9 @@ class User extends Authenticatable
 
     public function invoices(){
         return $this->hasMany(Invoice::class,'user_id','id');
+    }
+
+    public function address(){
+        return $this->hasOne(Address::class,'user_id','id');
     }
 }

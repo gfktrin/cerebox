@@ -26,3 +26,4 @@ require('sweetalert');
 require('./../../../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker');
 require('lightbox2');
 require('freewall');
+require('jquery-mask-plugin')

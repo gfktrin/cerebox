@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel">
+        <div class="panel panel-default">
             <h4 class="panel-heading">Meus projetos</h4>
             <div class="panel-body">
                 <h4>Envios Pendentes</h4>
                 <table class="table table-hover">
                     <thead>
-                    <th>Concurso</th>
-                    <th>Arte</th>
-                    <th>Status do Pagamento</th>
+                    <th width="50%">Concurso</th>
+                    <th width="20%">Arte</th>
+                    <th width="20%">Status do Pagamento</th>
                     </thead>
 
                     <tbody>
@@ -47,9 +47,10 @@
                 <h4>Aprovados</h4>
                 <table class="table table-hover">
                     <thead>
-                        <th>Concurso</th>
-                        <th>Arte</th>
-                        <th>Votos</th>
+                        <th width="50%">Concurso</th>
+                        <th width="15%">Arte</th>
+                        <th width="10%">Votos</th>
+                        <th width="15%">Colocação</th>
                     </thead>
                     <tbody>
                     @foreach($approved_projects as $project)
@@ -63,6 +64,9 @@
                                 </a>
                             </td>
                             <td>{{ $project->votes->count() }}</td>
+                            <td>
+                                {{ $project->contest->ranking($project->id) }}º
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

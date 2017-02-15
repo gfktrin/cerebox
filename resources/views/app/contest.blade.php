@@ -25,7 +25,7 @@
                            data-title="Autor: {{ $project->author->name }}">
                             <img src="{{ asset('project_images/'.$project->filename) }}">
                         </a>
-                        <div class="caption">Autor: {{ $project->author->name }}</span>
+                        <div class="caption">Autor: {{ $project->author->nickname or $project->author->name }}</span>
                         <div class="votes">
                             @if(!is_null($vote) && $vote->project_id == $project->id)
                                 <a href="{{ action('ProjectController@removeVote',['project' => $project]) }}" disabled>

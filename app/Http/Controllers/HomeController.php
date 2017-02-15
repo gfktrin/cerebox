@@ -54,7 +54,7 @@ class HomeController extends Controller
 
     public function myProjects(){
         $user = \Auth::user();
-        $projects = $user->projects()->with('contest')->get();
+        $projects = $user->projects()->with('contest')->withCount('votes')->get();
 
         return view('app.my-projects')->with([
             'user' => $user,

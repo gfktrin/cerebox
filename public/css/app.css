@@ -14215,4 +14215,8 @@ body > #app > .content #home {
   color: #DE972F;
 }
 
+.form-group .help-block {
+  display: block;
+}
+
 /*# sourceMappingURL=app.css.map */
