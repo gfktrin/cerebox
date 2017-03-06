@@ -48,7 +48,7 @@ class ProjectController extends Controller
         }catch(QueryException $e){
             $user->tickets += Project::$entry_fee;
 
-            DB::table('user_tickets_log')->insert([
+            \DB::table('user_tickets_log')->insert([
                 'user_id' => $user->id,
                 'message' => 'Restituição de '.Project::$entry_fee.' tickets por erro ao entrar no concurso de identificador '.$inputs['contest_id'],
                 'created_at' => date('Y-m-d H:i:s'),
