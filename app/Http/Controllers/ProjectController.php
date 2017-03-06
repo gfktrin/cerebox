@@ -23,7 +23,7 @@ class ProjectController extends Controller
 
         //Tem q colocar essa lógica num lugar melhor
         if($user->tickets >= 0){
-            \DB::table('user_tickets_log')->insert([
+            \DB::table('user_ticket_log')->insert([
                 'user_id' => $user->id,
                 'message' => 'Usuário gastou '.Project::$entry_fee.' tickets para entrar no concurso de identificador '.$inputs['contest_id'],
                 'created_at' => date('Y-m-d H:i:s'),
