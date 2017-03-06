@@ -68,43 +68,51 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-                                <label for="state" class="col-md-4 control-label">Estado</label>
+                                <label for="state" class="control-label">Estado</label>
 
-                                <div class="col-md-6">
-                                    <select class="form-control" name="state" required id="state">
-                                        <option>Escolha...</option>
-                                        @foreach(Cerebox\State::all()->sortBy('name') as $state)
+                                <select class="form-control" name="state" required id="state">
+                                    <option>Escolha...</option>
+                                    @foreach(Cerebox\State::all()->sortBy('name') as $state)
+                                        @if(!is_null($user->city))
                                             <option value="{{ $state->id }}" @if(old('state',$user->city->state->id) == $state->id) selected @endif >{{ $state->name }}</option>
-                                        @endforeach
-                                    </select>
+                                        @else   
+                                            <option value="{{ $state->id }}" @if(old('state') == $state->id) selected @endif >{{ $state->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
 
-                                    @if ($errors->has('state'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('state') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
+                                @if ($errors->has('state'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
-                                <label for="city" class="col-md-4 control-label">Cidade</label>
-
-                                <div class="col-md-6">
-                                    <select name="city_id" id="city" class="form-control" required>
-                                        <option>Escolha...</option>
+                                <label for="city" class="control-label">Cidade</label>
+                                
+                                <select name="city_id" id="city" class="form-control" required>
+                                    <option>Escolha...</option>
+                                    @if(!is_null($user->city))
                                         @if(old('state',$user->city->state->id))
                                             @foreach(Cerebox\State::find(old('state',$user->city->state->id))->cities as $city)
                                                 <option value="{{ $city->id }}" @if(old('city_id',$user->city->id) == $city->id) selected @endif>{{ $city->name }}</option>
                                             @endforeach
                                         @endif
-                                    </select>
-
-                                    @if ($errors->has('city_id'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('city') }}</strong>
-                                        </span>
+                                    @else   
+                                        @if(old('state'))
+                                            @foreach(Cerebox\State::find(old('state'))->cities as $city)
+                                                <option value="{{ $city->id }}" @if(old('city_id') == $city->id) selected @endif>{{ $city->name }}</option>
+                                            @endforeach
+                                        @endif
                                     @endif
-                                </div>
+                                </select>
+
+                                @if ($errors->has('city_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group">
