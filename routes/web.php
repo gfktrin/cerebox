@@ -41,8 +41,16 @@ Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallbac
 Route::get('fatura/retorno','InvoiceController@paymentReturn');
 Route::any('fatura/notificacao','InvoiceController@notification');
 
+Route::get('fatura/{invoice}/pagar','InvoiceController@pay');
+
+Route::get('estado/{state}/cidades','StateController@getCities');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('login-redirect', 'HomeController@loginRedirect');
+
+    Route::get('adquirir-tickets','HomeController@acquireTickets');
+
+    Route::post('compras/criar','PurchaseController@create');
 
 	Route::get('editar-perfil', 'HomeController@editUser');
 	Route::get('concurso/{contest}/enviar-projeto', 'HomeController@submitProject');
@@ -58,15 +66,21 @@ Route::group(['middleware' => 'auth'], function () {
     //Admin com prefixo
 	Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 		Route::get('/', function () {
-			return redirect('admin/home');
+			return redirect()->action('AdminController@home');
 		});
 
 		Route::get('home', 'AdminController@home');
+		
 		Route::get('usuarios', 'AdminController@users');
 		Route::get('usuario/{user}', 'AdminController@retrieveUser');
+		
 		Route::get('concursos', 'AdminController@contests');
 		Route::get('concurso/criar', 'AdminController@createContest');
 		Route::get('concurso/{contest}', 'AdminController@retrieveContest');
+        
+		Route::get('compras','AdminController@purchases');
+		Route::get('compra/{purchase}','AdminController@retrievePurchase');
+
         Route::get('fatura/{invoice}','AdminController@retrieveInvoice');
 
 		Route::get('project/{project}/approve', 'ProjectController@approve');

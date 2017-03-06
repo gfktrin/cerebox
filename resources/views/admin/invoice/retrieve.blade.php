@@ -30,18 +30,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="update-invoice-user-id" class="control-label">Usuário</label>
-                        <input type="text" id="update-invoice-user-id" class="form-control" value="{{ $invoice->user->name }}" disabled>
-                        <input type="hidden" name="user_id" value="{{ $invoice->user->id }}" disabled>
-                    </div>
-
-                    {{--<div class="form-group">--}}
-                        {{--<label for="update-invoice-project-id" class="control-label">Projeto</label>--}}
-                        {{--<input type="text" id="update-invoice-project-id" class="form-control" value="{{ $invoice->project->title }}" disabled>--}}
-                        {{--<input type="hidden" name="project_id" value="{{ $invoice->project->id }}" disabled>--}}
-                    {{--</div>--}}
-
-                    <div class="form-group">
                         <label for="update-invoice-created_at" class="control-label">Criada em</label>
                         <input type="text" id="update-invoice-created_at" class="form-control" value="{{ $invoice->created_at->format('H:i:s d/m/Y') }}" disabled>
                     </div>

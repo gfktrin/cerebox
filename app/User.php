@@ -3,6 +3,7 @@
 namespace Cerebox;
 
 use Cerebox\Address;
+use Cerebox\City;
 use Cerebox\Invoice;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,7 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','nickname','phone'
+        'name', 'email', 'password','nickname','phone','city_id'
     ];
 
     /**
@@ -55,19 +56,32 @@ class User extends Authenticatable
 
 
     //Relationships
-    public function projects(){
+    public function projects()
+    {
         return $this->hasMany(Project::class,'author_id');
     }
 
-    public function votes(){
+    public function votes()
+    {
         return $this->hasMany(Vote::class, 'user_id');
     }
 
-    public function invoices(){
+    public function invoices()
+    {
         return $this->hasMany(Invoice::class,'user_id','id');
     }
 
-    public function address(){
+    public function city(){
+        return $this->belongsTo(City::class,'city_id','id');
+    }
+
+    public function address()
+    {
         return $this->hasOne(Address::class,'user_id','id');
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class,'user_id');
     }
 }

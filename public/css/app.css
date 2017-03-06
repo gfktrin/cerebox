@@ -14090,6 +14090,10 @@ fieldset[disabled] .btn-yahoo.focus {
   vertical-align: middle;
 }
 
+.contest-card a {
+  font-size: 20px;
+}
+
 .contest .project-card .panel-body {
   position: relative;
 }
@@ -14136,7 +14140,7 @@ fieldset[disabled] .btn-yahoo.focus {
 }
 
 .navbar .navbar-brand {
-  padding: 0px 15px;
+  padding: 5px 15px;
   height: 62px;
 }
 
@@ -14163,13 +14167,25 @@ fieldset[disabled] .btn-yahoo.focus {
 }
 
 body > #app > .content #home {
-  margin-top: -22px;
   margin-bottom: 25px;
 }
 
 #home .carousel-inner > .item > img {
   max-height: calc(100vh - 62px);
   width: 100%;
+}
+
+#home .tutorial {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#home .tutorial .step img {
+  width: 100%;
+}
+
+#home .tutorial .step .caption {
+  text-align: center;
 }
 
 .carousel-control .material-icons {

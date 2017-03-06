@@ -2,6 +2,7 @@
 
 namespace Cerebox;
 
+use Cerebox\Purchase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,32 +14,36 @@ class Project extends Model
 
     protected $guarded = [];
 
-    public function author(){
+    public static $entry_fee = 3; //How many tickets to pay for an project entry
+
+    public function author()
+    {
         return $this->belongsTo(User::class,'author_id');
     }
 
-    public function contest(){
+    public function contest()
+    {
         return $this->belongsTo(Contest::class,'contest_id');
     }
 
-    public function votes(){
+    public function votes()
+    {
         return $this->hasMany(Vote::class, 'project_id');
     }
 
-    public function invoices(){
-        return $this->hasMany(Invoice::class,'project_id');
-    }
-
-    public function approve(){
+    public function approve()
+    {
         $this->approved = 1;
         $this->save();
     }
 
-    public function refuse(){
+    public function refuse()
+    {
         $this->delete();
     }
 
-    public function getStatus(){
+    public function getStatus()
+    {
         if($this->approved){
             return  'aprovado';
         }else{

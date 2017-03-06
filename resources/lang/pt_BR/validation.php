@@ -130,6 +130,8 @@ return [
         'state' => 'estado',
         'title' => 'título',
         'zipcode' => 'cep',
+        'products.*.id' => 'produto',
+        'products.*.quantity' => 'quantidade de produto'
     ],
 
 ];

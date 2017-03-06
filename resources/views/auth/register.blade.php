@@ -96,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
+                        <!-- <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
                             <label for="zipcode" class="col-md-4 control-label">CEP</label>
 
                             <div class="col-md-6">
@@ -108,9 +108,9 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                        <!-- <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">Endereço</label>
 
                             <div class="col-md-6">
@@ -122,9 +122,9 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
+                        <!-- <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
                             <label for="number" class="col-md-4 control-label">Número</label>
 
                             <div class="col-md-6">
@@ -136,9 +136,9 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="form-group{{ $errors->has('complement') ? ' has-error' : '' }}">
+                        <!-- <div class="form-group{{ $errors->has('complement') ? ' has-error' : '' }}">
                             <label for="complement" class="col-md-4 control-label">Complemento</label>
 
                             <div class="col-md-6">
@@ -150,31 +150,43 @@
                                     </span>
                                 @endif
                             </div>
+                        </div> -->
+
+                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                            <label for="state" class="col-md-4 control-label">Estado</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="state" required id="state">
+                                    <option>Escolha...</option>
+                                    @foreach(Cerebox\State::all()->sortBy('name') as $state)
+                                        <option value="{{ $state->id }}" @if(old('state') == $state->id) selected @endif >{{ $state->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('state'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                             <label for="city" class="col-md-4 control-label">Cidade</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required readonly>
+                                <select name="city_id" id="city" class="form-control" required>
+                                    <option>Escolha...</option>
+                                    @if(old('state'))
+                                        @foreach(Cerebox\State::find(old('state'))->cities as $city)
+                                            <option value="{{ $city->id }}" @if(old('city_id') == $city->id) selected @endif>{{ $city->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
 
-                                @if ($errors->has('city'))
+                                @if ($errors->has('city_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('city') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-                            <label for="state" class="col-md-4 control-label">Estado</label>
-
-                            <div class="col-md-6">
-                                <input id="state" type="text" class="form-control" name="state" value="{{ old('state') }}" required readonly>
-
-                                @if ($errors->has('state'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('state') }}</strong>
                                     </span>
                                 @endif
                             </div>

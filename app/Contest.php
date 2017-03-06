@@ -13,21 +13,25 @@ class Contest extends Model
     protected $dates = [ 'begins_at', 'ends_at' ];
 
     //Scope
-    public function scopeOpen($query){
+    public function scopeOpen($query)
+    {
         return $query->where('begins_at', '<=', date('Y-m-d H:i:s'))
                      ->where('ends_at', '>=', date('Y-m-d H:i:s'));
     }
 
     //Relationships
-    public function projects(){
+    public function projects()
+    {
         return $this->hasMany(Project::class,'contest_id');
     }
 
-    public function votes(){
+    public function votes()
+    {
         return $this->hasMany(Vote::class, 'contest_id');
     }
 
-    public function ranking($project_id = null){
+    public function ranking($project_id = null)
+    {
         $projects = $this->projects()->withCount('votes')->get();
         
         $ranking = array_flip($projects->sortByDesc('votes_count')->pluck('id')->all());

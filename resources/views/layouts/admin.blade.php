@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 
     <!--Fonts-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,7 +19,7 @@
 
     <!-- Scripts -->
     <script>
-        window.webRoot = '{{ url('') }}'
+        window.webRoot = '{{ url('') }}'+'/';
 
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -57,6 +58,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ action('AdminController@users') }}">Usuários</a></li>
                     <li><a href="{{ action('AdminController@contests') }}">Concursos</a></li>
+                    <li><a href="{{ action('AdminController@purchases') }}">Compras</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -8,11 +8,17 @@
 
         <div class="row">
             @if(Auth::guest() || Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0)
-                <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
-                   class="btn btn-primary btn-raised pull-right">
-                    Enviar projeto
-                </a>
-            @endif
+                @if(Auth::user()->tickets >= Cerebox\Project::$entry_fee)
+                    <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
+                       class="btn btn-primary btn-raised pull-right">
+                        Enviar projeto
+                    </a>
+                @else
+                    <a href="{{ action('HomeController@acquireTickets') }}" class="btn btn-primary pull-right">
+                        Você não possui tickets suficientes para entrar no concurso
+                    </a>
+                @endif
+            @endif 
         </div>
 
 
@@ -22,11 +28,11 @@
                     <div class="panel-body">
                         <a href="{{ asset('project_images/'.$project->filename) }}"
                            data-lightbox="{{ $contest->id }}"
-                           data-title="Autor: {{ $project->author->name }}">
+                           data-title="{{ $project->author->nickname or $project->author->name }}">
                             <img src="{{ asset('project_images/'.$project->filename) }}">
                         </a>
-                        <div class="caption">Autor: {{ $project->author->nickname or $project->author->name }}</span>
-                        <div class="votes">
+                        <div class="caption">{{ $project->author->nickname or $project->author->name }}</span>
+                        <!--<div class="votes">
                             @if(!is_null($vote) && $vote->project_id == $project->id)
                                 <a href="{{ action('ProjectController@removeVote',['project' => $project]) }}" disabled>
                                     <i class="material-icons active">favorite</i>
@@ -38,7 +44,7 @@
                             @endif
                             </a>
                             {{ $project->votes->count() }}
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

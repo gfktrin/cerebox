@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 
     <!--Fonts-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,6 +23,8 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+
+        window.webRoot = '{{ url('') }}'+'/';
     </script>
     <script src="https://use.fontawesome.com/64f3d0c6e3.js"></script>
 </head>
@@ -70,6 +73,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ action('HomeController@editUser') }}">Editar Perfil</a></li>
                                     <li><a href="{{ action('HomeController@myProjects') }}">Meus Projetos</a></li>
+                                    <li><a href="{{ action('HomeController@acquireTickets') }}">Adquirir Tickets</a></li>
                                     @if(Auth::user()->admin)
                                         <li><a href="{{ action('AdminController@home') }}">Área Administrativa</a></li>
                                     @endif
@@ -85,6 +89,11 @@
                                         </form>
                                     </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{ action('HomeController@acquireTickets') }}" title="Tickets"> 
+                                    {{ Auth::user()->tickets }} <span class="fa fa-ticket"></span>
+                                </a>
                             </li>
                         @endif
                     </ul>

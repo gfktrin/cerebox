@@ -28,15 +28,10 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'author_id' => [
-                'required',
-                Rule::exists('users','id')
-            ],
-            'contest_id' => [
-                'required',
-                Rule::exists('contests', 'id')
-            ],
-            'art' => 'required|max:5000|mimes:jpeg,png,gif'
+            'author_id' => 'required|exists:users,id',
+            'contest_id' => 'required|exists:contests,id',
+            'art' => 'required|max:5000|mimes:jpeg,png,gif',
+            'description' => 'max:500'
         ];
     }
 }

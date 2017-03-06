@@ -17,6 +17,25 @@ class ProjectController extends Controller
     {
         $inputs = $request->except('art','_token');
 
+        $user = \Auth::user();
+
+        $user->tickets -= Project::$entry_fee;
+
+        //Tem q colocar essa lógica num lugar melhor
+        if($user->tickets >= 0){
+            DB::table('user_tickets_log')->insert([
+                'user_id' => $user->id,
+                'message' => 'Usuário gastou '.Project::$entry_fee.' tickets para entrar no concurso de identificador '.$inputs['contest_id'],
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+
+            $user->save();
+        }else{
+            \Session::flash('not-enough-tickets','Você não possui tickets suficientes para se inscrever');
+            return redirect()->back();
+        }
+
         $file = $request->file('art');
 
         $filename = $file->getFilename().'.'.$file->getClientOriginalExtension();
@@ -27,17 +46,21 @@ class ProjectController extends Controller
         try{
             $project =  Project::create($inputs);
         }catch(QueryException $e){
+            $user->tickets += Project::$entry_fee;
+
+            DB::table('user_tickets_log')->insert([
+                'user_id' => $user->id,
+                'message' => 'Restituição de '.Project::$entry_fee.' tickets por erro ao entrar no concurso de identificador '.$inputs['contest_id'],
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+
+            $user->save();
+
             return response([ 'art' => ['Você já enviou uma arte para este concurso'] ],422);
         }
 
-        $invoice = Invoice::create([
-            'user_id' => \Auth::user()->id,
-            'project_id' => $project->id
-        ]);
-
-        return [
-            'redirect_url' => $invoice->paymentUrl()
-        ];
+        return $project;
     }
 
     public function create(CreateRequest $request)

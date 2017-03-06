@@ -54,12 +54,12 @@ class RegisterController extends Controller
             'password' => 'required|min:6|confirmed',
             'nickname' => 'required',
             'phone' => 'required',
-            'zipcode' => 'required',
-            'address' => 'required',
-            'number' => 'required',
-            'complement' => 'required',
-            'city' => 'required',
-            'state' => 'required'
+            // 'zipcode' => 'required',
+            // 'address' => 'required',
+            // 'number' => 'required',
+            // 'complement' => 'required',
+            'city_id' => 'required|exists:cities,id',
+            // 'state' => 'required'
         ]);
     }
 
@@ -76,17 +76,18 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'nickname' => $data['nickname'],
-            'phone' => $data['phone']
+            'phone' => $data['phone'],
+            'city_id' => $data['city_id']
         ]);
 
-        $user->address()->create([
-            'zipcode' => $data['zipcode'],
-            'address' => $data['address'],
-            'number' => $data['number'],
-            'complement' => $data['complement'],
-            'city' => $data['city'],
-            'state' => $data['state']
-        ]);
+        // $user->address()->create([
+        //     'zipcode' => $data['zipcode'],
+        //     'address' => $data['address'],
+        //     'number' => $data['number'],
+        //     'complement' => $data['complement'],
+        //     'city' => $data['city'],
+        //     'state' => $data['state']
+        // ]);
 
         return $user;
     }

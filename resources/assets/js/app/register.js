@@ -16,4 +16,17 @@ $(function(){
 		}
 
 	});
+
+	$("#register-user-form [name=state]").change(function(){
+		var input = $(this);
+		var form = input.parents('form');
+
+		$.get(window.webRoot+'estado/'+input.val()+'/cidades').done(function(response){
+			var city_select = $('[name=city_id]',form);
+			$('.cidade',city_select).remove();
+			$.each(response,function(key,city){
+				city_select.append($('<option>').addClass('cidade').attr('value',city.id).text(city.name));
+			});
+		});
+	});
 });

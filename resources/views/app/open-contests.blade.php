@@ -15,20 +15,12 @@
         </form>-->
         <h1 class="text-primary">Concursos Abertos</h1>
         @foreach($contests as $contest)
-            <div class="col-md-4 contest" data-search="{{ strtolower($contest->title) }}">
+            <div class="col-md-4 contest-card" data-search="{{ strtolower($contest->title) }}">
                 <div class="panel">
                     <div class="panel-body">
-                        <div class="panel-img">
-                            <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
-
-                                <img src="{{ asset('images/penguin2.jpg') }}" width="100%" alt="penguin">
-                            </a>
-                        </div>
-                        <h3>
-                            <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
-                                {{ $contest->title }}
-                            </a>
-                        </h3>
+                        <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
+                            {{ $contest->title }}
+                        </a>
                     </div>
                 </div>
             </div>

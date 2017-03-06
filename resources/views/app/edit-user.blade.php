@@ -67,57 +67,20 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
-                                <label for="zipcode" class="col-md-4 control-label">CEP</label>
+                            <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                                <label for="state" class="col-md-4 control-label">Estado</label>
 
                                 <div class="col-md-6">
-                                    <input id="zipcode" type="text" class="form-control" name="zipcode" value="{{ old('zipcode',isset($user->address->zipcode) ? $user->address->zipcode : '' ) }}" data-mask="00000-000" required>
+                                    <select class="form-control" name="state" required id="state">
+                                        <option>Escolha...</option>
+                                        @foreach(Cerebox\State::all()->sortBy('name') as $state)
+                                            <option value="{{ $state->id }}" @if(old('state',$user->city->state->id) == $state->id) selected @endif >{{ $state->name }}</option>
+                                        @endforeach
+                                    </select>
 
-                                    @if ($errors->has('zipcode'))
+                                    @if ($errors->has('state'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('zipcode') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                                <label for="address" class="col-md-4 control-label">Endereço</label>
-
-                                <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address" value="{{ old('address',isset($user->address->address) ? $user->address->address : '') }}" required readonly>
-
-                                    @if ($errors->has('address'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('address') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
-                                <label for="number" class="col-md-4 control-label">Número</label>
-
-                                <div class="col-md-6">
-                                    <input id="number" type="text" class="form-control" name="number" value="{{ old('number',isset($user->address->number) ? $user->address->number : '') }}" required>
-
-                                    @if ($errors->has('number'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('number') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('complement') ? ' has-error' : '' }}">
-                                <label for="complement" class="col-md-4 control-label">Complemento</label>
-
-                                <div class="col-md-6">
-                                    <input id="complement" type="text" class="form-control" name="complement" value="{{ old('complement',isset($user->address->complement) ? $user->address->complement : '') }}" required>
-
-                                    @if ($errors->has('complement'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('complement') }}</strong>
+                                            <strong>{{ $errors->first('state') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -127,25 +90,18 @@
                                 <label for="city" class="col-md-4 control-label">Cidade</label>
 
                                 <div class="col-md-6">
-                                    <input id="city" type="text" class="form-control" name="city" value="{{ old('city',isset($user->address->city) ? $user->address->city : '') }}" required readonly>
+                                    <select name="city_id" id="city" class="form-control" required>
+                                        <option>Escolha...</option>
+                                        @if(old('state',$user->city->state->id))
+                                            @foreach(Cerebox\State::find(old('state',$user->city->state->id))->cities as $city)
+                                                <option value="{{ $city->id }}" @if(old('city_id',$user->city->id) == $city->id) selected @endif>{{ $city->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
 
-                                    @if ($errors->has('city'))
+                                    @if ($errors->has('city_id'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('city') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-                                <label for="state" class="col-md-4 control-label">Estado</label>
-
-                                <div class="col-md-6">
-                                    <input id="state" type="text" class="form-control" name="state" value="{{ old('state',isset($user->address->state) ? $user->address->state : '') }}" required readonly>
-
-                                    @if ($errors->has('state'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('state') }}</strong>
                                         </span>
                                     @endif
                                 </div>

@@ -2,6 +2,7 @@
 
 namespace Cerebox;
 
+use Cerebox\Purchase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use PagSeguro\Configuration\Configure;
@@ -72,144 +73,111 @@ class Invoice extends Model
         '7' => 'Depósito em conta'
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id','id');
+    //Relationships
+    public function purchase()
+    {
+        return $this->hasOne(Purchase::class,'invoice_id');
     }
 
-    public function project(){
-        return $this->belongsTo(Project::class,'project_id','id');
+
+    public function user()
+    {
+        return $this->purchase->user;
     }
 
-    public function contest(){
-        return $this->hasManyThrough(Contest::class,Project::class,'contest_id','id','contest_id');
-    }
-
-    public function scopeFromUser($query,$user){
-        if($user instanceof User)
-            return $query->where('user_id',$user->id);
-        else
-            return $query->where('user_id',$user);
-    }
-
-    public function scopeFromProject($query,$project){
-        if($project instanceof Project)
-            return $query->where('project_id',$project->id);
-        else
-            return $query->where('project_id',$project);
-    }
-
-    public function getStatus(){
+    public function getStatus()
+    {
         if(is_null($this->status)) return self::$status[0];
         else return self::$status[$this->status];
     }
 
-    public static function create(array $attributes = [])
+    public function pay()
     {
-        $invoice = new static($attributes);
 
-        $invoice->save();
+        if(is_null($this->code)){
 
-        $product = Product::where('name','Inscrição')->get()->first(); //todo revisitar isso
-        $user = $invoice->user;
+            $payment = new Payment();
 
-        $payment = new Payment();
+            $products = $this->purchase->products;
 
-        $payment->addItems()->withParameters($product->id,$product->name,1,number_format($product->price,2));
+            foreach($products as $product){
+                $payment->addItems()->withParameters($product->id,$product->name,$product->pivot->quantity,number_format($product->price));
+            }
 
-        $payment->setCurrency('BRL');
+            $payment->setCurrency('BRL');
 
-        $payment->setReference($invoice->id);
+            $payment->setReference($this->id);
 
-        $payment->setRedirectUrl($invoice->redirectUrl());
+            $payment->setRedirectUrl($this->redirectUrl());
 
-        //Customer information
+            //Customer information
 
-        //Gambiarra Fix
-        $exploded_name = explode(' ',$user->name);
-        if(count($exploded_name) < 2)
-            $name = $user->name.' Cerebox';
-        else
-            $name = $user->name;
+            $user = $this->user();
 
-        $payment->setSender()->setName($name);
-        $payment->setSender()->setEmail($user->email);
+            //Gambiarra Fix
+            $exploded_name = explode(' ',$user->name);
+            if(count($exploded_name) < 2)
+                $name = $user->name.' Cerebox';
+            else
+                $name = $user->name;
 
-        $payment->acceptPaymentMethod()->groups(
-            \PagSeguro\Enum\PaymentMethod\Group::CREDIT_CARD,
-            \PagSeguro\Enum\PaymentMethod\Group::BALANCE
-        );
+            $payment->setSender()->setName($name);
+            $payment->setSender()->setEmail($user->email);
 
-        try{
-            $result = $payment->register(Configure::getAccountCredentials());
+            $payment->acceptPaymentMethod()->groups(
+                \PagSeguro\Enum\PaymentMethod\Group::CREDIT_CARD,
+                \PagSeguro\Enum\PaymentMethod\Group::BALANCE
+            );
 
-            //Extract code
-            $result = parse_url($result);
-            parse_str($result['query'],$result);
-            $invoice->code = $result['code'];
+            try{
+                $result = $payment->register(Configure::getAccountCredentials());
 
-            $invoice->save();
+                //Extract code
+                $result = parse_url($result);
+                parse_str($result['query'],$result);
+                $this->code = $result['code'];
 
-        }catch(\Exception $e){
-            //todo lidar com essa merda
-            \Log::critical('Deu ruim no pagamento - '.$e->getMessage());
-        }
+                $this->save();
 
-        return $invoice;
-    }
-
-    public function pay(User $user,Collection $product){
-
-        $payment = new Payment();
-
-        $payment->addItems()->withParameters($product->id,$product->name,1,number_format($product->price,2));
-
-        $payment->setCurrency('BRL');
-
-        $payment->setReference($this->id);
-
-        $payment->setRedirectUrl($this->redirectUrl());
-
-        //Customer information
-        $payment->setSender()->setName($user->name);
-        $payment->setSender()->setEmail($user->email);
-        //$payment->setSender()->setPhone()->withParameters(11,56273440); //todo Ver se vou usar isso
-        //$payment->setSender()->setDocument()->withParameters('CPF','insira um numero de CPF valido'); //todo ver se vou usar isso
-
-        //Metadata
-        //$payment->addMetadata()->withParameters('GAME_NAME', 'DOTA'); //todo não sei se vou usar
-
-        $payment->acceptPaymentMethod()->groups(
-            \PagSeguro\Enum\PaymentMethod\Group::CREDIT_CARD,
-            \PagSeguro\Enum\PaymentMethod\Group::BALANCE
-        );
-
-        try{
-            $result = $payment->register(Configure::getAccountCredentials());
-        }catch(\Exception $e){
+            }catch(\Exception $e){
+                //todo lidar com essa merda
+                \Log::critical('Deu ruim no pagamento - '.$e->getMessage());
+            }
 
         }
+
+        return redirect($this->paymentUrl());
+
     }
 
-    public function redirectUrl(){
+    public function redirectUrl()
+    {
         return action('InvoiceController@paymentReturn',[ 'invoice_id' => $this->id]);
     }
 
-    public function paymentUrl(){
+    public function paymentUrl()
+    {
         $env = getenv('PAGSEGURO_ENV');
         if($env == 'sandbox')
             return "https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=$this->code";
         else if($env == 'production')
             return "https://pagseguro.uol.com.br/v2/checkout/payment.html?code=$this->code";
+        else
+            throw new \Exception('Invalid Environment');
     }
 
-    public function setStatusAttribute($value){
+    public function setStatusAttribute($value)
+    {
         $this->attributes['status'] = $value;
 
-        if($value == 3)
+        if($value == 3){
+            $this->purchase->approved();
             $this->attributes['payed_at'] = date('Y-m-d H:i:s');
+        }
     }
 
-    public function updateInfo(){
+    public function updateInfo()
+    {
         $date = new \Carbon\Carbon('NOW -1 month');
 
         try {
@@ -257,8 +225,10 @@ class Invoice extends Model
 
         if(is_null($this->payment_method))
             $this->payment_method = $response->getPaymentMethod()->getCode();
+        
         if(is_null($this->amount))
             $this->amount = $response->getGrossAmount();
+        
         if(is_null($this->net_amoutn))
             $this->net_amount = $response->getNetAmount();
 

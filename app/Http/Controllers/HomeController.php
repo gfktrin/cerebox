@@ -3,6 +3,7 @@
 namespace Cerebox\Http\Controllers;
 
 use Cerebox\Contest;
+use Cerebox\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,24 +36,28 @@ class HomeController extends Controller
         ]);;
     }
 
-    public function howToParticipate(){
+    public function howToParticipate()
+    {
         return view('how-to-participate');
     }
 
-    public function editUser(){
+    public function editUser()
+    {
         return view('app.edit-user')->with([
             'user' => \Auth::user()
         ]);
     }
 
-    public function submitProject(Contest $contest){
+    public function submitProject(Contest $contest)
+    {
         return view('app.submit-project')->with([
             'contest' => $contest,
             'user' => \Auth::user()
         ]);
     }
 
-    public function myProjects(){
+    public function myProjects()
+    {
         $user = \Auth::user();
         $projects = $user->projects()->with('contest')->withCount('votes')->get();
 
@@ -62,7 +67,8 @@ class HomeController extends Controller
         ]);
     }
 
-    public function contest($slug){
+    public function contest($slug)
+    {
         $contest = Contest::where('slug',$slug)->get()->first();
 
         if(\Auth::check())
@@ -79,13 +85,23 @@ class HomeController extends Controller
         ]);
     }
 
-    public function openContests(){
+    public function openContests()
+    {
         return view('app.open-contests')->with([
             'contests' => Contest::open()->get()
         ]);
     }
 
-    public function paymentReturn(){
+    public function paymentReturn()
+    {
         return view('app.payment-return');
+    }
+
+    public function acquireTickets()
+    {
+        return view('app.acquire-tickets')->with([
+            'user' => \Auth::user(),
+            'product' => Product::where('name','Ticket')->get()->first()
+        ]);
     }
 }

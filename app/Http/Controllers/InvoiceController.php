@@ -2,6 +2,7 @@
 
 namespace Cerebox\Http\Controllers;
 
+use Cerebox\Http\Requests\Invoice\CreateRequest;
 use Cerebox\Invoice;
 use Illuminate\Http\Request;
 use PagSeguro\Services\Application\Search\Notification;
@@ -43,9 +44,11 @@ class InvoiceController extends Controller
         $invoice->updateInfo();
     }
 
-    public function create()
+    public function create(CreateRequest $request)
     {
+        $inputs = $request->except('_token');
 
+        $invoice = Invoice::create($inputs);
     }
 
     public function updateStatus(Request $request,Invoice $invoice)
@@ -56,5 +59,9 @@ class InvoiceController extends Controller
             return $invoice;
         else
             return redirect()->back();
+    }
+
+    public function pay(Invoice $invoice){
+        return $invoice->pay();
     }
 }

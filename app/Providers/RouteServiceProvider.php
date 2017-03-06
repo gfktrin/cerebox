@@ -2,11 +2,15 @@
 
 namespace Cerebox\Providers;
 
+use Cerebox\City;
 use Cerebox\Contest;
 use Cerebox\Invoice;
+use Cerebox\Product;
+use Cerebox\Purchase;
+use Cerebox\State;
 use Cerebox\User;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -32,8 +36,12 @@ class RouteServiceProvider extends ServiceProvider
 
         //Model Binding
         Route::model('user',User::class);
+        Route::model('city',City::class);
         Route::model('contest',Contest::class);
         Route::model('invoice',Invoice::class);
+        Route::model('product',Product::class);
+        Route::model('purchase',Purchase::class);
+        Route::model('state',State::class);
     }
 
     /**

@@ -3,26 +3,19 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h2 class="text-center text-primary">Fale Conosco</h2>
-                    @if(Session::has('contact-success'))
-                        <div class="alert alert-success">{{ Session::get('contact-success') }}</div>
-                    @endif
-
-                    <div class="col-md-6">
-                        <br>
-                        <br>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2 class="text-center text-primary">Fale Conosco</h2>
+                        @if(Session::has('contact-success'))
+                            <div class="alert alert-success">{{ Session::get('contact-success') }}</div>
+                        @endif
                         <address>
                             <strong>Cerebox</strong>
-                            Rua Info Aleatória, 106 n: 400 <br>
-                            Botafogo <br>
-                            Rio de Janeiro - RJ <br>
+                            <br>
                             <abbr title="Telefone">Tel: (21) 8364-2163</abbr> <br>
                             <a href="mailto:someemailai@gmail.com">someemailai@gmail.com</a>
                         </address>
-                    </div>
-                    <div class="col-md-6">
                         <form action="{{ action('ContactController@sendMessage') }}" class="form" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group">

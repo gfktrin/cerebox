@@ -66,7 +66,6 @@
                             <th>Id</th>
                             <th>Autor</th>
                             <th>Arte</th>
-                            <th>Status do Pagamento</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -83,12 +82,6 @@
                                        data-lightbox="pending_projects"
                                        data-title="{{ $project->author->name }}">
                                         <i class="material-icons">image</i>
-                                    </a>
-                                </td>
-                                <td>
-                                    @php($invoice = $project->invoices()->fromUser($project->author)->get()->first())
-                                    <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
-                                        {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
                                     </a>
                                 </td>
                                 <td>
@@ -113,7 +106,6 @@
                         <th>Id</th>
                         <th>Autor</th>
                         <th>Arte</th>
-                        <th>Status pagamento</th>
                         <th>Votos</th>
                         <th></th>
                     </thead>
@@ -131,12 +123,6 @@
                                    data-lightbox="approved_projects"
                                    data-title="{{ $project->author->name }}">
                                     <i class="material-icons">image</i>
-                                </a>
-                            </td>
-                            <td>
-                                @php($invoice = $project->invoices()->fromUser($project->author)->get()->first())
-                                <a href="{{ action('AdminController@retrieveInvoice',['invoice' => $invoice]) }}">
-                                    {{ !is_null($invoice) ? $invoice->getStatus() : 'Sem Fatura' }}
                                 </a>
                             </td>
 
