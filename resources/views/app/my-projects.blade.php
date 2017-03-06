@@ -9,8 +9,7 @@
                 <table class="table table-hover">
                     <thead>
                     <th width="50%">Concurso</th>
-                    <th width="20%">Arte</th>
-                    <th width="20%">Status do Pagamento</th>
+                    <th width="50%">Arte</th>
                     </thead>
 
                     <tbody>
@@ -25,17 +24,6 @@
                                            data-title="{{ $project->contest->title }}">
                                             <i class="material-icons">image</i>
                                         </a>
-                                    </td>
-                                    <td>
-                                        @php($invoice = $project->invoices()->fromUser(Auth::user()->id)->get()->first())
-                                        @if(!is_null($invoice))
-                                            {{ $invoice->getStatus() }}
-                                            @if($invoice->status == 0)
-                                                <a href="{{ $invoice->paymentUrl() }}" title="Efetuar pagamento">
-                                                    <i class="material-icons">payment</i>
-                                                </a>
-                                            @endif
-                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
