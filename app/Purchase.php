@@ -62,7 +62,7 @@ class Purchase extends Model
     	$tickets = $this->products()->where('name','Ticket')->get()->first();
 
     	if(!is_null($tickets)){
-    		DB::table('user_ticket_log')->insert([
+    		\DB::table('user_ticket_log')->insert([
     			'user_id' => $this->user->id,
     			'message' => 'Adicionando '.$tickets->pivot->quantity.' tickets devido a compra de identificador '.$this->id,
     			'created_at' => date('Y-m-d H:i:s'),

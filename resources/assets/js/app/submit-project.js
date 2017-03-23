@@ -55,7 +55,7 @@ $(function(){
             //text: '',
             type: "success",
         },function(response){
-            //Don't know what to do
+            window.location = form.data('redirect');
         },function(){
             $(".help-block.error").css({position:'relative'}).show();
         });
