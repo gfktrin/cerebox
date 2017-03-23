@@ -11,8 +11,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        \Cerebox\Product::truncate();
-
         \Cerebox\Product::create([
             'name' => 'Inscrição',
             'price' => 15
