@@ -71,24 +71,19 @@ class HomeController extends Controller
     {
         $contest = Contest::where('slug',$slug)->get()->first();
 
-        if(\Auth::check())
-            $vote = \Auth::user()->votes()->where('contest_id',$contest->id)->get()->first();
-        else
-            $vote = null;
-
         if(is_null($contest))
             return abort(404);
 
         return view('app.contest')->with([
-            'contest' => $contest,
-            'vote' => $vote
+            'contest' => $contest
         ]);
     }
 
     public function openContests()
     {
         return view('app.open-contests')->with([
-            'contests' => Contest::open()->get()
+            'submit_contests' => Contest::submitOpen()->get(),
+            'voting_contests' => Contest::votingOpen()->get()
         ]);
     }
 

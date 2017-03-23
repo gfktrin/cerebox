@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('projeto/criar', 'ProjectController@create');
     Route::post('projeto/enviar','ProjectController@submit');
 
-    Route::get('projeto/{project}/votar','ProjectController@vote');
+    Route::post('projeto/votar','ProjectController@vote');
     Route::get('projeto/{project}/remover-voto','ProjectController@removeVote');
 
     //Admin com prefixo

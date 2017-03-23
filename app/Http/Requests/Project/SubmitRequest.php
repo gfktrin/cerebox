@@ -37,7 +37,8 @@ class SubmitRequest extends FormRequest
                 'required',
                 Rule::exists('contests', 'id')
             ],
-            'art' => 'required|max:5000|mimes:jpeg,png,gif'
+            'art' => 'required|max:5000|mimes:jpeg,png,gif',
+            
         ];
     }
 }

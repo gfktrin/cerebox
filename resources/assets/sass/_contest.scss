@@ -53,3 +53,17 @@
     color:$brand-primary;
   }
 }
+
+#voting-modal{
+  .form-group label{
+    font-size:14px;
+    color: $brand-primary;
+  }
+
+  .project-art{
+    // position:absolute;
+    // top:50%;
+    // left:50%;
+    // transform: translateY(-50%) translateX(-50%);
+  }
+}

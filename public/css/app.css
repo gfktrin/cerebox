@@ -14139,6 +14139,11 @@ fieldset[disabled] .btn-yahoo.focus {
   color: #DE972F;
 }
 
+#voting-modal .form-group label {
+  font-size: 14px;
+  color: #DE972F;
+}
+
 .navbar .navbar-brand {
   padding: 5px 15px;
   height: 62px;

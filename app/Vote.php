@@ -2,11 +2,13 @@
 
 namespace Cerebox;
 
+use Cerebox\Grade;
+use Cerebox\VoteCategory;
 use Illuminate\Database\Eloquent\Model;
 
 class Vote extends Model
 {
-    protected $table = 'users_projects_votes';
+    protected $table = 'votes';
 
     protected $guarded = [];
 
@@ -25,4 +27,16 @@ class Vote extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class,'vote_id','id');
+    }
+
+
+    public function scopeValid($query)
+    {
+        return $query->where('valid',1);
+    }
+
 }

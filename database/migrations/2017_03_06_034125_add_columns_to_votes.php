@@ -13,10 +13,16 @@ class AddColumnsToVotes extends Migration
      */
     public function up()
     {
-        Schema::table('users_projects_votes',function(Blueprint $table){
-            $table->integer('creativity');
-            $table->integer('theme_connection');
-            $table->integer('ability');
+        Schema::drop('users_projects_votes');
+
+        Schema::create('votes',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('project_id')->unsigned();
+            $table->boolean('valid');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
@@ -27,10 +33,6 @@ class AddColumnsToVotes extends Migration
      */
     public function down()
     {
-        Schema::table('users_projects_votes',function(Blueprint $table){
-            $table->dropColumn('creativity');
-            $table->dropColumn('theme_connection');
-            $table->dropColumn('ability');
-        });
+        
     }
 }

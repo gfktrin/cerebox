@@ -23,6 +23,43 @@ window.App = {
         });
     },
 
+    Voting: { //Descontinuado por motivos de deadline e falta de café :(
+
+        default_min_value : 2,
+
+        default_points_to_distribute : 9,
+
+        points_to_distribute : 9,
+
+        grades : {},
+
+        init : function(categories){
+            categories.each(function(key,value){
+                var category = $(value);
+                this.grades[category.data('id')] = 2;
+            });
+        },
+
+        validatePoints: function(input){
+            var value = input.val();
+
+            var old_grade = this.grades[input.data('id')];
+
+            if(value <= this.points_to_distribute){
+                this.points_to_distribute -= (value - old_grade);
+                this.grades[input.data('id')] = value;          
+            }else{
+                input.val(this.default_min_value);
+            }
+
+        },
+
+        resetPoints: function(){
+            this.points_to_distribute = this.default_points_to_distribute;
+        }
+
+    },
+
     Form: {
         submit : function(form, success_message, success_callback, error_callback){
             var $form = $(form);

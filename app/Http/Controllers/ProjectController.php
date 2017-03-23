@@ -2,6 +2,7 @@
 
 namespace Cerebox\Http\Controllers;
 
+use Cerebox\Grade;
 use Cerebox\Http\Requests\Project\CreateRequest;
 use Cerebox\Http\Requests\Project\SubmitRequest;
 use Cerebox\Http\Requests\Project\UpdateRequest;
@@ -15,7 +16,7 @@ class ProjectController extends Controller
 {
     public function submit(SubmitRequest $request)
     {
-        $inputs = $request->except('art','_token');
+        $inputs = $request->except('art','multiplier','_token');
 
         $user = \Auth::user();
 
@@ -28,7 +29,7 @@ class ProjectController extends Controller
                 'message' => 'Usuário gastou '.Project::$entry_fee.' tickets para entrar no concurso de identificador '.$inputs['contest_id'],
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
-            ]);
+                ]);
 
             $user->save();
         }else{
@@ -53,11 +54,19 @@ class ProjectController extends Controller
                 'message' => 'Restituição de '.Project::$entry_fee.' tickets por erro ao entrar no concurso de identificador '.$inputs['contest_id'],
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
-            ]);
+                ]);
 
             $user->save();
 
+            dd($e);
+
             return response([ 'art' => ['Você já enviou uma arte para este concurso'] ],422);
+        }
+
+        $multipliers = $request->get('multiplier');
+
+        foreach($multipliers as $vote_category_id => $multiplier){
+            $project->setMultiplier($vote_category_id,$multiplier);
         }
 
         return $project;
@@ -114,22 +123,59 @@ class ProjectController extends Controller
     }
 
     //todo Remove daqui - acho que deveria estar em ContestController
-    public function vote(Request $request, Project $project)
+    public function vote(Request $request)
     {
-        $user = \Auth::user();
+        //Check if user distributed correctly all the points
+        $grades = $request->get('category_grade');
 
+        $total_points = 0;
+        foreach($grades as $grade){
+            $total_points += $grade;
+        }
+
+        if($total_points != 15){
+            if($total_points > 15)
+                return response([ 'alert' => ['O máximo de pontos para distruibuir é 15'] ],422);
+            else
+                return response([ 'alert' => ['Você não distruibui todos os pontos'] ],422);
+        }
+
+        //Initializing variables
+        $user = \Auth::user();
+        $project = Project::find($request->get('project_id'));
+
+        //Checking if user already voted on this project
         $previous_vote = Vote::where([
             'user_id' => $user->id,
-            'contest_id' => $project->contest->id
-        ])->delete();
+            'project_id' => $project->id
+        ])->get();
 
+        if($previous_vote->count() > 0)
+            return response([ 'alert' => ['Você ja tem um voto cadastrado nesse papel'] ],422);
+
+        //Save votes and grades
         $inputs = [
             'project_id' => $project->id,
             'user_id' => $user->id,
-            'contest_id' => $project->contest->id
         ];
 
         $vote = Vote::create($inputs);
+
+        $grades_to_save =  [];
+
+        foreach($grades as $vote_category_id => $grade){
+            $grades_to_save[] = new Grade(['vote_category_id' => $vote_category_id, 'grade' => $grade]);
+        }
+
+        $vote->grades()->saveMany($grades_to_save);
+
+        //Check if this is a valid vote
+        $contest = $project->contest;
+
+        $other_votes = Vote::where('user_id',$user->id)->whereIn('project_id',$contest->projects->pluck('id'))->get();
+
+        if($other_votes->count() >= 1)
+            $vote->update(['valid' => true]);
 
         if($request->ajax())
             return $vote;
@@ -144,7 +190,7 @@ class ProjectController extends Controller
         Vote::where([
             'user_id' => $user->id,
             'contest_id' => $project->contest->id
-        ])->delete();
+            ])->delete();
 
         if($request->ajax())
             return [];

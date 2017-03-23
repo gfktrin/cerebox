@@ -40,12 +40,27 @@
                         <label class="control-label col-md-2">Descrição(opcional):</label>
 
                         <div class="col-md-10">            
-                            <textarea class="form-control" rows="8" maxlength="500"></textarea>
+                            <textarea class="form-control" name="description" rows="8" maxlength="500"></textarea>
                             <span class="helper-block">
                                 Imagens muito complexas sem uma descrição podem ser mal interpretadas pelos usuários que julgarão as artes
                             </span>
                         </div>
                     </div>
+                    
+                    @foreach(Cerebox\VoteCategory::all() as $vote_category)
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="multiplier-category-{{$vote_category->id}}">{{ $vote_category->name }}</label>
+                            
+                            <div class="col-md-10">
+                                <select class="form-control" id="multiplier-category-{{$vote_category->id}}" name="multiplier[{{ $vote_category->id }}]">
+                                    <option>Escolha um multiplicador</option>
+                                    <option value="1.2">20%</option>
+                                    <option value="1.15">15%</option>
+                                    <option value="1.1">10%</option>
+                                </select>
+                            </div>
+                        </div>
+                    @endforeach
 
                     <div class="form-group pull-right">
                         <input type="submit" value="Enviar" class="btn btn-primary">

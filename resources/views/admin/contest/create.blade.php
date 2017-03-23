@@ -31,8 +31,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="create-contest-ends_at" class="control-label">Termina em:</label>
+                        <label for="create-contest-ends_at" class="control-label">Envio de projeto termina em:</label>
                         <input type="datetime" name="ends_at" id="create-contest-ends_at" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="create-contest-voting_ends_at" class="control-label">Votação termina em:</label>
+                        <input type="datetime" name="voting_ends_at" id="create-contest-voting_ends_at" class="form-control">
                     </div>
 
                     <div class="form-group pull-right">

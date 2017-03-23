@@ -6,3 +6,4 @@ require('./open-contests');
 require('./register');
 require('./edit-user');
 require('./acquire-tickets');
+require('./contest');

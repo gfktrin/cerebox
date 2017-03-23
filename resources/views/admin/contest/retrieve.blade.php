@@ -31,8 +31,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="update-contest-ends_at">Termina em:</label>
+                        <label for="update-contest-ends_at">Envio de projetos termina em:</label>
                         <input type="datetime" name="ends_at" id="update-contest-ends_at" class="form-control" value="{{ $contest->ends_at }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="update-contest-voting_ends_at">Votação termina em:</label>
+                        <input type="datetime" name="voting_ends_at" id="update-contest-voting_ends_at" class="form-control" value="{{ $contest->voting_ends_at }}">
                     </div>
 
                     <div class="form-group row">

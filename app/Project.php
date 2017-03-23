@@ -2,7 +2,9 @@
 
 namespace Cerebox;
 
+use Cerebox\Grade;
 use Cerebox\Purchase;
+use Cerebox\Vote;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -31,6 +33,41 @@ class Project extends Model
         return $this->hasMany(Vote::class, 'project_id');
     }
 
+    public function grades()
+    {
+        return $this->hasManyThrough(Grade::class,Vote::class);
+    }
+
+    public function multipliers()
+    {
+        return DB::table('project_vote_categories_multipliers')->where('project_id',$this->id)->get();
+    }
+
+    public function getMultiplier($vote_category)
+    {
+        if($vote_category instanceof Cerebox\VoteCategory)
+            $vote_category = $vote_category->id;
+
+        $multiplier = \DB::table('project_vote_categories_multipliers')->select('multiplier')->where([
+            'project_id' => $this->id,
+            'vote_category' => $vote_category
+        ])->get()->first();
+
+        return $mutiplier->multiplier;
+    }
+
+    public function setMultiplier($vote_category,$multiplier)
+    {
+        if($vote_category instanceof Cerebox\VoteCategory)
+            $vote_category = $vote_category->id;
+
+        return \DB::table('project_vote_categories_multipliers')->insert([
+            'project_id' => $this->id,
+            'vote_category_id' => $vote_category,
+            'multiplier' => $multiplier
+        ]); 
+    }
+
     public function approve()
     {
         $this->approved = 1;
@@ -53,5 +90,13 @@ class Project extends Model
                 return 'recusado';
             }
         }
+    }
+
+    public function getAverage($vote_category)
+    {
+        $sum = $this->grades()->category($vote_category)->sum('grade');
+        $multiplier = $this->getMultiplier($vote_category);
+
+        return $sum * $multiplier;
     }
 }

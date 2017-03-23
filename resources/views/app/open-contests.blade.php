@@ -13,17 +13,42 @@
                 </div>
             </div>
         </form>-->
-        <h1 class="text-primary">Concursos Abertos</h1>
-        @foreach($contests as $contest)
-            <div class="col-md-4 contest-card" data-search="{{ strtolower($contest->title) }}">
-                <div class="panel">
-                    <div class="panel-body">
-                        <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
-                            {{ $contest->title }}
-                        </a>
+        @if($submit_contests->count() > 0)
+            <h2 class="text-primary">Concursos abertos para envio</h1>
+            <div class="row">
+                @foreach($submit_contests as $contest)
+                    <div class="col-md-4 contest-card" data-search="{{ strtolower($contest->title) }}">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
+                                    {{ $contest->title }}
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-        @endforeach
+        @else  
+            <h2 class="text-primary">Não há nenhum concurso aberto para envio</h2>
+        @endif
+        
+        @if($voting_contests->count() > 0)
+            <h2 class="text-primary">Concursos aberto para votação</h2>
+            <div class="row">
+                @foreach($voting_contests as $contest)
+                    <div class="col-md-4 contest-card" data-search="{{ strtolower($contest->title) }}">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
+                                    {{ $contest->title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach               
+            </div>
+        @else
+            <h2 class="text-primary">Não há nenhum concurso aberto para votação</h2>
+        @endif 
     </div>
 @stop
