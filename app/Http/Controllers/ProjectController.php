@@ -144,6 +144,12 @@ class ProjectController extends Controller
         $user = \Auth::user();
         $project = Project::find($request->get('project_id'));
 
+        //Check if contest is open for voting
+        $contest = $project->contest;
+        
+        if(!$contest->isOpenForVoting())
+            return response([ 'alert' => ['Projeto não está aberto para votação'] ],422);
+
         //Checking if user already voted on this project
         $previous_vote = Vote::where([
             'user_id' => $user->id,
@@ -157,6 +163,7 @@ class ProjectController extends Controller
         $inputs = [
             'project_id' => $project->id,
             'user_id' => $user->id,
+            'valid' => false,
         ];
 
         $vote = Vote::create($inputs);
@@ -170,15 +177,20 @@ class ProjectController extends Controller
         $vote->grades()->saveMany($grades_to_save);
 
         //Check if this is a valid vote
-        $contest = $project->contest;
+        $votes_on_contest = Vote::where('user_id',$user->id)
+                                ->whereIn('project_id',$contest->projects->pluck('id'))
+                                ->count();
 
-        $other_votes = Vote::where('user_id',$user->id)->whereIn('project_id',$contest->projects->pluck('id'))->get();
-
-        if($other_votes->count() >= 1)
-            $vote->update(['valid' => true]);
+        if($votes_on_contest >= 2)
+            Vote::where('user_id',$user->id)
+                ->whereIn('project_id',$contest->projects->pluck('id'))
+                ->update(['valid' => true]);
 
         if($request->ajax())
-            return $vote;
+            return response([
+                'numberOfVotes' => $votes_on_contest,
+                'vote' => $vote
+            ]);
         else
             return redirect()->back();
     }

@@ -57,6 +57,7 @@
                                     <option value="1.2">20%</option>
                                     <option value="1.15">15%</option>
                                     <option value="1.1">10%</option>
+                                    <option value="1.05">5%</option>
                                 </select>
                             </div>
                         </div>

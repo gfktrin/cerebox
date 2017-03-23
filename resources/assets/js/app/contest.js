@@ -14,7 +14,7 @@ $(function(){
             //text: '',
             type: "success",
         },function(response){
-            //Don't know what to do
+            window.location.reload();
         },function(response){
         	var errors = response.responseJSON;
         
@@ -38,11 +38,14 @@ $(function(){
 
 		var img = $('img',project).attr('src');
 		var id = project.data('id');
+		var description = project.data('description');
+		var author = project.data('author');
 
 		var form = $('#voting-form');
 
 		$('[name=project_id]',form).val(id);
 		$('.project_art').attr('src',img);
+		$('.project_description').text(description);
 		
 		$('[name*=category_grade]').val(2);
 		// $('.points_to_distribute .points').text(9);

@@ -4,6 +4,7 @@ namespace Cerebox\Http\Controllers;
 
 use Cerebox\Contest;
 use Cerebox\Product;
+use Cerebox\Vote;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -69,13 +70,22 @@ class HomeController extends Controller
 
     public function contest($slug)
     {
-        $contest = Contest::where('slug',$slug)->get()->first();
+        $contest = Contest::where('slug',$slug)->with('projects')->get()->first();
 
         if(is_null($contest))
             return abort(404);
+        if(\Auth::check()){
+            $votes = Vote::where('user_id',\Auth::user()->id)
+                                    ->whereIn('project_id',$contest->projects->pluck('id'))
+                                    ->get();
+
+            $need_to_validate_vote = $votes->count() == 1;
+        }
 
         return view('app.contest')->with([
-            'contest' => $contest
+            'contest' => $contest,
+            'need_to_validate_vote' => isset($need_to_validate_vote) ? $need_to_validate_vote : false,
+            'votes' => isset($votes) ? $votes : []
         ]);
     }
 

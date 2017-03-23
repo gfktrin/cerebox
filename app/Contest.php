@@ -55,8 +55,22 @@ class Contest extends Model
         return is_null($project_id) ? $ranking : $ranking[$project_id];
     }
 
-    public function leastVotedProjects($limit = 3)
+    public function leastVotedProjects($limit = 3,$exclude = [])
     {
-        return $this->projects()->withCount('votes')->get()->sortBy('votes_count')->take($limit);
+        return $this->projects()->withCount('votes')->whereNotIn('id',$exclude)->get()->sortBy('votes_count')->take($limit);
+    }
+
+    public function isOpenForVoting()
+    {
+        $time = time();
+
+        return $this->ends_at->timestamp <= $time && $this->voting_ends_at->timestamp >= $time;
+    }
+
+    public function isOpenForSubmit()
+    {
+        $time = time();
+
+        return $this->begins_at->timestamp <= $time && $this->ends_at->timestamp >= $time;
     }
 }

@@ -25,7 +25,7 @@ class UserController extends Controller
         //Only Super Admin
         $auth_user = \Auth::user();
         if($auth_user->admin){
-            $user->admin = isset($inputs['admin']) ? $inputs['admin'] : false;
+            $user->admin = isset($inputs['admin']) ? $inputs['admin'] : $user->admin;
 
             $user->save();
         }

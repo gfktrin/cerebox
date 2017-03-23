@@ -9,6 +9,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <img class="project_art img-responsive" src="">
+                        <p class="project_description"></p>
                     </div>
                     <div class="col-md-6">
                         <form id="voting-form" class="form-horizontal" action="{{ action('ProjectController@vote') }}" method="POST">
