@@ -5,14 +5,15 @@
     <section id="home">
         <div class="intro">
             <div class="text-center">
-                <img src="{{ asset('images/logo.png') }}" width="200">
+                {{-- <img src="{{ asset('images/logo.png') }}" width="200">
                 <h1 class="text-primary">Cerebox</h1>
                 <p class="caption">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
+                </p> --}}
+                <img src="{{ asset('images/banner2.jpg') }}">
             </div>
         </div>
-        <div class="row tutorial">
+        <div class="tutorial">
             <h2 class="text-center text-primary">Como funciona</h2>
             <br>
             <div class="col-md-2 col-md-offset-1 step">

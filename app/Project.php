@@ -16,7 +16,7 @@ class Project extends Model
 
     protected $guarded = [];
 
-    public static $entry_fee = 3; //How many tickets to pay for an project entry
+    public static $entry_fee = 1; //How many tickets to pay for an project entry
 
     public function author()
     {
@@ -94,7 +94,7 @@ class Project extends Model
 
     public function getAverage($vote_category)
     {
-        $sum = $this->grades()->category($vote_category)->sum('grade');
+        $sum = $this->grades()->category($vote_category)->average('grade');
         $multiplier = $this->getMultiplier($vote_category);
 
         return $sum * $multiplier;

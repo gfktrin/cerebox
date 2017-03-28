@@ -14173,6 +14173,7 @@ fieldset[disabled] .btn-yahoo.focus {
 
 body > #app > .content #home {
   margin-bottom: 25px;
+  margin-top: -25px;
 }
 
 #home .carousel-inner > .item > img {
@@ -14191,6 +14192,8 @@ body > #app > .content #home {
 
 #home .tutorial .step .caption {
   text-align: center;
+  font-weight: bold;
+  padding: 10px 0px;
 }
 
 .carousel-control .material-icons {
