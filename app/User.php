@@ -5,6 +5,7 @@ namespace Cerebox;
 use Cerebox\Address;
 use Cerebox\City;
 use Cerebox\Invoice;
+use Cerebox\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -83,5 +84,10 @@ class User extends Authenticatable
     public function purchases()
     {
         return $this->hasMany(Purchase::class,'user_id');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token))
     }
 }
