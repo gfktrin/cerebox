@@ -12,7 +12,7 @@
                 </p>
             </div>
         </div>
-        <div class="row tutorial">
+        <div class="tutorial">
             <h2 class="text-center text-primary">Como funciona</h2>
             <br>
             <div class="col-md-2 col-md-offset-1 step">

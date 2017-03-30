@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'cookie' => 'laravel_session',
+    'cookie' => 'cerebox_session',
 
     /*
     |--------------------------------------------------------------------------
@@ -148,7 +148,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', 'cerebox.dev'),
+    'domain' => env('SESSION_DOMAIN', 'cerebox.com.br'),
 
     /*
     |--------------------------------------------------------------------------
