@@ -95,13 +95,13 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <div class="togglebutton">
                             <label for="update-user-admin">
                                 <input type="checkbox" name="admin" id="update-user-admin" value="1" @if($user->admin) checked @endif> Admin?
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group row">
                         <input type="submit" value="Salvar" class="btn btn-success pull-right">

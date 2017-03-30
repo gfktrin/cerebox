@@ -26,6 +26,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="create-contest-description" class="control-label">Descrição</label>
+                        <textarea id="create-contest-description" class="form-control" name="description" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
                         <label for="create-contest-begins_at" class="control-label">Começa em:</label>
                         <input type="datetime" name="begins_at" id="create-contest-begins_at" class="form-control">
                     </div>

@@ -10,7 +10,7 @@
                 <p class="caption">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p> --}}
-                <img src="{{ asset('images/banner2.jpg') }}">
+                <img src="{{ asset('images/banner2.jpg') }}" width="100%">
             </div>
         </div>
         <div class="tutorial">

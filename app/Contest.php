@@ -8,7 +8,7 @@ class Contest extends Model
 {
     protected $table = 'contests';
 
-    protected $guarded = [ ];
+    protected $guarded = [];
 
     protected $dates = [ 'begins_at', 'ends_at' , 'voting_ends_at' ];
 

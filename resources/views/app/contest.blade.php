@@ -36,6 +36,7 @@
                 </div>
             @endforeach
         @else
+            <p>{{ $contest->description }}</p>
             <h4 class="text-primary">Artes: </h4>
 
             <div class="row">

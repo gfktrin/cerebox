@@ -26,6 +26,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="update-contest-description" class="control-label">Descrição</label>
+                        <textarea class="form-control" id="update-contest-description" name="description" rows="5">{{ $contest->description }}</textarea>
+                    </div>
+
+                    <div class="form-group">
                         <label for="update-contest-begins_at">Começa em:</label>
                         <input type="datetime" name="begins_at" id="update-contest-begins_at" class="form-control" value="{{ $contest->begins_at }}">
                     </div>
