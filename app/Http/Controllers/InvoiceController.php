@@ -14,7 +14,7 @@ class InvoiceController extends Controller
         $invoice = Invoice::where('id',$request->get('invoice_id'))->get()->first();
 
         if(is_null($invoice)){
-            \Log::critial('Retorno da loja não foi salvo.',['transaction_id' => $request->get('transaction_id')]);
+            \Log::critical('Retorno da loja não foi salvo.',['transaction_id' => $request->get('transaction_id')]);
         }else{
             $invoice->transaction_id = $request->get('transaction_id');
 
