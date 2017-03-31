@@ -197,7 +197,7 @@ class Invoice extends Model
             $curl = curl_init();
             curl_setopt_array($curl,[
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions?email='.env('PAGSEGURO_EMAIL').'&token='.env('PAGSEGURO_TOKEN_PRODUCTION').'&reference='.$this->id.'&initialDate='.$date->format('c'),
+                CURLOPT_URL => 'https://ws.pagseguro.uol.com.br/v2/transactions?email='.env('PAGSEGURO_EMAIL').'&token='.env('PAGSEGURO_TOKEN_PRODUCTION').'&reference='.$this->id.'&initialDate='.$date->format('c'),
             ]);
 
             $response = curl_exec($curl);
