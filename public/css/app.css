@@ -14094,6 +14094,23 @@ fieldset[disabled] .btn-yahoo.focus {
   font-size: 20px;
 }
 
+.row.steps {
+  border: 1px solid #DE972F;
+}
+
+.row.steps .col-xs-4 {
+  text-align: center;
+}
+
+.row.steps .col-xs-4.active {
+  color: white;
+  background-color: #DE972F;
+}
+
+.row.steps .col-xs-4:not(:last-child) {
+  border-right: 1px solid #DE972F;
+}
+
 .contest .project-card .panel-body {
   position: relative;
 }

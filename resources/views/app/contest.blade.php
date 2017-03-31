@@ -37,6 +37,25 @@
             @endforeach
         @else
             <p>{{ $contest->description }}</p>
+            <div class="row steps">
+                @if($contest->ends_at->getTimestamp() >= time())
+                    <div class="col-xs-4 active">
+                        Envio de arte <b>( Faltam {{ $contest->ends_at->diffInDays(new Carbon\Carbon('now')) }} dias)</b>
+                    </div>
+                @else
+                    <div class="col-xs-4">Envio de arte</div>
+                @endif
+                @if($contest->ends_at->getTimestamp() <= time() && $contest->voting_ends_at->getTimestamp() >= time())
+                    <div class="col-xs-4 active">
+                        Votação <b>( Faltam {{ $contest->voting_ends_at->diffInDays(new Carbon\Carbon('now')) }} dias)</b>
+                    </div>
+                @else
+                    <div class="col-xs-4">
+                        Votação
+                    </div>
+                @endif
+                <div class="col-xs-4">Apuração</div>
+            </div>
             <h4 class="text-primary">Artes: </h4>
 
             <div class="row">

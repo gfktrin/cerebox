@@ -5,6 +5,22 @@
   }
 }
 
+.row.steps{
+  border:1px solid $brand-primary;
+  
+  .col-xs-4{
+    text-align:center;
+    &.active{
+      color:white;
+      background-color:$brand-primary;
+    }
+
+    &:not(:last-child){
+      border-right:1px solid $brand-primary;
+    }
+  }
+}
+
 .contest{
   .project-card{
     .panel-body{
