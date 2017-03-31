@@ -92,7 +92,7 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
 
 4º FASE – RESULTADOS e PREMIAÇÕES:
     Após o período da votação terminar, o sistema irá apurar e indicar o vencedor do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
-                    </p>
+                    </pre></p>
                     <h4><ins>Premiações:</ins></h4>
                     <div class="col-md-6 col-md-offset-3">
                         <table class="table table-bordered">
