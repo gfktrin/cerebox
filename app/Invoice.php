@@ -130,6 +130,9 @@ class Invoice extends Model
             );
 
             try{
+                //Não tive tempo de colocar isso da melhor forma, pq o getAccountCrendentials parou de funcionar
+                Configure::setAccountCredentials(env('PAGSEGURO_EMAIL'),env('PAGSEGURO_TOKEN_PRODUCTION'));
+
                 $result = $payment->register(Configure::getAccountCredentials());
 
                 //Extract code
@@ -180,6 +183,8 @@ class Invoice extends Model
     {
         $date = new \Carbon\Carbon('NOW -1 month');
 
+        Configure::setAccountCredentials(env('PAGSEGURO_EMAIL'),env('PAGSEGURO_TOKEN_PRODUCTION'));
+        
         try {
             $response = \PagSeguro\Services\Transactions\Search\Code::search(
                 \PagSeguro\Configuration\Configure::getAccountCredentials(),
