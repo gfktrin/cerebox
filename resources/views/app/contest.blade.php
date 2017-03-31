@@ -79,36 +79,38 @@
                     @endif
                 @endif 
             </div>
-
-            @foreach($contest->projects()->where('approved',1)->get() as $project)
-                <div class="col-md-4 col-xs-6">
-                    <div class="panel project-card">
-                        <div class="panel-body text-center">
-                            @if(Auth::check() && $contest->isOpenForVoting())
-                                <a href="#voting-modal" 
-                                   data-id="{{ $project->id }}" 
-                                   data-author="{{ $project->author->nickname or $project->author->name }}"
-                                   data-description="{{ $project->description }}"
-                                   data-toggle="modal">
+            
+            @if($contest->isOpenForVoting())
+                @foreach($contest->projects()->where('approved',1)->get() as $project)
+                    <div class="col-md-4 col-xs-6">
+                        <div class="panel project-card">
+                            <div class="panel-body text-center">
+                                @if(Auth::check() && $contest->isOpenForVoting())
+                                    <a href="#voting-modal" 
+                                       data-id="{{ $project->id }}" 
+                                       data-author="{{ $project->author->nickname or $project->author->name }}"
+                                       data-description="{{ $project->description }}"
+                                       data-toggle="modal">
+                                        <img src="{{ asset('project_images/'.$project->filename) }}">
+                                    </a>
+                                @else
+                                    <a  href="{{ asset('project_images/'.$project->filename) }}"
+                                        data-lightbox="{{ $contest->id }}"
+                                        data-title="{{ $project->author->nickname or $project->author->name}}">
+                                        <img src="{{ asset('project_images/'.$project->filename) }}">
+                                    </a>
+                                @endif      
+                                {{-- <a href="{{ asset('project_images/'.$project->filename) }}"
+                                   data-lightbox="{{ $contest->id }}"
+                                   data-title="{{ $project->author->nickname or $project->author->name}}">
                                     <img src="{{ asset('project_images/'.$project->filename) }}">
-                                </a>
-                            @else
-                                <a  href="{{ asset('project_images/'.$project->filename) }}"
-                                    data-lightbox="{{ $contest->id }}"
-                                    data-title="{{ $project->author->nickname or $project->author->name}}">
-                                    <img src="{{ asset('project_images/'.$project->filename) }}">
-                                </a>
-                            @endif      
-                            {{-- <a href="{{ asset('project_images/'.$project->filename) }}"
-                               data-lightbox="{{ $contest->id }}"
-                               data-title="{{ $project->author->nickname or $project->author->name}}">
-                                <img src="{{ asset('project_images/'.$project->filename) }}">
-                            </a> --}}
-                            <div class="caption">{{ $project->author->nickname or $project->author->name }}</div>
+                                </a> --}}
+                                <div class="caption">{{ $project->author->nickname or $project->author->name }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         @endif
     </div>
 @stop
