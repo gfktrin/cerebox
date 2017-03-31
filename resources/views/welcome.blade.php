@@ -13,7 +13,8 @@
                 <img src="{{ asset('images/banner2.jpg') }}" width="100%">
             </div>
         </div>
-        <div class="tutorial">
+
+        <div class="tutorial col-md-12">
             <h2 class="text-center text-primary">Como funciona</h2>
             <br>
             <div class="col-md-2 col-md-offset-1 step">
@@ -113,7 +114,7 @@
             <div class="col-md-12">
                 <h2 class="text-center text-primary">Quem Somos</h2>
                 <p>
-                    O Cerebox foi idealizado por uma única pessoa. Uma pessoa sem nenhuma maestria com o desenho ou a música (arrisco-me em um pouco muito pouco com a escrita), mas que talvez, por ser estudante de engenharia, percebeu um problema comum entre os seus amigos músicos, desenhistas, escritores, autores e artistas: o lapso criativo, que oscila e passa por longos períodos de seca. Problema este que silencia o talento de muitos e acaba por fazer com que, até mesmo quando em hobbie, artistas habilidosos desanimem ou passem a ser verdadeiras máquinas de cópia, reproduzindo conteúdo apenas para não “perder a prática”. O Cerebox possui a proposta de amenizar este mal cabal, oferecendo o randomizador, um “gerador de ideias” que te permite escolher categorias do seu interesse para oferecer-lhe palavras dentro destes tópicos. Conheça novas palavras, lapide suas ideias, exercite sua criatividade e tente dar asas à sua imaginação. Este é o desafio que eu, idealizador do Cerebox, uma única pessoa que teve o apoio de inúmeros amigos e colaboradores, lanço para vocês!
+                    A equipe Cerebox surgiu de um sonho. Uma vontade de criar novas ideias e explorar novos conceitos, tentando implementar tudo isso em alguma atividade que funcionasse com artes, pessoas, hobbies, trabalhos profissionais e, ao mesmo tempo, diversão e criatividade. Eis que em 2016 conseguimos misturar todas essas coisas (ou pelo menos tentamos, de verdade!) e criamos o Random, que logo depois se extendeu para os concursos. Esperamos, como bons sonhadores que somos, que todos se divirtam e façam bom uso de das ferramentas aqui contidas, frutos de muito trabalho (MUITO, 5 vezes trabalho), paixão e dedicação sem fim. Tendo isso em mente, podemos dar a largada para que o brainstorm mais doido de suas vidas comece!
                 </p>
             </div>
         </section>
