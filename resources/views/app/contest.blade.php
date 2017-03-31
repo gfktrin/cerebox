@@ -7,7 +7,7 @@
         @if($need_to_validate_vote)
             <h2 class="text-primary">Você deve validar seu voto. Vote em um desses projetos:</h2>
             @foreach($contest->leastVotedProjects(3,$votes->pluck('project_id')) as $project)
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-6">
                     <div class="panel project-card">
                         <div class="panel-body text-center">
                             @if(Auth::check() && $contest->isOpenForVoting())
@@ -40,21 +40,21 @@
             <div class="row steps">
                 @if($contest->ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
-                        Envio de arte <b>( Faltam {{ $contest->ends_at->diffInDays(new Carbon\Carbon('now')) }} dias)</b>
+                        Envio de arte <br> <b>( até {{ $contest->ends_at->format('d/m/Y') }})</b>
                     </div>
                 @else
-                    <div class="col-xs-4">Envio de arte</div>
+                    <div class="col-xs-4">Envio de arte <br> &nbsp;</div>
                 @endif
                 @if($contest->ends_at->getTimestamp() <= time() && $contest->voting_ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
-                        Votação <b>( Faltam {{ $contest->voting_ends_at->diffInDays(new Carbon\Carbon('now')) }} dias)</b>
+                        Votação <br> <b>( até {{ $contest->voting_ends_at->format('d/m/Y') }}</b>
                     </div>
                 @else
                     <div class="col-xs-4">
-                        Votação
+                        Votação <br> &nbsp;
                     </div>
                 @endif
-                <div class="col-xs-4">Apuração</div>
+                <div class="col-xs-4">Apuração <br> &nbsp;</div>
             </div>
             <h4 class="text-primary">Artes: </h4>
 
@@ -65,43 +65,52 @@
                            class="btn btn-primary btn-raised pull-right">
                             Enviar projeto
                         </a>
+                        <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
+                            {{ $contest->projects->count() }} inscritos de {{ $contest->max_users }} vagas
+                        </p>
                     @else
-                        <a href="{{ action('HomeController@acquireTickets') }}" class="btn btn-primary pull-right">
-                            Você não possui tickets suficientes para entrar no concurso
-                        </a>
+                        @if($contest->projects->count() >= $contest->max_users)
+                            <button type="button" disabled class="btn btn-primary pull-right">Concurso lotado</button>
+                        @else
+                            <a href="{{ action('HomeController@acquireTickets') }}" class="btn btn-primary pull-right">
+                                Você não possui tickets suficientes para entrar no concurso
+                            </a>
+                        @endif
                     @endif
                 @endif 
             </div>
-
-            @foreach($contest->projects()->where('approved',1)->get() as $project)
-                <div class="col-md-4">
-                    <div class="panel project-card">
-                        <div class="panel-body text-center">
-                            @if(Auth::check() && $contest->isOpenForVoting())
-                                <a href="#voting-modal" 
-                                   data-id="{{ $project->id }}" 
-                                   data-author="{{ $project->author->nickname or $project->author->name }}"
-                                   data-description="{{ $project->description }}"
-                                   data-toggle="modal">
+            
+            @if($contest->isOpenForVoting())
+                @foreach($contest->projects()->where('approved',1)->get() as $project)
+                    <div class="col-md-4 col-xs-6">
+                        <div class="panel project-card">
+                            <div class="panel-body text-center">
+                                @if(Auth::check() && $contest->isOpenForVoting())
+                                    <a href="#voting-modal" 
+                                       data-id="{{ $project->id }}" 
+                                       data-author="{{ $project->author->nickname or $project->author->name }}"
+                                       data-description="{{ $project->description }}"
+                                       data-toggle="modal">
+                                        <img src="{{ asset('project_images/'.$project->filename) }}">
+                                    </a>
+                                @else
+                                    <a  href="{{ asset('project_images/'.$project->filename) }}"
+                                        data-lightbox="{{ $contest->id }}"
+                                        data-title="{{ $project->author->nickname or $project->author->name}}">
+                                        <img src="{{ asset('project_images/'.$project->filename) }}">
+                                    </a>
+                                @endif      
+                                {{-- <a href="{{ asset('project_images/'.$project->filename) }}"
+                                   data-lightbox="{{ $contest->id }}"
+                                   data-title="{{ $project->author->nickname or $project->author->name}}">
                                     <img src="{{ asset('project_images/'.$project->filename) }}">
-                                </a>
-                            @else
-                                <a  href="{{ asset('project_images/'.$project->filename) }}"
-                                    data-lightbox="{{ $contest->id }}"
-                                    data-title="{{ $project->author->nickname or $project->author->name}}">
-                                    <img src="{{ asset('project_images/'.$project->filename) }}">
-                                </a>
-                            @endif      
-                            {{-- <a href="{{ asset('project_images/'.$project->filename) }}"
-                               data-lightbox="{{ $contest->id }}"
-                               data-title="{{ $project->author->nickname or $project->author->name}}">
-                                <img src="{{ asset('project_images/'.$project->filename) }}">
-                            </a> --}}
-                            <div class="caption">{{ $project->author->nickname or $project->author->name }}</div>
+                                </a> --}}
+                                <div class="caption">{{ $project->author->nickname or $project->author->name }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         @endif
     </div>
 @stop

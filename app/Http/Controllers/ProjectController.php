@@ -18,6 +18,11 @@ class ProjectController extends Controller
     {
         $inputs = $request->except('art','multiplier','_token');
 
+        $contest = Contest::find($inputs['contest_id']);
+
+        if(!$contest->isOpenForSubmit())
+            return response('Concurso Lotado ou fechado para envio de projeto',403);
+
         $user = \Auth::user();
 
         $user->tickets -= Project::$entry_fee;

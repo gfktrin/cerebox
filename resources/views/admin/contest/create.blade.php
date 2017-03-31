@@ -31,6 +31,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="update-contest-max_users" class="control-label">Máximo de inscritos</label>
+                        <input type="number" name="max_users" id="update-contest-max_users" class="form-control" value="{{ $contest->max_users }}">
+                    </div>
+
+                    <div class="form-group">
                         <label for="create-contest-begins_at" class="control-label">Começa em:</label>
                         <input type="datetime" name="begins_at" id="create-contest-begins_at" class="form-control">
                     </div>

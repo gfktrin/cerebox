@@ -17,36 +17,37 @@
         <div class="tutorial col-md-12">
             <h2 class="text-center text-primary">Como funciona</h2>
             <br>
-            <div class="col-md-2 col-md-offset-1 step">
+            <div class="col-md-2 col-md-offset-1 col-xs-4 step">
                 <img src="{{ asset('images/tutorial/1.png') }}" alt="Escolha um concurso aberto">
                 <div class="caption">
                     Escolha um concurso aberto
                 </div>
             </div>
-            <div class="col-md-2 step">
+            <div class="col-md-2 col-xs-4 step">
                 <img src="{{ asset('images/tutorial/2.png') }}" alt="Observe as palavras chaves">
                 <div class="caption">
                     Observe as palavras chaves
                 </div>
             </div>
-            <div class="col-md-2 step">
+            <div class="col-md-2 col-xs-4 step">
                 <img src="{{ asset('images/tutorial/3.png') }}" alt="Adquira seu ticket">
                 <div class="caption">
                     Adquira seu ticket
                 </div>
             </div>
-            <div class="col-md-2 step">
+            <div class="col-md-2 col-xs-4 col-xs-offset-2 step">
                 <img src="{{ asset('images/tutorial/4.png') }}" alt="Crie e envie sua arte">
                 <div class="caption">
                     Crie e envie sua arte
                 </div>
             </div>
-            <div class="col-md-2 step">
+            <div class="col-md-2 col-xs-4 step">
                 <img src="{{ asset('images/tutorial/5.png') }}" alt="Acompanhe os resultados">
                 <div class="caption">
                     Acompanhe os resultados
                 </div>
             </div>
+            <div class="clearfix"></div>
         </div>
         {{-- <div class="carousel slide" id="slider-home" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
