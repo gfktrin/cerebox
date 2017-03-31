@@ -6,8 +6,12 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2 class="text-center text-primary">Como Participar</h2>
+                    <h3>CONCURSOS</h3>
+                    <hr>
                     <p>
-                        Para participar dos concursos da Cerebox basta seguir alguns passos muito simples. Você poderá encontrar todas as informações necessárias aqui e dentro de pouquíssimo tempo já estará pronto para divulgar sua arte com a internet, amigos e nossos queridos usuários!
+                        <strong>- Como os concursos de criatividade funcionam?</strong>
+                        <br>
+                        Abrimos as portas para todos os usuários que desejam se aventurar e tentar levar suas obras de arte ao topo do pódio! Elaboramos todo um sistema que permite que desenhistas novatos, intermediários e avançados consigam competir entre si, sem favoritismo. O artista menos conhecido desfrutará das mesmas chances de vitória que outro artista já popular, por exemplo. O concurso com entrada (ticket) premia os três primeiros colocados no ranking final de cada competição
                     <p>
                     <h4><ins>1º PASSO:</ins></h4>
                     <p>
