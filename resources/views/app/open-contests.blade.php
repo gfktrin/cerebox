@@ -17,7 +17,7 @@
             <h2 class="text-primary">Concursos abertos para envio</h1>
             <div class="row">
                 @foreach($submit_contests as $contest)
-                    <div class="col-md-4 contest-card" data-search="{{ strtolower($contest->title) }}">
+                    <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
                         <div class="panel">
                             <div class="panel-body">
                                 <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
@@ -36,7 +36,7 @@
             <h2 class="text-primary">Concursos aberto para votação</h2>
             <div class="row">
                 @foreach($voting_contests as $contest)
-                    <div class="col-md-4 contest-card" data-search="{{ strtolower($contest->title) }}">
+                    <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
                         <div class="panel">
                             <div class="panel-body">
                                 <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">

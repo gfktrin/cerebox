@@ -7,7 +7,7 @@
         @if($need_to_validate_vote)
             <h2 class="text-primary">Você deve validar seu voto. Vote em um desses projetos:</h2>
             @foreach($contest->leastVotedProjects(3,$votes->pluck('project_id')) as $project)
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-6">
                     <div class="panel project-card">
                         <div class="panel-body text-center">
                             @if(Auth::check() && $contest->isOpenForVoting())
@@ -40,21 +40,21 @@
             <div class="row steps">
                 @if($contest->ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
-                        Envio de arte <b>( até {{ $contest->ends_at->format('d/m/Y') }})</b>
+                        Envio de arte <br> <b>( até {{ $contest->ends_at->format('d/m/Y') }})</b>
                     </div>
                 @else
-                    <div class="col-xs-4">Envio de arte</div>
+                    <div class="col-xs-4">Envio de arte <br> &nbsp;</div>
                 @endif
                 @if($contest->ends_at->getTimestamp() <= time() && $contest->voting_ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
-                        Votação <b>( até {{ $contest->voting_ends_at->format('d/m/Y') }}</b>
+                        Votação <br> <b>( até {{ $contest->voting_ends_at->format('d/m/Y') }}</b>
                     </div>
                 @else
                     <div class="col-xs-4">
-                        Votação
+                        Votação <br> &nbsp;
                     </div>
                 @endif
-                <div class="col-xs-4">Apuração</div>
+                <div class="col-xs-4">Apuração <br> &nbsp;</div>
             </div>
             <h4 class="text-primary">Artes: </h4>
 
@@ -81,7 +81,7 @@
             </div>
 
             @foreach($contest->projects()->where('approved',1)->get() as $project)
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-6">
                     <div class="panel project-card">
                         <div class="panel-body text-center">
                             @if(Auth::check() && $contest->isOpenForVoting())
