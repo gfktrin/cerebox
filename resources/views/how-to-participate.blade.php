@@ -94,7 +94,7 @@
                         – Arte. <br>
                         <br>
                     4º FASE – RESULTADOS e PREMIAÇÕES: <br><hr>
-                        Após o período da votação terminar, o sistema irá apurar e indicar o vencedor do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
+                        Após o período da votação terminar, o sistema irá apurar e indicar os vencedores do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
                     </p>
                     <h3>Premiações:</h3>
                     <div class="col-md-6 col-md-offset-3">
