@@ -35,7 +35,7 @@
                     Adquira seu ticket
                 </div>
             </div>
-            <div class="col-md-2 col-xs-4 col-xs-offset-2 step">
+            <div class="col-md-2 col-xs-4 col-xs-offset-2 col-md-offset-0 step">
                 <img src="{{ asset('images/tutorial/4.png') }}" alt="Crie e envie sua arte">
                 <div class="caption">
                     Crie e envie sua arte
