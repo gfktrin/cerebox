@@ -43,7 +43,7 @@
                         Envio de arte <br> <b>( até {{ $contest->ends_at->format('d/m/Y') }})</b>
                     </div>
                 @else
-                    <div class="col-xs-4">Envio de arte <br> &nbsp;</div>
+                    <div class="col-xs-4"><p style="padding-top:11px">Envio de arte</p></div>
                 @endif
                 @if($contest->ends_at->getTimestamp() <= time() && $contest->voting_ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
@@ -51,12 +51,11 @@
                     </div>
                 @else
                     <div class="col-xs-4">
-                        Votação <br> &nbsp;
+                        <p style="padding-top:11px">Votação</p>
                     </div>
                 @endif
-                <div class="col-xs-4">Apuração <br> &nbsp;</div>
+                <div class="col-xs-4"><p style="padding-top:11px">Apuração</p></div>
             </div>
-            <h4 class="text-primary">Artes: </h4>
 
             <div class="row">
                 @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0)
@@ -81,6 +80,7 @@
             </div>
             
             @if($contest->isOpenForVoting())
+                <h4 class="text-primary">Artes: </h4>
                 @foreach($contest->projects()->where('approved',1)->get() as $project)
                     <div class="col-md-4 col-xs-6">
                         <div class="panel project-card">
