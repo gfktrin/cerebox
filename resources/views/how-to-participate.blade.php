@@ -13,56 +13,85 @@
                         <br>
                         Abrimos as portas para todos os usuários que desejam se aventurar e tentar levar suas obras de arte ao topo do pódio! Elaboramos todo um sistema que permite que desenhistas novatos, intermediários e avançados consigam competir entre si, sem favoritismo. O artista menos conhecido desfrutará das mesmas chances de vitória que outro artista já popular, por exemplo. O concurso com entrada (ticket) premia os três primeiros colocados no ranking final de cada competição
                     <p>
-                    <h4><ins>1º PASSO:</ins></h4>
+                    <br>
                     <p>
-                        Todos os concursos realizados pela Cerebox utilizam a ferramenta &quot;Randomizador&quot;, que seleciona categorias e palavras aleatórias dentro de um banco de palavras (idioma português do Brasil). Desta forma, criaremos sempre competições únicas com temáticas totalmente aleatórias e diversificadas, jamais repetindo temas anteriores. Fique atento sempre ao número de participantes, vagas disponíveis e palavras-chave para escolher qual é o melhor tipo de concurso para você.
+                        <strong>- Quais são as regras do concurso?</strong>
+                        <br>
+                        A arte não deve conter material registrado (imagens de propriedade intelectual de terceiros, marcas ou símbolos), assim como conteúdo ofensivo, pejorativo, nudez e/ou violência explícita ou materiais que visam promover qualquer tipo de discurso de ódio, também não serão aceitas cópias de imagens já existentes. A imagem deve necessariamente ser criada a partir das palavras-chave dadas em cada concurso, imagens sem relação com os temas não serão aceitas. O uso das palavras-chave pode ser denotativo ou conotativo, use sua criatividade e não se prenda somente ao dicionário! Exemplo:
+                        <pre>   <ins>TORPEDO</ins>
+                                        Denotativo – engenho explosivo, flutuante ou submerso.
+                                        Conotativo – SMS, mensagens de celular, brinquedo, etc.</pre>
                     </p>
-                    <h4><ins>2º PASSO:</ins></h4>
+                    <br>
                     <p>
-                        As palavras-chave geradas pelo “Randomizador” determinam alguns dos tópicos a serem abordados na arte feita para competição, independentes de como serão usados, tanto como parte do tema principal, elementos secundários ou complementos para enriquecer a tela. É importante que os elementos tenham ligações (conversem) entre si, pois o <strong>enredo</strong> e a <strong>criatividade</strong> serão critérios de julgamento, votados pelos usuários da nossa comunidade.
-                    <p>
-                    <h4><ins>3º PASSO:</ins></h4>
-                    <p>
-                        Todos os concursos possuem três fases principais e, ao final destas, os ganhadores são anunciados. Estas três etapas somarão 10 (dez) dias:
-                        <br><br>
+                        <strong>- Qual o formato do desenho para envio? Papel ou digital? Colorido ou preto e branco?</strong>
+                        <br>
+                        Serão aceitas tanto artes criadas sobre papel quanto de forma digital, coloridas e/ou preto e brancas. O formato do papel/tela para envio é o da <strong>folha A4 (210x297mm)</strong>, artes fora deste padrão não serão aceitas. Os formatos aceitos para o arquivo de envio são: <strong>PNG, GIF e JPEG</strong>. A imagem deve ser scanneada ou enquadrada perfeitamente como foto, sem sombras externas ou presença de margens e/ou texturas do ambiente (mesas, cadeiras, mãos, material de desenho, etc.). O desenho não precisa ocupar o espaço todo da folha A4, basta estar contido na mesma.
 
-                        <span class="text-info">PRIMEIRA FASE</span> -&gt; início das inscrições, onde os usuários escolherão qual(is) concurso(s) desejam disputar, durará <span class="text-danger">3 (três) dias</span>.
-                        <br>
-                        <span class="text-info">SEGUNDA FASE</span> -&gt; tempo para que os artistas elaborem, criem suas artes e enviem para a plataforma após o log in, esta etapa durará <span class="text-danger">4 (quatro) dias</span>. As artes só serão aceitas até as 23:59h do sétimo dia do concurso (horário de Brasília).**
-                        <br>
-                        <span class="text-info">TERCEIRA FASE</span> -&gt; fase de votação, onde os usuários da plataforma avaliarão as artes enviadas, durará <span class="text-danger">3 (três) dias</span>.
                     </p>
                     <br>
-                    <p class="text-center"><small><strong>**</strong>O concurso só poderá alcançar a FASE 2 caso, pelo menos, 50% do contingente esperado seja alcançado.</small></p>
+                    <p>
+                        <strong>- Como são escolhidos os ganhadores?</strong>
+                        <br>
+                        O voto é totalmente popular, liberado para todos os usuários cadastrados, ninguém da equipe Cerebox tem permissão ou poder de alterar os votos dos usuários ou resultados dos concursos.                    
+                    </p>
                     <br>
-                    <h4><ins>4º PASSO:</ins></h4>
                     <p>
-                        Os ganhadores serão anunciados após o prazo de votação ser encerrado e, em um período de até 15 dias úteis após a divulgação da lista de vencedores será feito o depósito bancário na conta corrente cadastrada. Vale lembrar que o valor das premiações só poderá ser calculado após o encerramento da primeira fase, de acordo com o número de artistas inscritos.
+                        <strong>- Qual é a premiação?</strong>
+                        <br>
+                        A premiação é totalmente feita em dinheiro, de acordo com o número de participantes do concurso. O cálculo é totalmente baseado em uma porcentagem já fixada. Se uma competição contar com 100 artistas e outra com 50, a competição com maior número de inscritos premiará valores mais altos (e atrativos).
                     </p>
-                    <h4><ins>Votação:</ins></h4>
+                    <br>
                     <p>
-                        Cada arte será submetida a avaliação em quatro categorias:
+                        <strong>- Existe algum benefício além do dinheiro para os melhores colocados?</strong>
+                        <br>
+                        A equipe Cerebox planeja, futuramente, oferecer maiores vantagens, além do dinheiro, para os melhores colocados. Mas, se gostarmos de alguma arte perdida no ranking, nada impede que entremos em contato para falar de negócios!
                     </p>
-                    <ul>
-                        <li>Arte</li>
-                        <li>Criatividade</li>
-                        <li>Inovação</li>
-                        <li>Interação</li>
-                    </ul>
+                    <br>
                     <p>
-                        Dentro destas categorias, os usuários receberão 16 pontos para distribuir entre estas categorias, como por exemplo:
+                        <strong>- Qual é a taxa para participar do concurso?</strong>
+                        <br>
+                        A entrada no concurso é feita por meio de TICKETS. Cada ticket lhe permite ter acesso a um concurso por vez. Tickets não podem ser reaproveitados e possuem valor unitário. O ticket pode ser obtido no valor de R$ 10,00 (dez reais).
                     </p>
-                    <p class="text-center">
-                        Arte -&gt; 5 &nbsp;&nbsp; Criatividade -&gt; 4 &nbsp;&nbsp; Inovação -&gt; 4 &nbsp;&nbsp; Interação -&gt; 3
-                    </p>
-                    <p class="text-center">
-                        Ou...
-                    </p>
-                    <p class="text-center">
-                        Arte -&gt; 3 &nbsp;&nbsp; Criatividade -&gt; 3 &nbsp;&nbsp; Inovação -&gt; 5 &nbsp;&nbsp; Interação -&gt; 5
-                    </p>
+                    <br>
                     <p>
-                        Dentre outras diversas combinações. Para evitar qualquer tipo de vantagem ou favoritismo para artistas que já tenham uma base de seguidores em redes sociais ou nomes midiáticos, implantamos um sistema especial de votação. Ao escolher alguma arte para votar o voto só será validado se o usuário escolher e votar em uma segunda arte, arte esta que será uma das três últimas colocadas. Desta forma, eliminamos a chance de algum candidato ser boicotado ou impulsionado de forma ilegal, e damos chance para todos os participantes do começo ao fim!
+                        <strong>- Após adquirir o meu Ticket, o que devo fazer?</strong>
+                        <br>
+                        Basta escolher um concurso aberto e que possua vagas para inscrição. Acesse-o e inscreva-se!
+
+                    </p>
+                    <br>
+                    <p>
+                        <strong>- Como funcionarão os concursos?</strong>
+                        <br>
+                        Cada concurso possuirá três palavras-chave, obtidas diretamente do Random. Seguiremos a seguinte cronologia na hora de criarmos um novo concurso:
+                        <br>
+
+                        <pre>1ª FASE – INSCRIÇÃO:
+    Duração: 3 (três) dias, 72 horas completas.
+Período para que os artistas adquiram seu(s) ticket(s) e se inscrevam em algum concurso aberto. Após inscrito, o usuário já pode começar a criar sua arte para o concurso.
+
+2ª FASE – PREPARO e ENVIO DA ARTE:
+    Duração: 5 (cinco) dias, 120 horas completas.
+    Etapa na qual o artista deve preparar e enviar sua arte diretamente no concurso inscrito. Após finalizar sua arte no papel/digital, o usuário ao enviar para o sistema deverá escolher uma ordem de categorias que visa ganhar bônus. 
+Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico, então deverá numerar suas categorias de 1 a 4, onde 1 é a MELHOR CATEGORIA e 4 é a MENOS TRABALHADA. Em seu caso, Maria escolheria:
+    1 – Criatividade;
+    2 – Uso das palavras-chave;
+    3 – Interação com os elementos;
+    4 – Arte.
+Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que caiba numa folha A4 (210x297mm). É essencial que o artista só envie sua arte após tê-la revisada e em posse de plena certeza que aquela será sua arte final. Usuários que se inscreverem logo no começo do período de inscrição contam com mais tempo que os usuários inscritos de última hora!
+**De forma alguma será aceita qualquer arte após o prazo estipulado.
+
+3º FASE – VOTAÇÃO:
+    Duração: 2 (dois) dias, 48 horas completas.
+    Após encerrado o período de envio das artes, terá início o período de votação. O voto será aberto para todos os usuários que se cadastrarem no site. Os votos serão divididos em 4 (quatro) categorias. 
+– Criatividade;
+– Uso das palavras-chave (encaixar de forma prudente o uso das três palavras sugeridas no concurso);
+    – Interação com os elementos (arte que correlaciona todos os elementos presentes, que não deixa nada solto só para afirmar que o uso das palavras-chave foi feito);
+    – Arte.
+
+4º FASE – RESULTADOS e PREMIAÇÕES:
+    Após o período da votação terminar, o sistema irá apurar e indicar o vencedor do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
                     </p>
                     <h4><ins>Premiações:</ins></h4>
                     <div class="col-md-6 col-md-offset-3">
@@ -111,6 +140,34 @@
                             </tr>
                             </tbody>
                         </table>
+                        <h3>RANDOM</h3>
+                        <hr>
+                        <p>
+                        <strong>
+                        - O que é o “Random”?
+                        </strong>
+                        <br>
+                            É a ferramenta desenvolvida pela equipe Cerebox. Ao pé da letra gerador e randomizador de temas, que acessa o nosso banco de palavras para criar as mais diversas combinações. Se bem usado, centenas de bilhares de combinações diferentes, o que significa que é muito mais fácil ganhar na loteria, vestido com uma camisa estampada com a face do Bozo (o palhaço mais divertido da TV) dançando frevo e comendo tapioca do que obter um conjunto de temas igual ao de algum outro usuário.
+
+                            
+                        </p>
+                        <br>
+                        <p>
+                            <strong>
+                                - Qual é a proposta da ferramenta Random?
+                            </strong>
+                            <br>
+                                Servir como teste e exercício de criatividades para artistas e profissionais ou pessoas que têm como hobbie o uso da criatividade. A mesma serve tanto para desenhistas, escritores, compositores, animadores gráficos e tantas outras mais. A equipe Cerebox usará da ferramenta para obter as palavras-chave para os concursos do site, gerando sempre temas interessantes e desafiadores. Vale lembrar que a mesma não funciona sozinha, e sim em conjunto com a criatividade do usuário, portanto saiba que nenhuma combinação é impossível de ser imaginada/desenhada, o céu é o limite e é você quem determina até onde quer dar asas à sua criatividade!
+
+                        </p>
+                        <br>
+                        <p>
+                            <strong>
+                                - Como o Random funciona?
+                            </strong>
+                            <br>
+                            De duas formas diferentes: na primeira o usuário pode simplesmente randomizar toda e qualquer categoria do nosso banco de dados, e na segunda, o mesmo pode limitar os resultados escolhendo as categorias que mais lhe interessar no momento. 
+                        </p>
                     </div>
                 </div>
             </div>
