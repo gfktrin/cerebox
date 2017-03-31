@@ -13,11 +13,15 @@ class InvoiceController extends Controller
     {
         $invoice = Invoice::where('id',$request->get('invoice_id'))->get()->first();
 
-        $invoice->transaction_id = $request->get('transaction_id');
+        if(is_null($invoice)){
+            \Log::critial('Retorno da loja não foi salvo.',['transaction_id' => $request->get('transaction_id')]);
+        }else{
+            $invoice->transaction_id = $request->get('transaction_id');
 
-        $invoice->save();
+            $invoice->save();
 
-        $invoice->updateInfo();
+            $invoice->updateInfo();
+        }
 
         return redirect()->action('HomeController@paymentReturn');
     }
