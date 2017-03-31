@@ -71,6 +71,6 @@ class Contest extends Model
     {
         $time = time();
 
-        return $this->begins_at->timestamp <= $time && $this->ends_at->timestamp >= $time;
+        return $this->begins_at->timestamp <= $time && $this->ends_at->timestamp >= $time && $this->projects->count() < $this->max_users;
     }
 }

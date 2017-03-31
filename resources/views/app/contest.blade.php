@@ -65,10 +65,17 @@
                            class="btn btn-primary btn-raised pull-right">
                             Enviar projeto
                         </a>
+                        <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
+                            {{ $contest->projects->count() }} inscritos de {{ $contest->max_users }} vagas
+                        </p>
                     @else
-                        <a href="{{ action('HomeController@acquireTickets') }}" class="btn btn-primary pull-right">
-                            Você não possui tickets suficientes para entrar no concurso
-                        </a>
+                        @if($contest->projects->count() >= $contest->max_users)
+                            <button type="button" disabled class="btn btn-primary pull-right">Concurso lotado</button>
+                        @else
+                            <a href="{{ action('HomeController@acquireTickets') }}" class="btn btn-primary pull-right">
+                                Você não possui tickets suficientes para entrar no concurso
+                            </a>
+                        @endif
                     @endif
                 @endif 
             </div>

@@ -7,7 +7,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
-<<<<<<< Updated upstream
                     <div class="row text-center">
                         <!--<a href="{{ action('Auth\LoginController@redirectToFacebook') }}"
                            class="btn btn-social btn-facebook">
