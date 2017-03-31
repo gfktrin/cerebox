@@ -140,7 +140,8 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
                             </tr>
                             </tbody>
                         </table>
-                        <h3>RANDOM</h3>
+                    </div>
+                    <h3>RANDOM</h3>
                         <hr>
                         <p>
                         <strong>
@@ -168,7 +169,6 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
                             <br>
                             De duas formas diferentes: na primeira o usuário pode simplesmente randomizar toda e qualquer categoria do nosso banco de dados, e na segunda, o mesmo pode limitar os resultados escolhendo as categorias que mais lhe interessar no momento. 
                         </p>
-                    </div>
                 </div>
             </div>
         </div>
