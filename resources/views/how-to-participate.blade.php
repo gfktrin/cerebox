@@ -141,6 +141,7 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
                             </tbody>
                         </table>
                     </div>
+                    <br>
                     <h3>RANDOM</h3>
                         <hr>
                         <p>
