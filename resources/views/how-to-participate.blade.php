@@ -67,7 +67,7 @@
                         Cada concurso possuirá três palavras-chave, obtidas diretamente do Random. Seguiremos a seguinte cronologia na hora de criarmos um novo concurso:
                         <br>
 
-                        <pre>1ª FASE – INSCRIÇÃO:
+                        1ª FASE – INSCRIÇÃO:
     Duração: 3 (três) dias, 72 horas completas.
 Período para que os artistas adquiram seu(s) ticket(s) e se inscrevam em algum concurso aberto. Após inscrito, o usuário já pode começar a criar sua arte para o concurso.
 
@@ -92,9 +92,8 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
 
 4º FASE – RESULTADOS e PREMIAÇÕES:
     Após o período da votação terminar, o sistema irá apurar e indicar o vencedor do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
-                    </pre></p>
+                    </p>
                     <h3>Premiações:</h3>
-                    <hr>
                     <div class="col-md-6 col-md-offset-3">
                         <table class="table table-bordered">
                             <thead>
