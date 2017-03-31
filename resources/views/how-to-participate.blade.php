@@ -68,30 +68,32 @@
                         <br>
 
                         1ª FASE – INSCRIÇÃO:
-    Duração: 3 (três) dias, 72 horas completas.
-Período para que os artistas adquiram seu(s) ticket(s) e se inscrevam em algum concurso aberto. Após inscrito, o usuário já pode começar a criar sua arte para o concurso.
-
-2ª FASE – PREPARO e ENVIO DA ARTE:
-    Duração: 5 (cinco) dias, 120 horas completas.
-    Etapa na qual o artista deve preparar e enviar sua arte diretamente no concurso inscrito. Após finalizar sua arte no papel/digital, o usuário ao enviar para o sistema deverá escolher uma ordem de categorias que visa ganhar bônus. 
-Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico, então deverá numerar suas categorias de 1 a 4, onde 1 é a MELHOR CATEGORIA e 4 é a MENOS TRABALHADA. Em seu caso, Maria escolheria:
-    1 – Criatividade;
-    2 – Uso das palavras-chave;
-    3 – Interação com os elementos;
-    4 – Arte.
-Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que caiba numa folha A4 (210x297mm). É essencial que o artista só envie sua arte após tê-la revisada e em posse de plena certeza que aquela será sua arte final. Usuários que se inscreverem logo no começo do período de inscrição contam com mais tempo que os usuários inscritos de última hora!
-**De forma alguma será aceita qualquer arte após o prazo estipulado.
-
-3º FASE – VOTAÇÃO:
-    Duração: 2 (dois) dias, 48 horas completas.
-    Após encerrado o período de envio das artes, terá início o período de votação. O voto será aberto para todos os usuários que se cadastrarem no site. Os votos serão divididos em 4 (quatro) categorias. 
-– Criatividade;
-– Uso das palavras-chave (encaixar de forma prudente o uso das três palavras sugeridas no concurso);
-    – Interação com os elementos (arte que correlaciona todos os elementos presentes, que não deixa nada solto só para afirmar que o uso das palavras-chave foi feito);
-    – Arte.
-
-4º FASE – RESULTADOS e PREMIAÇÕES:
-    Após o período da votação terminar, o sistema irá apurar e indicar o vencedor do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
+                        <br>
+                        <span style="color: cyan;">Duração: 3 (três) dias, 72 horas completas.</span>
+                        <br>
+                    Período para que os artistas adquiram seu(s) ticket(s) e se inscrevam em algum concurso aberto. Após inscrito, o usuário já pode começar a criar sua arte para o concurso.
+                    <br>
+                    2ª FASE – PREPARO e ENVIO DA ARTE:<br>
+                        <span style="color:cyan">Duração: 5 (cinco) dias, 120 horas completas. </span><br>
+                        Etapa na qual o artista deve preparar e enviar sua arte diretamente no concurso inscrito. Após finalizar sua arte no papel/digital, o usuário ao enviar para o sistema deverá escolher uma ordem de categorias que visa ganhar bônus. <br>
+                    Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico, então deverá numerar suas categorias de 1 a 4, onde 1 é a MELHOR CATEGORIA e 4 é a MENOS TRABALHADA. Em seu caso, Maria escolheria: <br>
+                        1 – Criatividade; <br>
+                        2 – Uso das palavras-chave; <br>
+                        3 – Interação com os elementos; <br>
+                        4 – Arte. <br>
+                    Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que caiba numa folha A4 (210x297mm). É essencial que o artista só envie sua arte após tê-la revisada e em posse de plena certeza que aquela será sua arte final. Usuários que se inscreverem logo no começo do período de inscrição contam com mais tempo que os usuários inscritos de última hora! <br>
+                    **De forma alguma será aceita qualquer arte após o prazo estipulado. <br>
+<br>
+                    3º FASE – VOTAÇÃO: <br>
+                        <span style="color:cyan">Duração: 2 (dois) dias, 48 horas completas.</span><br>
+                        Após encerrado o período de envio das artes, terá início o período de votação. O voto será aberto para todos os usuários que se cadastrarem no site. Os votos serão divididos em 4 (quatro) categorias. <br>
+                    – Criatividade; <br>
+                    – Uso das palavras-chave (encaixar de forma prudente o uso das três palavras sugeridas no concurso);<br>
+                        – Interação com os elementos (arte que correlaciona todos os elementos presentes, que não deixa nada solto só para afirmar que o uso das palavras-chave foi feito); <br>
+                        – Arte. <br>
+                        <br>
+                    4º FASE – RESULTADOS e PREMIAÇÕES: <br>
+                        Após o período da votação terminar, o sistema irá apurar e indicar o vencedor do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
                     </p>
                     <h3>Premiações:</h3>
                     <div class="col-md-6 col-md-offset-3">
@@ -142,6 +144,7 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
                         </table>
                     </div>
                     <br>
+                    {{--
                     <h3>RANDOM</h3>
                         <hr>
                         <p>
@@ -169,7 +172,7 @@ Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que ca
                             </strong>
                             <br>
                             De duas formas diferentes: na primeira o usuário pode simplesmente randomizar toda e qualquer categoria do nosso banco de dados, e na segunda, o mesmo pode limitar os resultados escolhendo as categorias que mais lhe interessar no momento. 
-                        </p>
+                        </p> --}}
                 </div>
             </div>
         </div>
