@@ -184,7 +184,7 @@ class Invoice extends Model
         $date = new \Carbon\Carbon('NOW -1 month');
 
         Configure::setAccountCredentials(env('PAGSEGURO_EMAIL'),env('PAGSEGURO_TOKEN_PRODUCTION'));
-        
+
         try {
             $response = \PagSeguro\Services\Transactions\Search\Code::search(
                 \PagSeguro\Configuration\Configure::getAccountCredentials(),
@@ -197,12 +197,12 @@ class Invoice extends Model
             $curl = curl_init();
             curl_setopt_array($curl,[
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions?email='.env('PAGSEGURO_EMAIL').'&token='.env('PAGSEGURO_TOKEN_SANDBOX').'&reference='.$this->id.'&initialDate='.$date->format('c'),
+                CURLOPT_URL => 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions?email='.env('PAGSEGURO_EMAIL').'&token='.env('PAGSEGURO_TOKEN_PRODUCTION').'&reference='.$this->id.'&initialDate='.$date->format('c'),
             ]);
 
             $response = curl_exec($curl);
 
-            $response = simplexml_load_string($response);
+            $response = simplexml_load_string($response);        
 
             curl_close($curl);
 
