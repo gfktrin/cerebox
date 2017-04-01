@@ -6,6 +6,7 @@ use Cerebox\Grade;
 use Cerebox\Http\Requests\Project\CreateRequest;
 use Cerebox\Http\Requests\Project\SubmitRequest;
 use Cerebox\Http\Requests\Project\UpdateRequest;
+use Cerebox\Contest;
 use Cerebox\Invoice;
 use Cerebox\Project;
 use Cerebox\Vote;
