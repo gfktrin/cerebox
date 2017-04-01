@@ -119,7 +119,9 @@
                 </p>
             </div>
         </section>
-        <div class="col-md-12 text-center" style="width: 164px; height: 98px; bottom: 15px; left: 15px;"><a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=cerebox.com.br','SiteLock','width=600,height=600,left=160,top=170');" ><img alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/cerebox.com.br" /></a></div>   
+        <section class="row">
+            <div class="col-md-12 text-center" style="width: 164px; height: 98px; bottom: 15px; left: 15px;"><a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=cerebox.com.br','SiteLock','width=600,height=600,left=160,top=170');" ><img alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/cerebox.com.br" /></a></div>   
+        </section>
     </div>
     
 @stop
