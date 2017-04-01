@@ -120,4 +120,7 @@
             </div>
         </section>
     </div>
+    <footer>
+     <div style="position: fixed; z-index: 1000; width: 164px; height: 98px; bottom: 15px; left: 15px; margin-left: -82px;"><a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=cerebox.com.br','SiteLock','width=600,height=600,left=160,top=170');" ><img class="img-responsive" alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/cerebox.com.br" /></a></div>   
+    </footer>
 @stop
