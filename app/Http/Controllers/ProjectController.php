@@ -134,6 +134,9 @@ class ProjectController extends Controller
 
         $total_points = 0;
         foreach($grades as $grade){
+            if($grade < 2 | $grade > 5){
+                return response(['alert' => ['Os campos devem estar entre 2 e 5'] ], 422);
+            }
             $total_points += $grade;
         }
 
