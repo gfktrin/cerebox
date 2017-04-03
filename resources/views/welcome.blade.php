@@ -97,7 +97,7 @@
     <div class="col-md-8 col-md-offset-2">
 
         <!--Concursos-->
-        {{-- <section class="row">
+        <section class="row">
             @foreach($contests as $contest)
                 <div class="col-md-4">
                     <div class="panel contest-card">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             @endforeach
-        </section> --}}
+        </section>
 
         <section class="row">
             <div class="col-md-12">
