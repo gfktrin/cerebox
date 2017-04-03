@@ -161,7 +161,7 @@ class ProjectController extends Controller
         ])->get();
 
         if($previous_vote->count() > 0)
-            return response([ 'alert' => ['Você ja tem um voto cadastrado nesse papel'] ],422);
+            return response([ 'alert' => ['Você já votou nessa arte!'] ],422);
 
         //Save votes and grades
         $inputs = [
