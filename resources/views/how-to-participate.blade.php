@@ -68,14 +68,15 @@
                         <br>
 
                         1ª FASE – INSCRIÇÃO:
-                        <hr>
                         <br>
-                        <span style="color: blue;">Duração: 3 (três) dias, 72 horas completas.</span>
+                        <span style="color: blue;"><strong>Duração: 3 (três) dias, 72 horas completas.</strong></span>
                         <br>
                     Período para que os artistas adquiram seu(s) ticket(s) e se inscrevam em algum concurso aberto. Após inscrito, o usuário já pode começar a criar sua arte para o concurso.
+                    </p>
                     <br>
-                    2ª FASE – PREPARO e ENVIO DA ARTE:<br> <hr>
-                        <span style="color:blue">Duração: 5 (cinco) dias, 120 horas completas. </span><br>
+                    <h4>2ª FASE – PREPARO e ENVIO DA ARTE:</h4>
+                    <p> 
+                        <span style="color:blue"><strong>Duração: 5 (cinco) dias, 120 horas completas.</strong></span><br>
                         Etapa na qual o artista deve preparar e enviar sua arte diretamente no concurso inscrito. Após finalizar sua arte no papel/digital, o usuário ao enviar para o sistema deverá escolher uma ordem de categorias que visa ganhar bônus. <br>
                     Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico, então deverá numerar suas categorias de 1 a 4, onde 1 é a MELHOR CATEGORIA e 4 é a MENOS TRABALHADA. Em seu caso, Maria escolheria: <br>
                         1 – Criatividade; <br>
@@ -84,16 +85,19 @@
                         4 – Arte. <br>
                     Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que caiba numa folha A4 (210x297mm). É essencial que o artista só envie sua arte após tê-la revisada e em posse de plena certeza que aquela será sua arte final. Usuários que se inscreverem logo no começo do período de inscrição contam com mais tempo que os usuários inscritos de última hora! <br>
                     **De forma alguma será aceita qualquer arte após o prazo estipulado. <br>
-<br>
-                    3º FASE – VOTAÇÃO: <br> <hr>
-                        <span style="color:blue">Duração: 2 (dois) dias, 48 horas completas.</span><br>
+                    <br>
+                    </p>
+
+                    <h4>3º FASE – VOTAÇÃO:</h4> <p> 
+                        <span style="color:blue"><strong>Duração: 2 (dois) dias, 48 horas completas.</strong></span><br>
                         Após encerrado o período de envio das artes, terá início o período de votação. O voto será aberto para todos os usuários que se cadastrarem no site. Os votos serão divididos em 4 (quatro) categorias. <br>
                     – Criatividade; <br>
                     – Uso das palavras-chave (encaixar de forma prudente o uso das três palavras sugeridas no concurso);<br>
                         – Interação com os elementos (arte que correlaciona todos os elementos presentes, que não deixa nada solto só para afirmar que o uso das palavras-chave foi feito); <br>
                         – Arte. <br>
                         <br>
-                    4º FASE – RESULTADOS e PREMIAÇÕES: <br><hr>
+                    </p>
+                    <h4>4º FASE – RESULTADOS e PREMIAÇÕES:</h4>
                         Após o período da votação terminar, o sistema irá apurar e indicar os vencedores do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
                     </p>
                     <h3>Premiações:</h3>
