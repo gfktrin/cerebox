@@ -17,7 +17,7 @@
                             <input type="hidden" name="project_id" value="">
                             
                             <p>Distribua 15 pontos entre essas categorias:</p>
-                            <p style="color: red"><strong>Incetivamos a usar até duas casas decimais ex: 4,39; 2,01</strong></p>
+                            <p style="color: red"><strong>Incetivamos o uso de até duas casas decimais ex: 4,39; 2,1</strong></p>
 
                             @foreach(Cerebox\VoteCategory::all() as $vote_category)
                                 <div class="form-group">
