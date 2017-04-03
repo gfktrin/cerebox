@@ -5,7 +5,7 @@
         <h1 class="text-primary">Concurso: {{ $contest->title }}</h1>
         <br>
         @if($need_to_validate_vote)
-            <h2 class="text-primary">Você deve validar seu voto. Vote em um desses projetos:</h2>
+            <h2 class="text-primary"><span style="color: black">[APENAS NO PRIMEIRO VOTO]</span> Você deve validar seu voto. Vote em um desses projetos:</h2>
             @foreach($contest->leastVotedProjects(3,$votes->pluck('project_id')) as $project)
                 <div class="col-md-4 col-xs-6">
                     <div class="panel project-card">
