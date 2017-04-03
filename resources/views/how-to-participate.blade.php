@@ -18,9 +18,9 @@
                         <strong>- Quais são as regras do concurso?</strong>
                         <br>
                         A arte não deve conter material registrado (imagens de propriedade intelectual de terceiros, marcas ou símbolos), assim como conteúdo ofensivo, pejorativo, nudez e/ou violência explícita ou materiais que visam promover qualquer tipo de discurso de ódio, também não serão aceitas cópias de imagens já existentes. A imagem deve necessariamente ser criada a partir das palavras-chave dadas em cada concurso, imagens sem relação com os temas não serão aceitas. O uso das palavras-chave pode ser denotativo ou conotativo, use sua criatividade e não se prenda somente ao dicionário! Exemplo:
-                        <pre>   <ins>TORPEDO</ins>
-                                        Denotativo – engenho explosivo, flutuante ou submerso.
-                                        Conotativo – SMS, mensagens de celular, brinquedo, etc.</pre>
+                        <pre>    <ins>TORPEDO</ins>
+        Denotativo – engenho explosivo, flutuante ou submerso. 
+        Conotativo – SMS, mensagens de celular, brinquedo, etc.</pre>
                     </p>
                     <br>
                     <p>
