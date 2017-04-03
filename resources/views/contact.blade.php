@@ -13,8 +13,7 @@
                         <address>
                             <strong>Cerebox</strong>
                             <br>
-                            <abbr title="Telefone">Tel: (21) 8364-2163</abbr> <br>
-                            <a href="mailto:someemailai@gmail.com">someemailai@gmail.com</a>
+                            <a href="mailto:contato@cerebox.com.br">contato@cerebox.com.br</a>
                         </address>
                         <form action="{{ action('ContactController@sendMessage') }}" class="form" method="POST">
                             {{ csrf_field() }}

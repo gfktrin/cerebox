@@ -3,9 +3,9 @@
 @section('content')
     <div class="col-md-8 col-md-offset-2 contest">
         <h1 class="text-primary">Concurso: {{ $contest->title }}</h1>
-
+        <br>
         @if($need_to_validate_vote)
-            <h2 class="text-primary">Você deve validar seu voto. Vote em um desses projetos:</h2>
+            <h2 class="text-primary"><span style="color: black">[APENAS NO PRIMEIRO VOTO]</span> Este é o seu primeiro voto no concurso. Para validá-lo, vote em outra arte.</h2>
             @foreach($contest->leastVotedProjects(3,$votes->pluck('project_id')) as $project)
                 <div class="col-md-4 col-xs-6">
                     <div class="panel project-card">
@@ -37,6 +37,7 @@
             @endforeach
         @else
             <p>{{ $contest->description }}</p>
+            <br>
             <div class="row steps">
                 @if($contest->ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">

@@ -6,6 +6,7 @@ use Cerebox\Grade;
 use Cerebox\Http\Requests\Project\CreateRequest;
 use Cerebox\Http\Requests\Project\SubmitRequest;
 use Cerebox\Http\Requests\Project\UpdateRequest;
+use Cerebox\Contest;
 use Cerebox\Invoice;
 use Cerebox\Project;
 use Cerebox\Vote;
@@ -62,8 +63,6 @@ class ProjectController extends Controller
                 ]);
 
             $user->save();
-
-            dd($e);
 
             return response([ 'art' => ['Você já enviou uma arte para este concurso'] ],422);
         }
@@ -135,6 +134,9 @@ class ProjectController extends Controller
 
         $total_points = 0;
         foreach($grades as $grade){
+            if($grade < 2 | $grade > 5){
+                return response(['alert' => ['Os campos devem estar entre 2 e 5'] ], 422);
+            }
             $total_points += $grade;
         }
 
@@ -162,7 +164,7 @@ class ProjectController extends Controller
         ])->get();
 
         if($previous_vote->count() > 0)
-            return response([ 'alert' => ['Você ja tem um voto cadastrado nesse papel'] ],422);
+            return response([ 'alert' => ['Você já votou nessa arte!'] ],422);
 
         //Save votes and grades
         $inputs = [
