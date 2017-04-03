@@ -66,9 +66,8 @@
                         <br>
                         Cada concurso possuirá três palavras-chave, obtidas diretamente do Random. Seguiremos a seguinte cronologia na hora de criarmos um novo concurso:
                         <br>
-
-                        1ª FASE – INSCRIÇÃO:
-                        <br>
+                    </p>
+                        <h4>1ª FASE – INSCRIÇÃO:</h4><p>
                         <span style="color: blue;"><strong>Duração: 3 (três) dias, 72 horas completas.</strong></span>
                         <br>
                     Período para que os artistas adquiram seu(s) ticket(s) e se inscrevam em algum concurso aberto. Após inscrito, o usuário já pode começar a criar sua arte para o concurso.
