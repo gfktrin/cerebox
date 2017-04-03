@@ -64,8 +64,6 @@ class ProjectController extends Controller
 
             $user->save();
 
-            dd($e);
-
             return response([ 'art' => ['Você já enviou uma arte para este concurso'] ],422);
         }
 
