@@ -4,10 +4,10 @@
 	<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Adquirir Tickets
+				<h4>Adquirir Tickets</h4>
 			</div>
 			<div class="panel-body">
-				Meus Tickets: {{ $user->tickets or 0 }}
+				<h4>Meus Tickets: {{ $user->tickets or 0 }}</h4>
 
 				<form class="form" 
 					  method="POST"
@@ -20,7 +20,7 @@
 					<input type="hidden" name="user_id" value="{{ $user->id }}">
 					
 					<div class="form-group @if($errors->has('products.0.quantity')) has-error @endif">
-						<label class="col-md-6 control-label">Quantidade de tickets</label>
+						<label class="col-md-6 control-label"><h5>Quantidade de tickets</h5></label>
 						<div class="input-group col-md-6">
 							<input class="form-control" type="number" name="products[0][quantity]" value="1">
 							@if($errors->has('products.0.quantity'))

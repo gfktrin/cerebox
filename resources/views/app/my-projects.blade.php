@@ -30,7 +30,7 @@
                         @endif
                     </tbody>
                 </table>
-                <hr>
+                <br>
                 @php($approved_projects = $projects->filter(function($item){ return $item->approved ? $item : null; }))
                 <h4>Aprovados</h4>
                 <table class="table table-hover">
