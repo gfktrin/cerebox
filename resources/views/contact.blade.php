@@ -11,9 +11,9 @@
                             <div class="alert alert-success">{{ Session::get('contact-success') }}</div>
                         @endif
                         <address>
-                            <h4><strong>Cerebox</strong></h4>
+                            <strong style="font-size: 15px;">Cerebox</strong>
                             <br>
-                            <h5><a href="mailto:contato@cerebox.com.br">contato@cerebox.com.br</a></h5>
+                            <a href="mailto:contato@cerebox.com.br" style="font-size: 12px;">contato@cerebox.com.br</a>
                         </address>
                         <form action="{{ action('ContactController@sendMessage') }}" class="form" method="POST">
                             {{ csrf_field() }}
