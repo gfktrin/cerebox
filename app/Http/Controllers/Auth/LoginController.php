@@ -57,7 +57,7 @@ class LoginController extends Controller
 
     public function handleFacebookCallback(){
         $fb = new \Facebook\Facebook([
-            'app_id' => config('services.facebook.client_id'), // Replace {app-id} with your app id
+            'app_id' => config('services.facebook.client_id'), 
             'app_secret' => config('services.facebook.client_secret'),
             'default_graph_version' => 'v2.2',
         ]);
@@ -151,7 +151,7 @@ class LoginController extends Controller
             $user = User::where('email', $facebook_user->getEmail())->get()->first();
 
             if(!is_null($user)){
-                $user->facebook_id = $facebook_user->id;
+                $user->facebook_id = $facebook_user->getId();
             }else{
                 $user = User::create([
                     'name' => $facebook_user->getName(),
