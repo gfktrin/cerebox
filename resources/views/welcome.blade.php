@@ -128,8 +128,8 @@
             </div>
         </section>
         <section class="row">
-            <div class="col-md-6 text-center" style="width: 164px; height: 98px; bottom: 15px; left: 15px;"><a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=cerebox.com.br','SiteLock','width=600,height=600,left=160,top=170');" ><img alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/cerebox.com.br" /></a></div>
-            <div class="fb-page col-md-6" data-href="https://www.facebook.com/Projeto-de-criatividade-710518912441861/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Projeto-de-criatividade-710518912441861/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Projeto-de-criatividade-710518912441861/">Projeto de criatividade</a></blockquote></div>
+            <div class="col-md-2 text-center" style="width: 164px; height: 98px; bottom: 15px; left: 15px;"><a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=cerebox.com.br','SiteLock','width=600,height=600,left=160,top=170');" ><img alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/cerebox.com.br" /></a></div>
+            <div class="fb-page col-md-2" data-href="https://www.facebook.com/Projeto-de-criatividade-710518912441861/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Projeto-de-criatividade-710518912441861/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Projeto-de-criatividade-710518912441861/">Projeto de criatividade</a></blockquote></div>
         </section>
     </div>
     
