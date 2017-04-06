@@ -58,6 +58,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                        <li><a href="http:\\randomizador.cerebox.com.br">Randomizador</a></li>
                         <li><a href="{{ action('HomeController@howToParticipate') }}">Como participar</a></li>
                         <li><a href="{{ action('HomeController@openContests') }}">Concursos abertos</a></li>
                         <li><a href="{{ action('ContactController@index') }}">Contato</a></li>
