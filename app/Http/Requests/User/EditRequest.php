@@ -32,7 +32,7 @@ class EditRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => "required|unique:users,email,$user_id",
-            'nickname' => 'required',
+            //'nickname' => 'required',
             'phone' => 'required',
             // 'zipcode' => 'required',
             // 'address' => 'required',

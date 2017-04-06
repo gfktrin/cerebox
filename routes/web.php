@@ -87,6 +87,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('project/{project}/refuse', 'ProjectController@refuse');
         Route::get('project/{project}/delete', 'ProjectController@delete');
 
+        Route::get('project/computar', 'ProjectController@makePositions');
+
 	});
 
 	//Admin sem prefixo

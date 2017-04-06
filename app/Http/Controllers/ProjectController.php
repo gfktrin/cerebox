@@ -140,11 +140,8 @@ class ProjectController extends Controller
             $total_points += $grade;
         }
 
-        if($total_points != 15){
-            if($total_points > 15)
-                return response([ 'alert' => ['O máximo de pontos para distruibuir é 15'] ],422);
-            else
-                return response([ 'alert' => ['Você não distruibui todos os pontos'] ],422);
+        if($total_points < 12 || $total_points > 15){
+            return response(['alert' => ['Você deve distribuir de 12 a 15 pontos'] ], 422);
         }
 
         //Initializing variables
@@ -222,5 +219,10 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect()->back();
+    }
+
+    public function makePositions(Contest $contest)
+    {
+        dd($contest);   
     }
 }

@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Descrição(opcional):</label>
+                        <label class="control-label col-md-2">Descrição (opcional):</label>
 
                         <div class="col-md-10">            
                             <textarea class="form-control" name="description" rows="8" maxlength="500"></textarea>
@@ -46,7 +46,7 @@
                             </span>
                         </div>
                     </div>
-                    
+                    <br>
                     @foreach(Cerebox\VoteCategory::all() as $vote_category)
                         <div class="form-group">
                             <label class="control-label col-md-2" for="multiplier-category-{{$vote_category->id}}">{{ $vote_category->name }}</label>
