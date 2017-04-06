@@ -8,8 +8,10 @@
                 <h4>Envios Pendentes</h4>
                 <table class="table table-hover">
                     <thead>
-                    <th width="50%">Concurso</th>
-                    <th width="50%">Arte</th>
+                    <th width="45%">Concurso</th>
+                    <th width="15%">Arte</th>
+                    <th width="15%"></th>
+                    <th width="15%"></th>
                     </thead>
 
                     <tbody>
@@ -35,9 +37,9 @@
                 <h4>Aprovados</h4>
                 <table class="table table-hover">
                     <thead>
-                        <th width="50%">Concurso</th>
+                        <th width="45%">Concurso</th>
                         <th width="15%">Arte</th>
-                        <th width="10%">Votos</th>
+                        <th width="15%">Votos</th>
                         <th width="15%">Colocação</th>
                     </thead>
                     <tbody>

@@ -32,7 +32,7 @@
 
                     <div class="form-group">
                         <label for="update-contest-max_users" class="control-label">Máximo de inscritos</label>
-                        <input type="number" name="max_users" id="update-contest-max_users" class="form-control" value="{{ $contest->max_users }}">
+                        <input type="number" name="max_users" id="update-contest-max_users" class="form-control">
                     </div>
 
                     <div class="form-group">

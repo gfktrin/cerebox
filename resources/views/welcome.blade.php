@@ -122,7 +122,7 @@
         <section class="row">
             <div class="col-md-12">
                 <h2 class="text-center text-primary">Quem Somos</h2>
-                <p>
+                <p class="text-justify">
                     A equipe Cerebox surgiu de um sonho. Uma vontade de criar novas ideias e explorar novos conceitos, tentando implementar tudo isso em alguma atividade que funcionasse com artes, pessoas, hobbies, trabalhos profissionais e, ao mesmo tempo, diversão e criatividade. Eis que em 2016 conseguimos misturar todas essas coisas (ou pelo menos tentamos, de verdade!) e criamos o Random, que logo depois se extendeu para os concursos. Esperamos, como bons sonhadores que somos, que todos se divirtam e façam bom uso das ferramentas aqui contidas, frutos de muito trabalho (MUITO, 5 vezes trabalho), paixão e dedicação sem fim. Tendo isso em mente, podemos dar a largada para que o brainstorm mais doido de suas vidas comece!
                 </p>
             </div>

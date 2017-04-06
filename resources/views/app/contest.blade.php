@@ -41,14 +41,14 @@
             <div class="row steps">
                 @if($contest->ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
-                        Envio de arte <br> <b>( até {{ $contest->ends_at->format('d/m/Y') }})</b>
+                        Envio de arte <br> <b>(até as 23:59 do dia {{ $contest->ends_at->format('d/m') }})</b>
                     </div>
                 @else
                     <div class="col-xs-4"><p style="padding-top:11px">Envio de arte</p></div>
                 @endif
                 @if($contest->ends_at->getTimestamp() <= time() && $contest->voting_ends_at->getTimestamp() >= time())
                     <div class="col-xs-4 active">
-                        Votação <br> <b>( até {{ $contest->voting_ends_at->format('d/m/Y') }}</b>
+                        Votação <br> <b>(até as 23:59 do dia {{ $contest->voting_ends_at->format('d/m') }})</b>
                     </div>
                 @else
                     <div class="col-xs-4">
@@ -81,8 +81,15 @@
             </div>
             
             @if($contest->isOpenForVoting())
+                @if(!Auth::check())
+                    <br>
+                    <p><strong><a href="{{ url('/register') }}">Cadastre-se</a> ou faça <a href="{{ url('/login') }}">login</a> para ter acesso à descrição e poder votar na sua arte preferida!</strong></p>
+                @endif
                 <h4 class="text-primary">Artes: </h4>
-                @foreach($contest->projects()->where('approved',1)->get() as $project)
+                @foreach($contest->projects()->where('approved',1)->get()->shuffle() as $key => $project)
+                    @if($key % 3 == 0)
+                        <div class="row">
+                    @endif
                     <div class="col-md-4 col-xs-6">
                         <div class="panel project-card">
                             <div class="panel-body text-center">
@@ -110,6 +117,9 @@
                             </div>
                         </div>
                     </div>
+                    @if($key % 3 == 2)
+                        </div>
+                    @endif
                 @endforeach
             @endif
         @endif

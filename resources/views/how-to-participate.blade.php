@@ -6,15 +6,16 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2 class="text-center text-primary">Como Participar</h2>
+                    <hr>
                     <h3>CONCURSOS</h3>
                     <hr>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Como os concursos de criatividade funcionam?</strong>
                         <br>
                         Abrimos as portas para todos os usuários que desejam se aventurar e tentar levar suas obras de arte ao topo do pódio! Elaboramos todo um sistema que permite que desenhistas novatos, intermediários e avançados consigam competir entre si, sem favoritismo. O artista menos conhecido desfrutará das mesmas chances de vitória que outro artista já popular, por exemplo. O concurso com entrada (ticket) premia os três primeiros colocados no ranking final de cada competição
-                    <p>
+                    </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Quais são as regras do concurso?</strong>
                         <br>
                         A arte não deve conter material registrado (imagens de propriedade intelectual de terceiros, marcas ou símbolos), assim como conteúdo ofensivo, pejorativo, nudez e/ou violência explícita ou materiais que visam promover qualquer tipo de discurso de ódio, também não serão aceitas cópias de imagens já existentes. A imagem deve necessariamente ser criada a partir das palavras-chave dadas em cada concurso, imagens sem relação com os temas não serão aceitas. O uso das palavras-chave pode ser denotativo ou conotativo, use sua criatividade e não se prenda somente ao dicionário! Exemplo:
@@ -23,50 +24,51 @@
         Conotativo – SMS, mensagens de celular, brinquedo, etc.</pre>
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Qual o formato do desenho para envio? Papel ou digital? Colorido ou preto e branco?</strong>
                         <br>
                         Serão aceitas tanto artes criadas sobre papel quanto de forma digital, coloridas e/ou preto e brancas. O formato do papel/tela para envio é o da <strong>folha A4 (210x297mm)</strong>, artes fora deste padrão não serão aceitas. Os formatos aceitos para o arquivo de envio são: <strong>PNG, GIF e JPEG</strong>. A imagem deve ser scanneada ou enquadrada perfeitamente como foto, sem sombras externas ou presença de margens e/ou texturas do ambiente (mesas, cadeiras, mãos, material de desenho, etc.). O desenho não precisa ocupar o espaço todo da folha A4, basta estar contido na mesma.
 
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Como são escolhidos os ganhadores?</strong>
                         <br>
                         O voto é totalmente popular, liberado para todos os usuários cadastrados, ninguém da equipe Cerebox tem permissão ou poder de alterar os votos dos usuários ou resultados dos concursos.                    
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Qual é a premiação?</strong>
                         <br>
                         A premiação é totalmente feita em dinheiro, de acordo com o número de participantes do concurso. O cálculo é totalmente baseado em uma porcentagem já fixada. Se uma competição contar com 100 artistas e outra com 50, a competição com maior número de inscritos premiará valores mais altos (e atrativos).
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Existe algum benefício além do dinheiro para os melhores colocados?</strong>
                         <br>
                         A equipe Cerebox planeja, futuramente, oferecer maiores vantagens, além do dinheiro, para os melhores colocados. Mas, se gostarmos de alguma arte perdida no ranking, nada impede que entremos em contato para falar de negócios!
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Qual é a taxa para participar do concurso?</strong>
                         <br>
                         A entrada no concurso é feita por meio de TICKETS. Cada ticket lhe permite ter acesso a um concurso por vez. Tickets não podem ser reaproveitados e possuem valor unitário. O ticket pode ser obtido no valor de R$ 10,00 (dez reais).
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Após adquirir o meu Ticket, o que devo fazer?</strong>
                         <br>
                         Basta escolher um concurso aberto e que possua vagas para inscrição. Acesse-o e inscreva-se!
 
                     </p>
                     <br>
-                    <p>
+                    <p class="text-justify">
                         <strong>- Como funcionarão os concursos?</strong>
                         <br>
                         Cada concurso possuirá três palavras-chave, obtidas diretamente do Random. Seguiremos a seguinte cronologia na hora de criarmos um novo concurso:
                         <br>
                     </p>
+                    <br>
                         <h4>1ª FASE – INSCRIÇÃO:</h4><p>
                         <span style="color: blue;"><strong>Duração: 3 (três) dias, 72 horas completas.</strong></span>
                         <br>
@@ -74,7 +76,7 @@
                     </p>
                     <br>
                     <h4>2ª FASE – PREPARO e ENVIO DA ARTE:</h4>
-                    <p> 
+                    <p class="text-justify"> 
                         <span style="color:blue"><strong>Duração: 5 (cinco) dias, 120 horas completas.</strong></span><br>
                         Etapa na qual o artista deve preparar e enviar sua arte diretamente no concurso inscrito. Após finalizar sua arte no papel/digital, o usuário ao enviar para o sistema deverá escolher uma ordem de categorias que visa ganhar bônus. <br>
                     Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico, então deverá numerar suas categorias de 1 a 4, onde 1 é a MELHOR CATEGORIA e 4 é a MENOS TRABALHADA. Em seu caso, Maria escolheria: <br>
@@ -87,7 +89,7 @@
                     <br>
                     </p>
 
-                    <h4>3º FASE – VOTAÇÃO:</h4> <p> 
+                    <h4>3º FASE – VOTAÇÃO:</h4> <p class="text-justify"> 
                         <span style="color:blue"><strong>Duração: 2 (dois) dias, 48 horas completas.</strong></span><br>
                         Após encerrado o período de envio das artes, terá início o período de votação. O voto será aberto para todos os usuários que se cadastrarem no site. Os votos serão divididos em 4 (quatro) categorias. <br>
                     – Criatividade; <br>
@@ -96,7 +98,7 @@
                         – Arte. <br>
                         <br>
                     </p>
-                    <h4>4º FASE – RESULTADOS e PREMIAÇÕES:</h4>
+                    <h4>4º FASE – RESULTADOS e PREMIAÇÕES:</h4> <p class="text-justify">
                         Após o período da votação terminar, o sistema irá apurar e indicar os vencedores do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
                     </p>
                     <h3>Premiações:</h3>
@@ -151,7 +153,7 @@
                     {{--
                     <h3>RANDOM</h3>
                         <hr>
-                        <p>
+                        <p class="text-justify">
                         <strong>
                         - O que é o “Random”?
                         </strong>
@@ -161,7 +163,7 @@
                             
                         </p>
                         <br>
-                        <p>
+                        <p class="text-justify">
                             <strong>
                                 - Qual é a proposta da ferramenta Random?
                             </strong>
@@ -170,7 +172,7 @@
 
                         </p>
                         <br>
-                        <p>
+                        <p class="text-justify">
                             <strong>
                                 - Como o Random funciona?
                             </strong>
