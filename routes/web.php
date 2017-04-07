@@ -77,6 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('concursos', 'AdminController@contests');
 		Route::get('concurso/criar', 'AdminController@createContest');
 		Route::get('concurso/{contest}', 'AdminController@retrieveContest');
+		Route::get('concurso/{contest}/computar', 'AdminController@makePositions');
         
 		Route::get('compras','AdminController@purchases');
 		Route::get('compra/{purchase}','AdminController@retrievePurchase');
@@ -86,9 +87,6 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('project/{project}/approve', 'ProjectController@approve');
 		Route::get('project/{project}/refuse', 'ProjectController@refuse');
         Route::get('project/{project}/delete', 'ProjectController@delete');
-
-        Route::get('project/computar', 'ProjectController@makePositions');
-
 	});
 
 	//Admin sem prefixo

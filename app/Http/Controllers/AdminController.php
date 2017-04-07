@@ -5,6 +5,7 @@ namespace Cerebox\Http\Controllers;
 use Cerebox\Contest;
 use Cerebox\Invoice;
 use Cerebox\Purchase;
+use Cerebox\Project;
 use Cerebox\User;
 use Illuminate\Http\Request;
 
@@ -77,5 +78,35 @@ class AdminController extends Controller
         return view('admin.purchase.retrieve')->with([
             'purchase' => $purchase
         ]);
+    }
+
+    public function makePositions(Contest $contest)
+    {
+        $approved_projects = $contest->projects()->where('approved',1)->get();
+
+        foreach ($approved_projects as $project) {
+            $final_grade = 0;
+
+            for ($i=1; $i < 5; $i++) { 
+                $final_grade += $project->getAverage($i);                
+            }
+            $project->position = $final_grade;
+        }
+
+        $projects_in_order = $approved_projects->sortByDesc('position')->values();
+    
+
+        foreach ($projects_in_order as $key => $project) {
+            $project->position = $key + 1;
+        }
+        dd($projects_in_order);
+
+        $projects_in_order->update('position');
+
+        return view('admin.contest.retrieve')->with([
+            'contest' => $contest,
+            'pending_projects' => $pending_projects,
+            'approved_projects' => $approved_projects
+        ]);  
     }
 }

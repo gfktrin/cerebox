@@ -40,7 +40,7 @@ class Project extends Model
 
     public function multipliers()
     {
-        return DB::table('project_vote_categories_multipliers')->where('project_id',$this->id)->get();
+        return \DB::table('project_vote_categories_multipliers')->where('project_id',$this->id)->get();
     }
 
     public function getMultiplier($vote_category)
@@ -50,10 +50,10 @@ class Project extends Model
 
         $multiplier = \DB::table('project_vote_categories_multipliers')->select('multiplier')->where([
             'project_id' => $this->id,
-            'vote_category' => $vote_category
+            'vote_category_id' => $vote_category
         ])->get()->first();
 
-        return $mutiplier->multiplier;
+        return $multiplier->multiplier;
     }
 
     public function setMultiplier($vote_category,$multiplier)
@@ -94,9 +94,15 @@ class Project extends Model
 
     public function getAverage($vote_category)
     {
-        $sum = $this->grades()->category($vote_category)->average('grade');
-        $multiplier = $this->getMultiplier($vote_category);
 
+        $valid_votes_id = $this->votes->where('valid', 1)->pluck('id')->toArray();
+
+        $valid_grades = $this->grades->whereIn('vote_id', $valid_votes_id);
+
+        $sum = $this->grades->where('vote_category_id', $vote_category)->average('grade');
+
+        $multiplier = $this->getMultiplier($vote_category);
+        
         return $sum * $multiplier;
     }
 }

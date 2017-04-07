@@ -118,7 +118,7 @@
                 <h4>Aprovados</h4>
                 @if($contest->voting_ends_at < new \DateTime())
                     <div class="center-block">
-                        <a href="{{ action('ProjectController@makePositions') }}" class="btn btn-primary btn-raised">Computar Votação</a>
+                        <a href="{{ action('AdminController@makePositions', ['contest' => $contest->id] )}}" class="btn btn-primary btn-raised">Computar Votação</a>
                     </div>
                 @endif
                 <table class="table table-hover">

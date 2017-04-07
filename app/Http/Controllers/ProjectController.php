@@ -221,8 +221,4 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
-    public function makePositions(Contest $contest)
-    {
-        dd($contest);   
-    }
 }
