@@ -78,6 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('concurso/criar', 'AdminController@createContest');
 		Route::get('concurso/{contest}', 'AdminController@retrieveContest');
 		Route::get('concurso/{contest}/computar', 'AdminController@makePositions');
+		Route::get('concurso/{contest}/ranking/download','ContestController@rankingSpreadSheet');
         
 		Route::get('compras','AdminController@purchases');
 		Route::get('compra/{purchase}','AdminController@retrievePurchase');

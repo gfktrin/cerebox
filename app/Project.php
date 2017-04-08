@@ -5,6 +5,7 @@ namespace Cerebox;
 use Cerebox\Grade;
 use Cerebox\Purchase;
 use Cerebox\Vote;
+use Cerebox\VoteCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -89,20 +90,20 @@ class Project extends Model
             }else{
                 return 'recusado';
             }
-        }
+        }   
     }
 
     public function getAverage($vote_category)
     {
+        if($vote_category instanceof VoteCategory)
+            $vote_category = $vote_category->id;
 
-        $valid_votes_id = $this->votes->where('valid', 1)->pluck('id')->toArray();
+        $valid_votes_id = $this->votes()->valid()->get()->pluck('id');
 
-        $valid_grades = $this->grades->whereIn('vote_id', $valid_votes_id);
-
-        $sum = $this->grades->where('vote_category_id', $vote_category)->average('grade');
+        $average = $this->grades->whereIn('vote_id', $valid_votes_id)->where('vote_category_id',$vote_category)->average('grade');
 
         $multiplier = $this->getMultiplier($vote_category);
         
-        return $sum * $multiplier;
+        return $average * $multiplier;
     }
 }
