@@ -116,7 +116,7 @@
                 @endif
 
                 <h4>Aprovados</h4>
-                @if($contest->voting_ends_at < new \DateTime() && $contest->is_finalized == 0)
+                @if($contest->voting_ends_at < new \DateTime())
                     <div class="center-block">
                         <a href="{{ action('AdminController@makePositions', ['contest' => $contest->id] )}}" class="btn btn-primary btn-raised">Computar Votação</a>
                     </div>
