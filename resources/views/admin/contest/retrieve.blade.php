@@ -116,7 +116,7 @@
                 @endif
 
                 <h4>Aprovados</h4>
-                @if($contest->voting_ends_at < new \DateTime())
+                @if($contest->voting_ends_at < new \DateTime() && $contest->is_finalized == 0)
                     <div class="center-block">
                         <a href="{{ action('AdminController@makePositions', ['contest' => $contest->id] )}}" class="btn btn-primary btn-raised">Computar Votação</a>
                     </div>
@@ -128,9 +128,10 @@
                         <th>Arte</th>
                         <th>Votos</th>
                         <th></th>
+                        <th>Posição</th>
                     </thead>
                     <tbody>
-                    @foreach($contest->projects()->where('approved',1)->get() as $project)
+                    @foreach($contest->projects()->where('approved',1)->get()->sortBy('position') as $project)
                         <tr>
                             <td>{{ $project->id }}</td>
                             <td>
@@ -154,6 +155,9 @@
                                 <a href="{{ action('ProjectController@delete',['project' => $project]) }}" class="btn btn-raised btn-danger" title="Remover Projeto">
                                     <i class="material-icons">delete</i>
                                 </a>
+                            </td>
+                            <td>
+                                {{ $project->position }}
                             </td>
                         </tr>
                     @endforeach

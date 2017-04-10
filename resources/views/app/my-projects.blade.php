@@ -54,9 +54,11 @@
                                 </a>
                             </td>
                             <td>{{ $project->votes->count() }}</td>
-                            <td>
-                                {{ $project->contest->ranking($project->id) }}º
-                            </td>
+                            @if($project->contest->is_finalized)
+                                <td> {{ $project->position }} </td>
+                            @else
+                                <td></td>
+                            @endif
                         </tr>
                     @endforeach
                     </tbody>

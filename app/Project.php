@@ -106,4 +106,13 @@ class Project extends Model
         
         return $average * $multiplier;
     }
+
+    public function savePosition()
+    {
+        $updating_project = Project::find($this->id);
+        $updating_project->points = $this->points;
+        $updating_project->position = $this->position;
+        $updating_project->save();
+    }
+
 }

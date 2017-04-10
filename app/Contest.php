@@ -3,6 +3,7 @@
 namespace Cerebox;
 
 use Illuminate\Database\Eloquent\Model;
+use Cerebox\Project;
 
 class Contest extends Model
 {
@@ -72,5 +73,16 @@ class Contest extends Model
         $time = time();
 
         return $this->begins_at->timestamp <= $time && $this->ends_at->timestamp >= $time && $this->projects->count() < $this->max_users;
+    }
+
+    public function finalizeContest($projects)
+    {
+        foreach ($projects as $project) {
+            $project->savePosition();
+        }
+
+        $this->is_finalized = 1;
+
+        $this->save();
     }
 }

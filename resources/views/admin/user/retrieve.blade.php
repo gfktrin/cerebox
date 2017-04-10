@@ -120,6 +120,7 @@
                             <th>Concurso</th>
                             <th>Arte</th>
                             <th>Status</th>
+                            <th>Posição</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,6 +137,11 @@
                                     </a>
                                 </td>
                                 <td>{{ $project->getStatus() }}</td>
+                                @if($project->contest->is_finalized)
+                                    <td> {{ $project->position }} </td>
+                                @else
+                                    <td></td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

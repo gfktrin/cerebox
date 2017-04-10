@@ -90,23 +90,20 @@ class AdminController extends Controller
             for ($i=1; $i < 5; $i++) { 
                 $final_grade += $project->getAverage($i);                
             }
-            $project->position = $final_grade;
+            $project->points = $final_grade;
         }
 
-        $projects_in_order = $approved_projects->sortByDesc('position')->values();
+
+        $projects_in_order = $approved_projects->sortByDesc('points')->values();
     
 
         foreach ($projects_in_order as $key => $project) {
             $project->position = $key + 1;
         }
-        dd($projects_in_order);
 
-        $projects_in_order->update('position');
+        $contest->finalizeContest($projects_in_order);
 
-        return view('admin.contest.retrieve')->with([
-            'contest' => $contest,
-            'pending_projects' => $pending_projects,
-            'approved_projects' => $approved_projects
-        ]);  
+
+        return $this->retrieveContest($contest);
     }
 }
