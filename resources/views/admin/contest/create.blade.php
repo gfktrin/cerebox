@@ -25,6 +25,30 @@
                         </div>
                     </div>
 
+                    <div class="form-inline col-md-12">
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#1" class="control-label">1º Tema: </label>
+                            <div class="input-group">
+                                <input type="text" name="theme#1" id="create-contest-themes#1" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#2" class="control-label">2º Tema: </label>
+                            <div class="input-group">
+                                <input type="text" name="theme#2" id="create-contest-themes#2" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#3" class="control-label">3º Tema: </label>
+                            <div class="input-group">
+                                <input type="text" name="theme#3" id="create-contest-themes#3" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+
                     <div class="form-group">
                         <label for="create-contest-description" class="control-label">Descrição</label>
                         <textarea id="create-contest-description" class="form-control" name="description" rows="5"></textarea>
