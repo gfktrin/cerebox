@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('editar-perfil', 'HomeController@editUser');
 	Route::get('concurso/{contest}/enviar-projeto', 'HomeController@submitProject');
 	Route::get('meus-projetos', 'HomeController@myProjects');
+	Route::post('concurso/{contest}/participar','ProjectController@enterContest')->name("participar");;
 
     Route::post('usuario/{user}/editar', 'UserController@edit');
     Route::post('projeto/criar', 'ProjectController@create');

@@ -13,7 +13,8 @@
                     <th>ID</th>
                     <th>Título</th>
                     <th>URL</th>
-                    <th>Começa em</th>
+                    <th>Inscrição começa em</th>
+                    <th>Envio começa em</th>
                     <th>Termina em</th>
                     <th></th>
                     </thead>
@@ -23,6 +24,7 @@
                             <td>{{ $contest->id }}</td>
                             <td>{{ $contest->title }}</td>
                             <td><a href="{{ url("concurso/$contest->slug") }}">{{ url("concurso/$contest->slug") }}</a></td>
+                            <td>{{ $contest->registration_begins_at->format('d/m/Y H:i') }}</td>
                             <td>{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
                             <td>{{ $contest->ends_at->format('d/m/Y H:i') }}</td>
                             <td>

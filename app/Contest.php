@@ -11,7 +11,7 @@ class Contest extends Model
 
     protected $guarded = [];
 
-    protected $dates = [ 'begins_at', 'ends_at' , 'voting_ends_at' ];
+    protected $dates = [ 'registration_begins_at', 'begins_at', 'ends_at' , 'voting_ends_at' ];
 
     //Scope
     public function scopeSubmitOpen($query)
@@ -22,7 +22,7 @@ class Contest extends Model
 
     public function scopeOpen($query)
     {
-        return $this->scopeSubmitOpen($query);
+        return $this->scopeRegistrationOpen($query);
     }
 
     public function scopeVotingOpen($query)
@@ -32,6 +32,10 @@ class Contest extends Model
                      ->where('voting_ends_at','>=',$date);
     }
 
+    public function scopeRegistrationOpen($query){
+        return $query->where('registration_begins_at', '<=', date('Y-m-d H:i:s'))
+            ->where('begins_at', '>=', date('Y-m-d H:i:s'));
+    }
     //Relationships
     public function projects()
     {
@@ -84,5 +88,10 @@ class Contest extends Model
         $this->is_finalized = 1;
 
         $this->save();
+    }
+    public function isOpenForRegistration(){
+        $time = time();
+
+        return $this->registration_begins_at->timestamp <= $time && $this->begins_at->timestamp >= $time && $this->projects->count() < $this->max_users;
     }
 }

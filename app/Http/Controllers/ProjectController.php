@@ -12,6 +12,7 @@ use Cerebox\Project;
 use Cerebox\Vote;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProjectController extends Controller
 {
@@ -22,26 +23,9 @@ class ProjectController extends Controller
         $contest = Contest::find($inputs['contest_id']);
 
         if(!$contest->isOpenForSubmit())
-            return response('Concurso Lotado ou fechado para envio de projeto',403);
+            return response('Concurso fechado para envio de projeto',403);
 
         $user = \Auth::user();
-
-        $user->tickets -= Project::$entry_fee;
-
-        //Tem q colocar essa lógica num lugar melhor
-        if($user->tickets >= 0){
-            \DB::table('user_ticket_log')->insert([
-                'user_id' => $user->id,
-                'message' => 'Usuário gastou '.Project::$entry_fee.' tickets para entrar no concurso de identificador '.$inputs['contest_id'],
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-                ]);
-
-            $user->save();
-        }else{
-            \Session::flash('not-enough-tickets','Você não possui tickets suficientes para se inscrever');
-            return redirect()->back();
-        }
 
         $file = $request->file('art');
 
@@ -53,16 +37,6 @@ class ProjectController extends Controller
         try{
             $project =  Project::create($inputs);
         }catch(QueryException $e){
-            $user->tickets += Project::$entry_fee;
-
-            \DB::table('user_ticket_log')->insert([
-                'user_id' => $user->id,
-                'message' => 'Restituição de '.Project::$entry_fee.' tickets por erro ao entrar no concurso de identificador '.$inputs['contest_id'],
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-                ]);
-
-            $user->save();
 
             return response([ 'art' => ['Você já enviou uma arte para este concurso'] ],422);
         }

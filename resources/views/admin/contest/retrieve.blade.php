@@ -36,7 +36,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="update-contest-begins_at">Começa em:</label>
+                        <label for="update-contest-begins_at">Inscrição começa em:</label>
+                        <input type="datetime" name="registration_begins_at" id="update-contest-begins_at" class="form-control" value="{{ $contest->registration_begins_at }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="update-contest-begins_at">Envio começa em:</label>
                         <input type="datetime" name="begins_at" id="update-contest-begins_at" class="form-control" value="{{ $contest->begins_at }}">
                     </div>
 
