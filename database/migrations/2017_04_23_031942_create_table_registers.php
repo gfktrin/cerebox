@@ -13,13 +13,11 @@ class CreateTableRegisters extends Migration
      */
     public function up()
     {
-        Schema::create('contests',function(Blueprint $table){
+        Schema::create('registers',function(Blueprint $table){
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('contest_id')->unsigned();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
+
 
             $table->timestamps();
             $table->softDeletes();
