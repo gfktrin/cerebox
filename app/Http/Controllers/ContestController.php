@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Cerebox\Http\Requests\Contest\EnterRequest;
 use Illuminate\Database\QueryException;
 use Cerebox\Register;
+use Illuminate\Support\Facades\Redirect;
 
 class ContestController extends Controller
 {
@@ -109,8 +110,8 @@ class ContestController extends Controller
 
             $user->save();
 
-            //return response($e);
-            return response('Falha ao tentar se inscrever.' ,422);
+            return response($e);
+            //return response('Falha ao tentar se inscrever.' ,422);
         }
 
         //return $register;

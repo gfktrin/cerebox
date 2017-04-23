@@ -90,7 +90,7 @@
                 @endif 
             </div>
             @if(!$contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
-                <h2>Você já está inscrito, aguarde a liberação dos envios().</h2>
+                <h2>Você já está inscrito, aguarde a liberação dos envios.</h2>
             @endif
             @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
                 <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
