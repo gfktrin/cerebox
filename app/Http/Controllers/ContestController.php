@@ -110,8 +110,8 @@ class ContestController extends Controller
 
             $user->save();
 
-            return response($e);
-            //return response('Falha ao tentar se inscrever.' ,422);
+            //return response($e);
+            return response('Falha ao tentar se inscrever.' ,422);
         }
 
         //return $register;
