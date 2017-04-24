@@ -13,9 +13,10 @@ class AddColumnThemesToContest extends Migration
      */
     public function up()
     {
-        Schema::table('contests',function(Blueprint $table){
+        Schema::table('contests',function (Blueprint $table) {
             $table->text('themes');
         });
+
     }
 
     /**
@@ -25,8 +26,8 @@ class AddColumnThemesToContest extends Migration
      */
     public function down()
     {
-        Schema::table('contests',function(Blueprint $table){
-            $table->dropColumn('themes');
+        Schema::table('contests', function (Blueprint $table) {
+           $table->dropColumn('themes');
         });
     }
 }

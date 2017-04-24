@@ -12,6 +12,7 @@
                     <thead>
                     <th>ID</th>
                     <th>Título</th>
+                    <th>Temas</th>
                     <th>URL</th>
                     <th>Começa em</th>
                     <th>Termina em</th>
@@ -22,9 +23,15 @@
                         <tr>
                             <td>{{ $contest->id }}</td>
                             <td>{{ $contest->title }}</td>
+                            <td>
+                                <?php  $themes_array = explode(",", $contest->themes) ?>
+                                @foreach($themes_array as $theme)
+                                  {{$theme }}
+                                @endforeach
+                            </td>
                             <td><a href="{{ url("concurso/$contest->slug") }}">{{ url("concurso/$contest->slug") }}</a></td>
-                            <td>{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
-                            <td>{{ $contest->ends_at->format('d/m/Y H:i') }}</td>
+                            <td style="text-align: center;">{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
+                            <td style="text-align: center;">{{ $contest->ends_at->format('d/m/Y H:i') }}</td>
                             <td>
                                 <a href="{{ action('AdminController@retrieveContest',['contest' => $contest->id]) }}" class="btn btn-sm">
                                     <i class="material-icons">edit</i>
