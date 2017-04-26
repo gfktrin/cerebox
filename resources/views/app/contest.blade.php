@@ -76,7 +76,7 @@
 
                         </form>
                         <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
-                            {{ $contest->projects->count() }} inscritos de {{ $contest->max_users }} vagas
+                            {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
                         </p>
                     @else
                         @if($contest->projects->count() >= $contest->max_users)

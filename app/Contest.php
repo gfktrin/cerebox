@@ -4,6 +4,7 @@ namespace Cerebox;
 
 use Illuminate\Database\Eloquent\Model;
 use Cerebox\Project;
+use Cerebox\Register;
 
 class Contest extends Model
 {
@@ -45,6 +46,10 @@ class Contest extends Model
     public function votes()
     {
         return $this->hasMany(Vote::class, 'contest_id');
+    }
+
+    public function registers(){
+        return $this->hasMany(Register::class,'contest_id');
     }
 
     public function ranking($project_id = null)
