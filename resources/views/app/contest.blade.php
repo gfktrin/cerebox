@@ -87,6 +87,13 @@
                             </a>
                         @endif
                     @endif
+                @elseif($contest->isOpenForRegistration() && !Auth::check())
+                    <a href="{{ url('/login') }}" class="btn btn-primary pull-right">
+                        Você deve estar logado para entrar no concurso
+                    </a>
+                    <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
+                        {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
+                    </p>
                 @endif 
             </div>
             @if(!$contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
