@@ -55,6 +55,7 @@ class HomeController extends Controller
             'contest' => $contest,
             'user' => \Auth::user()
         ]);
+
     }
 
     public function myProjects()
@@ -92,6 +93,7 @@ class HomeController extends Controller
     public function openContests()
     {
         return view('app.open-contests')->with([
+            'open_contests' => Contest::registrationOpen()->get(),
             'submit_contests' => Contest::submitOpen()->get(),
             'voting_contests' => Contest::votingOpen()->get()
         ]);

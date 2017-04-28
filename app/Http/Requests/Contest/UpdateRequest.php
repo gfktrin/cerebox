@@ -36,7 +36,8 @@ class UpdateRequest extends FormRequest
                 Rule::unique('contests')->ignore($contest->id)
             ],
             'begins_at' => 'required|date',
-            'ends_at' => 'required|date'
+            'ends_at' => 'required|date',
+            'registration_begins_at' => 'required|date',
         ];
     }
 }

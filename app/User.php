@@ -86,6 +86,10 @@ class User extends Authenticatable
         return $this->hasMany(Purchase::class,'user_id');
     }
 
+    public function registers(){
+        return $this->hasMany(Register::class,'user_id');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
