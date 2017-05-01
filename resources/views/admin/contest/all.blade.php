@@ -6,7 +6,8 @@
             <h4 class="panel-heading">Concursos</h4>
             <div class="panel-body">
                 <div class="pull-right">
-                    <a href="{{ action('AdminController@createContest') }}" class="btn btn-primary btn-raised">Criar concurso</a>
+                    <a href="{{ action('AdminController@createContest') }}"
+                       class="btn btn-primary btn-raised">Criar concurso</a>
                 </div>
                 <table class="table table-hover table-responsive">
                     <thead>
@@ -23,12 +24,7 @@
                         <tr>
                             <td>{{ $contest->id }}</td>
                             <td>{{ $contest->title }}</td>
-                            <td>
-                                <?php  $themes_array = explode(",", $contest->themes) ?>
-                                @foreach($themes_array as $theme)
-                                  {{$theme }}
-                                @endforeach
-                            </td>
+                            <td> </td>
                             <td><a href="{{ url("concurso/$contest->slug") }}">{{ url("concurso/$contest->slug") }}</a></td>
                             <td style="text-align: center;">{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
                             <td style="text-align: center;">{{ $contest->ends_at->format('d/m/Y H:i') }}</td>

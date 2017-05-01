@@ -37,6 +37,12 @@ class AdminController extends Controller
         ]);
     }
 
+    public function createTheme(Contest $contest)
+    {
+        return view('admin.theme.create');
+    }
+
+
     public function createContest()
     {
         return view('admin.contest.create');

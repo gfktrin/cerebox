@@ -25,18 +25,6 @@
                         </div>
                     </div>
 
-                    <div class="form-inline col-md-12">
-                        <?php $themes_array = explode(",", $contest->themes) ?>
-                        @for($i = 0; $i < count($themes_array); $i++)
-                        <div class="form-group col-md-4">
-                            <label for="create-contest-themes#{{$i+1 }}" class="control-label">{{ $i + 1 }}º Tema: </label>
-                            <div class="input-group">
-                                <input type="text" name="themes[]" id="create-contest-themes#{{ $i+1 }}" class="form-control" value="{{$themes_array[$i]}}">
-                            </div>
-                        </div>
-                        @endfor
-                    </div>
-
                     <div class="form-group">
                         <label for="update-contest-description" class="control-label">Descrição</label>
                         <textarea class="form-control" id="update-contest-description" name="description" rows="5">{{ $contest->description }}</textarea>

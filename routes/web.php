@@ -79,6 +79,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('concurso/{contest}', 'AdminController@retrieveContest');
 		Route::get('concurso/{contest}/computar', 'AdminController@makePositions');
 		Route::get('concurso/{contest}/ranking/download','ContestController@rankingSpreadSheet');
+
+		Route::get('concurso/tema/criar', 'AdminController@createTheme');
+		Route::get('concurso/tema','AdminController@retrieveTheme');
         
 		Route::get('compras','AdminController@purchases');
 		Route::get('compra/{purchase}','AdminController@retrievePurchase');
@@ -95,6 +98,10 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('concurso/criar', 'ContestController@create');
 		Route::post('concurso/{contest}/editar', 'ContestController@update');
 		Route::post('concurso/{contest}/apagar', 'ContestController@delete');
+
+		Route::post('concurso/tema/criar', 'ThemeController@create');
+		Route::post('concurso/tema/editar', 'ThemeController@update');
+		Route::post('concurso/tema/apagar',  'ThemeController@delete');
 
 		Route::post('fatura/{invoice}/editar','InvoiceController@update');
 		Route::get('fatura/{invoice}/sincronizar-meio-de-pagamento','InvoiceController@updateStatus');

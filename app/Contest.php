@@ -43,6 +43,11 @@ class Contest extends Model
         return $this->hasMany(Vote::class, 'contest_id');
     }
 
+    public function themes()
+    {
+        return $this->belongsToMany(Theme::class, 'contest_theme');
+    }
+
     public function ranking($project_id = null)
     {
         $projects = $this->projects()->withCount('votes')->get();
