@@ -1,19 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <h4 class="panel-heading">Concursos</h4>
             <div class="panel-body">
                 <div class="pull-right">
-                    <a href="{{ action('AdminController@createContest') }}" class="btn btn-primary btn-raised">Criar concurso</a>
+                    <a href="{{ action('AdminController@createContest') }}"
+                       class="btn btn-primary btn-raised">Criar concurso</a>
                 </div>
-                <table class="table table-hover table-responsive">
+                <table class="table table-hover">
                     <thead>
                     <th>ID</th>
                     <th>Título</th>
+                    <th>Temas</th>
                     <th>URL</th>
-                    <th>Começa em</th>
+                    <th>Inscrição começa em</th>
+                    <th>Envio começa em</th>
                     <th>Termina em</th>
                     <th></th>
                     </thead>
@@ -22,7 +25,14 @@
                         <tr>
                             <td>{{ $contest->id }}</td>
                             <td>{{ $contest->title }}</td>
+                            <td>
+                                <?php $themes = explode('/',$contest->themes)?>
+                                @foreach($themes as $theme)
+                                        {{ $theme }}
+                                    @endforeach
+                            </td>
                             <td><a href="{{ url("concurso/$contest->slug") }}">{{ url("concurso/$contest->slug") }}</a></td>
+                            <td>{{ $contest->registration_begins_at->format('d/m/Y H:i') }}</td>
                             <td>{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
                             <td>{{ $contest->ends_at->format('d/m/Y H:i') }}</td>
                             <td>

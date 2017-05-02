@@ -36,37 +36,53 @@
                 </div>
             @endforeach
         @else
+            <?php $themes = explode('/', $contest->themes)  ?>
+                <h4 class="text-primary text-capitalize"> Temas:
+              @foreach($themes as $theme)
+                  {{ $theme  }} <?php echo '|' ?>
+              @endforeach
+          </h4>
             <p>{{ $contest->description }}</p>
             <br>
             <div class="row steps">
+                @if($contest->begins_at->getTimestamp() >= time())
+                    <div class="col-xs-3 active">
+                        Inscrição <br> <b>(até as 23:59 do dia {{ $contest->begins_at->format('d/m') }})</b>
+                    </div>
+                @else
+                    <div class="col-xs-3"><p style="padding-top:11px">Inscrição</p></div>
+                @endif
                 @if($contest->ends_at->getTimestamp() >= time())
-                    <div class="col-xs-4 active">
+                    <div class="col-xs-3 active">
                         Envio de arte <br> <b>(até as 23:59 do dia {{ $contest->ends_at->format('d/m') }})</b>
                     </div>
                 @else
-                    <div class="col-xs-4"><p style="padding-top:11px">Envio de arte</p></div>
+                    <div class="col-xs-3"><p style="padding-top:11px">Envio de arte</p></div>
                 @endif
                 @if($contest->ends_at->getTimestamp() <= time() && $contest->voting_ends_at->getTimestamp() >= time())
-                    <div class="col-xs-4 active">
+                    <div class="col-xs-3 active">
                         Votação <br> <b>(até as 23:59 do dia {{ $contest->voting_ends_at->format('d/m') }})</b>
                     </div>
                 @else
-                    <div class="col-xs-4">
+                    <div class="col-xs-3">
                         <p style="padding-top:11px">Votação</p>
                     </div>
                 @endif
-                <div class="col-xs-4"><p style="padding-top:11px">Apuração</p></div>
+                <div class="col-xs-3"><p style="padding-top:11px">Apuração</p></div>
             </div>
 
             <div class="row">
-                @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0)
+                @if($contest->isOpenForRegistration() && Auth::check() && Auth::user()->registers()->where('contest_id', $contest->id)->count() <= 0)
                     @if(Auth::user()->tickets >= Cerebox\Project::$entry_fee)
-                        <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
-                           class="btn btn-primary btn-raised pull-right">
-                            Enviar projeto
-                        </a>
+                        <form method="post" action="{{ action('ContestController@enterContest', ['contest' => $contest]) }}" >
+                            {{ csrf_field() }}
+                            <input type="hidden" name="contest_id" value="{{ $contest->id }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <button type="submit" class="btn btn-primary btn-raised pull-right">Participar do concurso</button>
+
+                        </form>
                         <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
-                            {{ $contest->projects->count() }} inscritos de {{ $contest->max_users }} vagas
+                            {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
                         </p>
                     @else
                         @if($contest->projects->count() >= $contest->max_users)
@@ -77,9 +93,25 @@
                             </a>
                         @endif
                     @endif
+                @elseif($contest->isOpenForRegistration() && !Auth::check())
+                    <a href="{{ url('/login') }}" class="btn btn-primary pull-right">
+                        Você deve estar logado para entrar no concurso
+                    </a>
+                    <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
+                        {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
+                    </p>
                 @endif 
             </div>
-            
+            @if(!$contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
+                <h2>Você já está inscrito, aguarde a liberação dos envios.</h2>
+            @endif
+            @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
+                <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
+                   class="btn btn-primary btn-raised pull-right">
+                    Enviar arte
+                </a>
+            @endif
+
             @if($contest->isOpenForVoting())
                 @if(!Auth::check())
                     <br>

@@ -5,8 +5,8 @@
         <div class="panel">
             <h4 class="panel-heading">Criar concurso</h4>
             <div class="panel-body">
-                <form action="{{ action('ContestController@create') }}"
-                      data-redirect="{{ action('AdminController@contests') }}"
+                <form action="{{ action('ContestController@create')}}"
+                      data-redirect="{{ action('AdminController@contests')}}"
                       id="create-contest"
                       class="form"
                       method="POST">
@@ -25,6 +25,29 @@
                         </div>
                     </div>
 
+                    <div class="form-inline col-md-12">
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#1" class="control-label">1º Tema: </label>
+                            <div class="input-group">
+                                <input type="text" name="themes[]" id="create-contest-themes#1" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#2" class="control-label">2º Tema: </label>
+                            <div class="input-group">
+                                <input type="text" name="themes[]" id="create-contest-themes#2" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#3" class="control-label">3º Tema: </label>
+                            <div class="input-group">
+                                <input type="text" name="themes[]" id="create-contest-themes#3" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="create-contest-description" class="control-label">Descrição</label>
                         <textarea id="create-contest-description" class="form-control" name="description" rows="5"></textarea>
@@ -36,7 +59,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="create-contest-begins_at" class="control-label">Começa em:</label>
+                        <label for="create-contest-begins_at" class="control-label">Inscrição começa em:</label>
+                        <input type="datetime" name="registration_begins_at" id="create-contest-begins_at" class="form-control">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="create-contest-begins_at" class="control-label">Envio começa em:</label>
                         <input type="datetime" name="begins_at" id="create-contest-begins_at" class="form-control">
                     </div>
 
