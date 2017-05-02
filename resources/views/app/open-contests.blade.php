@@ -17,14 +17,20 @@
             <h2 class="text-primary">Concursos abertos para inscrição</h2>
             <div class="row">
                 @foreach($open_contests as $contest)
+                    <?php $themes = explode('/', $contest->themes)?>
+
                     <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
-                                    {{ $contest->title }}
-                                </a>
+                        <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}" style="text-decoration: none">
+                            <div class="panel">
+                                <div class="panel-body text-center" >
+                                    <p class="text-capitalize"> {{ $contest->title }} </p>
+                                    <hr>
+                                    @foreach($themes as $theme)
+                                        <ul style="list-style-type: circle" class="text-left text-capitalize"><li> {{ $theme }}</li></ul>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
