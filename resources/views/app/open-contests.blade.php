@@ -13,6 +13,24 @@
                 </div>
             </div>
         </form>-->
+        @if($open_contests->count() > 0)
+            <h2 class="text-primary">Concursos abertos para inscrição</h2>
+            <div class="row">
+                @foreach($open_contests as $contest)
+                    <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
+                                    {{ $contest->title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <h2 class="text-primary">Não há nenhum concurso aberto para inscrição</h2>
+        @endif
         @if($submit_contests->count() > 0)
             <h2 class="text-primary">Concursos abertos para envio</h2>
             <div class="row">

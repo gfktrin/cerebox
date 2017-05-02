@@ -59,7 +59,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="create-contest-begins_at" class="control-label">Começa em:</label>
+                        <label for="create-contest-begins_at" class="control-label">Inscrição começa em:</label>
+                        <input type="datetime" name="registration_begins_at" id="create-contest-begins_at" class="form-control">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="create-contest-begins_at" class="control-label">Envio começa em:</label>
                         <input type="datetime" name="begins_at" id="create-contest-begins_at" class="form-control">
                     </div>
 

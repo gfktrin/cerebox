@@ -15,8 +15,9 @@
                     <th>Título</th>
                     <th>Temas</th>
                     <th>URL</th>
-                    <th>Início</th>
-                    <th>Término</th>
+                    <th>Inscrição começa em</th>
+                    <th>Envio começa em</th>
+                    <th>Termina em</th>
                     <th></th>
                     </thead>
                     <tbody>
@@ -31,8 +32,9 @@
                                     @endforeach
                             </td>
                             <td><a href="{{ url("concurso/$contest->slug") }}">{{ url("concurso/$contest->slug") }}</a></td>
-                            <td style="text-align: center;">{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
-                            <td style="text-align: center;">{{ $contest->ends_at->format('d/m/Y H:i') }}</td>
+                            <td>{{ $contest->registration_begins_at->format('d/m/Y H:i') }}</td>
+                            <td>{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
+                            <td>{{ $contest->ends_at->format('d/m/Y H:i') }}</td>
                             <td>
                                 <a href="{{ action('AdminController@retrieveContest',['contest' => $contest->id]) }}" class="btn btn-sm">
                                     <i class="material-icons">edit</i>
