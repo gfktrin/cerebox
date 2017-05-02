@@ -15,8 +15,8 @@
                     <th>Título</th>
                     <th>Temas</th>
                     <th>URL</th>
-                    <th>Começa em</th>
-                    <th>Termina em</th>
+                    <th>Início</th>
+                    <th>Término</th>
                     <th></th>
                     </thead>
                     <tbody>
@@ -24,7 +24,12 @@
                         <tr>
                             <td>{{ $contest->id }}</td>
                             <td>{{ $contest->title }}</td>
-                            <td> </td>
+                            <td>
+                                <?php $themes = explode('/',$contest->themes)?>
+                                @foreach($themes as $theme)
+                                        {{ $theme }}
+                                    @endforeach
+                            </td>
                             <td><a href="{{ url("concurso/$contest->slug") }}">{{ url("concurso/$contest->slug") }}</a></td>
                             <td style="text-align: center;">{{ $contest->begins_at->format('d/m/Y H:i') }}</td>
                             <td style="text-align: center;">{{ $contest->ends_at->format('d/m/Y H:i') }}</td>

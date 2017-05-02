@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateThemesTable extends Migration
+class AddColumnThemesToContest extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateThemesTable extends Migration
      */
     public function up()
     {
-        Schema::create('themes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->timestamps();
+        Schema::table('contests',function(Blueprint $table){
+            $table->text('themes');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateThemesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('themes');
+        Schema::table('contests',function(Blueprint $table){
+            $table->dropColumn('themes');
+        });
     }
 }

@@ -36,6 +36,12 @@
                 </div>
             @endforeach
         @else
+            <?php $themes = explode('/', $contest->themes)  ?>
+                <h4 class="text-primary text-capitalize"> Temas:
+              @foreach($themes as $theme)
+                  {{ $theme  }} <?php echo '|' ?>
+              @endforeach
+          </h4>
             <p>{{ $contest->description }}</p>
             <br>
             <div class="row steps">

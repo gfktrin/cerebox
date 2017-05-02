@@ -29,6 +29,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'themes' => 'required',
             'slug' => [
                 'required',
                 Rule::unique('contests')

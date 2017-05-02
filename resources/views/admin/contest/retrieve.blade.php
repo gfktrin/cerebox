@@ -25,6 +25,30 @@
                         </div>
                     </div>
 
+                    <?php $themes = explode('/',$contest->themes)?>
+                    <div class="form-inline col-md-12">
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#1" class="control-label">1º Tema: </label>
+                            <div class="input-group">
+                                <input  required type="text" name="themes[]" id="create-contest-themes#1" class="form-control" value="{{$themes[0]}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#2" class="control-label">2º Tema: </label>
+                            <div class="input-group">
+                                <input required type="text" name="themes[]" id="create-contest-themes#2" class="form-control" value="{{$themes[1]}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="create-contest-themes#3" class="control-label">3º Tema: </label>
+                            <div class="input-group">
+                                <input required type="text" name="themes[]" id="create-contest-themes#3" class="form-control" value="{{$themes[2]}}">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="update-contest-description" class="control-label">Descrição</label>
                         <textarea class="form-control" id="update-contest-description" name="description" rows="5">{{ $contest->description }}</textarea>

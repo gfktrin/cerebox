@@ -13,6 +13,8 @@ class ContestController extends Controller
 {
     public function create(CreateRequest $request){
         $inputs = $request->except('_token');
+        $inputs['themes'] = implode('/', $inputs['themes']);
+
         $contest = Contest::create($inputs);
 
         return $contest;
@@ -20,6 +22,7 @@ class ContestController extends Controller
 
     public function update(UpdateRequest $request, Contest $contest){
         $inputs = $request->except('_token');
+        $inputs['themes'] = implode('/', $inputs['themes']);
         $contest->update($inputs);
 
         return $contest;
