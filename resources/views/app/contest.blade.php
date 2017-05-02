@@ -54,7 +54,7 @@
                 @else
                     <div class="col-xs-3"><p style="padding-top:11px">Inscrição</p></div>
                 @endif
-                @if($contest->ends_at->getTimestamp() >= time())
+                @if($contest->ends_at->getTimestamp() >= time() && $contest->begins_at->getTimestamp() <= time())
                     <div class="col-xs-3 active">
                         Envio de arte <br> <b>(até as 23:59 do dia {{ $contest->ends_at->format('d/m') }})</b>
                     </div>
