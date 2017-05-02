@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-8 col-md-offset-2 contest">
-        <h1 class="text-primary">Concurso: {{ $contest->title }}</h1>
+        <h1 class="text-primary">{{ $contest->title }}</h1>
         <br>
         @if($need_to_validate_vote)
             <h2 class="text-primary"><span style="color: black">[APENAS NO PRIMEIRO VOTO]</span> Este é o seu primeiro voto no concurso. Para validá-lo, vote em outra arte.</h2>
@@ -37,11 +37,13 @@
             @endforeach
         @else
             <?php $themes = explode('/', $contest->themes)  ?>
-                <h4 class="text-primary text-capitalize"> Temas:
+                <h3 class="text-primary text-capitalize"> Temas </h3>
+          <h4 class="text-primary text-capitalize">
               @foreach($themes as $theme)
-                  {{ $theme  }} <?php echo '|' ?>
+                  {{ $theme  }} <?php echo ' | ' ?>
               @endforeach
           </h4>
+          <br>
             <p>{{ $contest->description }}</p>
             <br>
             <div class="row steps">

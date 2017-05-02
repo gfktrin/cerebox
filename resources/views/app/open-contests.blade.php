@@ -19,7 +19,7 @@
                 @foreach($open_contests as $contest)
                     <?php $themes = explode('/', $contest->themes)?>
 
-                    <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
+                    <div class="col-md-4 col-sm-6 col-xs-12 contest-card" data-search="{{ strtolower($contest->title) }}">
                         <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}" style="text-decoration: none">
                             <div class="panel">
                                 <div class="panel-body text-center" >
@@ -44,7 +44,7 @@
 
                     <?php $themes = explode('/', $contest->themes)?>
 
-                    <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
+                    <div class="col-md-4 col-sm-6 col-xs-12 contest-card" data-search="{{ strtolower($contest->title) }}">
                         <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}" style="text-decoration: none">
                             <div class="panel">
                                 <div class="panel-body text-center" >
@@ -69,7 +69,7 @@
                 @foreach($voting_contests as $contest)
                     <?php $themes = explode('/', $contest->themes)?>
 
-                    <div class="col-md-4 col-xs-6 contest-card" data-search="{{ strtolower($contest->title) }}">
+                    <div class="col-md-4 col-sm-6 col-xs-12 contest-card" data-search="{{ strtolower($contest->title) }}">
                         <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}" style="text-decoration: none">
                             <div class="panel">
                                 <div class="panel-body text-center" >
