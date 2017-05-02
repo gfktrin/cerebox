@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <h4 class="panel-heading">Concursos</h4>
             <div class="panel-body">
@@ -9,7 +9,7 @@
                     <a href="{{ action('AdminController@createContest') }}"
                        class="btn btn-primary btn-raised">Criar concurso</a>
                 </div>
-                <table class="table table-hover table-responsive">
+                <table class="table table-hover">
                     <thead>
                     <th>ID</th>
                     <th>Título</th>
