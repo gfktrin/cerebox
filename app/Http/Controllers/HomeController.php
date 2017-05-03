@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         return view('welcome')->with([
             'contests' => Contest::open()->get()->take(3),
-        ]);;
+        ]);
     }
 
     public function howToParticipate()

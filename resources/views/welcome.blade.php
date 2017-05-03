@@ -102,20 +102,28 @@
         </div> --}}
     </section>
 
-    <div class="col-md-8 col-md-offset-2">
 
+    <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-center text-primary">Novos Concursos</h2>
+        <br>
         <!--Concursos-->
         <section class="row">
             @foreach($contests as $contest)
-                <div class="col-md-4">
-                    <div class="panel contest-card">
-                        <div class="panel-body">
-                            <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}">
-                                {{ $contest->title }}
-                            </a>
-                        </div>
+                <?php $themes = explode('/', $contest->themes)?>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 contest-card" data-search="{{ strtolower($contest->title) }}">
+                        <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}" style="text-decoration: none">
+                            <div class="panel">
+                                <div class="panel-body text-center" >
+                                    <p class="text-capitalize"> {{ $contest->title }} </p>
+                                    <hr>
+                                    @foreach($themes as $theme)
+                                        <ul style="list-style-type: circle" class="text-left text-capitalize"><li> {{ $theme }}</li></ul>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
             @endforeach
         </section>
 
