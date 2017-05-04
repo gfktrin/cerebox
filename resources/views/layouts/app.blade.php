@@ -124,6 +124,11 @@
                     <i class="fa fa-twitter-square"></i>
                 </a>
             </li>
+            <li>
+                <a href="" class="btn btn-primary pull-right">
+                    <i class="fa fa-youtube-play"></i>
+                </a>
+            </li>
         </ul>
         <p class="text-muted">Cerebox desenvolvido por Uniriotec Consultoria</p>
         <div class="col-md-12">
