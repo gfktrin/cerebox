@@ -9,23 +9,6 @@
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1887887891430795";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
- <style type="text/css">
- .footer{ 
-  width:100%; 
-  float:left; 
-  background: #E0E0E0; 
-  height:250px; 
-  text-align: center; 
-} 
-#social-list{ 
-  list-style: none; 
-  display: inline-flex; 
-  margin-left: -40px; 
-} 
-#social-list > li > a > i{ 
-  font-size:36px; 
-} 
- </style>
     <!--Slider Home-->
     <section id="home">
         <div class="intro">

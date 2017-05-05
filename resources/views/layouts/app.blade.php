@@ -18,6 +18,24 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <style type="text/css">
+        .footer{ 
+        width:100%; 
+        float:left; 
+        background: #E0E0E0; 
+        height:250px; 
+        text-align: center; 
+        } 
+        #social-list{ 
+          list-style: none; 
+          display: inline-flex; 
+          margin-left: -40px; 
+        } 
+        #social-list > li > a > i{ 
+          font-size:36px; 
+        } 
+    </style>
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
