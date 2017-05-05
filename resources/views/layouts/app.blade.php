@@ -14,7 +14,7 @@
     <!--Fonts-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -106,7 +106,35 @@
             @yield('content')
         </div>
     </div>
-
+    <footer class="footer">
+        <h3>Nossas redes sociais</h3>
+        <ul id="social-list">
+            <li>
+                <a href="" class="btn btn-primary pull-right">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+            <li>
+                <a href="" class="btn btn-primary pull-right">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="" class="btn btn-primary pull-right">
+                    <i class="fa fa-twitter-square"></i>
+                </a>
+            </li>
+            <li>
+                <a href="" class="btn btn-primary pull-right">
+                    <i class="fa fa-youtube-play"></i>
+                </a>
+            </li>
+        </ul>
+        <p class="text-muted">Cerebox desenvolvido por Uniriotec Consultoria</p>
+        <div class="col-md-12">
+            <a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=cerebox.com.br','SiteLock','width=600,height=600,left=160,top=170');" ><img alt="SiteLock" title="SiteLock" src="//shield.sitelock.com/shield/cerebox.com.br" /></a>
+        </div>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
