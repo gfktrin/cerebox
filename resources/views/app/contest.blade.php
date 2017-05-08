@@ -1,6 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+    .row.steps { 
+  border: 1px solid #DE972F; 
+} 
+ 
+.row.steps .col-xs-3 { 
+  text-align: center; 
++
+} 
+ 
+.row.steps .col-xs-3.active { 
+  color: white; 
+  background-color: #DE972F; 
+} 
+ 
+.row.steps .col-xs-3:not(:last-child) { 
+  border-right: 1px solid #DE972F; 
+} 
+</style>
     <div class="col-md-8 col-md-offset-2 contest">
         <h1 class="text-primary">{{ $contest->title }}</h1>
         <br>
