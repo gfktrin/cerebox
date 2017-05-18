@@ -155,5 +155,8 @@
     </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $('#myModal').modal('show');
+    </script>
 </body>
 </html>
