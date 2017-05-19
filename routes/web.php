@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('projeto/votar','ProjectController@vote');
     Route::get('projeto/{project}/remover-voto','ProjectController@removeVote');
 
+    Route::get('votar/{slug}/{project_id}','HomeController@voteProject');
+
     //Admin com prefixo
 	Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 		Route::get('/', function () {

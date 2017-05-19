@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
         	'email' => 'admin@email.com',
         	'nickname' => 'Admin',
         	'phone' => '(00)0000-0000',
-            'admin' => 1
-        	'city_id' => 1100023
+            'admin' => 1,
+        	'city_id' => 1100023,
     	]);
 
     	$user->password = \Hash::make('1234');

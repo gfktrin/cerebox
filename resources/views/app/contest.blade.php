@@ -18,8 +18,61 @@
  
 .row.steps .col-xs-3:not(:last-child) { 
   border-right: 1px solid #DE972F; 
-} 
+}
+
+    .vertical-alignment-helper {
+        display:table;
+        height: 100%;
+        width: 100%;
+    }
+    .vertical-align-center {
+        /* To center vertically */
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .modal-content {
+        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+        width:inherit;
+        height:inherit;
+        /* To center horizontally */
+        margin: 0 auto;
+    }
 </style>
+    @if(!empty(Session::get('code')) && Session::get('code') == 5 &&
+    Auth::check() && $contest->isOpenForVoting())
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Votar</h4>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>Você está prestes a votar no seguinte projeto:</p>
+                            <img src="{{ asset('project_images/'.Session::get("project")->filename) }}"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                            {{--<button type="button" class="btn btn-primary">Prosseguir</button>--}}
+                            <a href="#voting-modal" class="btn btn-primary"
+                               data-id="{{Session::get("project")->id}}"
+                               data-author="{{Session::get("project")->author->nickname or Session::get("project")->author->name}}"
+                               data-description="{{ Session::get("project")->description }}"
+                               data-toggle="modal" onclick="$('#myModal').modal('hide');">
+                                Prosseguir
+                                <img src="{{ asset('project_images/'.Session::get("project")->filename) }}" style="display: none;"/>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="col-md-8 col-md-offset-2 contest">
         <h1 class="text-primary">{{ $contest->title }}</h1>
         <br>
@@ -91,6 +144,14 @@
                 @endif
                 <div class="col-xs-3"><p style="padding-top:11px">Apuração</p></div>
             </div>
+                @if($contest->isOpenForVoting() && Auth::check())
+                    @if(!empty($project))
+                        <div>
+                            <h2>Compartilhe o link para votação do seu projeto:</h2>
+                            <input type="text" class="form-control" id="link" value="http://cerebox.com.br/votar/{{ $slug }}/{{ $project->id }}">
+                        </div>
+                    @endif
+                @endif
 
             <div class="row">
                 @if($contest->isOpenForRegistration() && Auth::check() && Auth::user()->registers()->where('contest_id', $contest->id)->count() <= 0)

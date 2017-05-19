@@ -4,8 +4,10 @@ namespace Cerebox\Http\Controllers;
 
 use Cerebox\Contest;
 use Cerebox\Product;
+use Cerebox\Project;
 use Cerebox\Vote;
 use Illuminate\Http\Request;
+use Session;
 
 class HomeController extends Controller
 {
@@ -83,7 +85,12 @@ class HomeController extends Controller
             $need_to_validate_vote = $votes->count() == 1;
         }
 
+        $user = \Auth::user();
+        $project = Project::where('author_id', $user->id)->where('contest_id', $contest->id)->get()->first();
+
         return view('app.contest')->with([
+            'slug' => $slug,
+            'project' => $project,
             'contest' => $contest,
             'need_to_validate_vote' => isset($need_to_validate_vote) ? $need_to_validate_vote : false,
             'votes' => isset($votes) ? $votes : []
@@ -109,6 +116,19 @@ class HomeController extends Controller
         return view('app.acquire-tickets')->with([
             'user' => \Auth::user(),
             'product' => Product::where('name','Ticket')->get()->first()
+        ]);
+    }
+
+    public function voteProject($slug ,$project_id){
+        $contest = Contest::where('slug',$slug)->with('projects')->get()->first();
+        //$user = \Auth::user();
+        $project = Project::where('id', $project_id)->where('contest_id', $contest->id)->get()->first();
+
+        //$info = Project::where('id', $project);
+        return redirect('concurso/teste')->with([
+            'project' => $project,
+            'contest' => $contest,
+            'code'=> 5,
         ]);
     }
 }
