@@ -38,12 +38,12 @@
         margin: 0 auto;
     }
 </style>
-    @if(!empty(Session::get('code')) && Session::get('code') == 5 &&
-    Auth::check() && $contest->isOpenForVoting())
+    @if(!empty(Session::get('code')) && Session::get('code') == 5)
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="vertical-alignment-helper">
                 <div class="modal-dialog vertical-align-center">
                     <div class="modal-content">
+                    @if(Auth::check() && $contest->isOpenForVoting() && !empty(Session::get("project")))
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 
@@ -68,6 +68,29 @@
 
                             </a>
                         </div>
+                    @elseif(Auth::check() && !$contest->isOpenForVoting() && !empty(Session::get("project")))
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Falha</h4>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>O concurso não está aberto para votação.</p>
+                        </div>
+                    @else
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Falha</h4>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>Falha ao tentar votar.</p>
+                        </div>
+                    @endif
                     </div>
                 </div>
             </div>
