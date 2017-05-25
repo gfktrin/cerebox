@@ -8,6 +8,7 @@ use Cerebox\Project;
 use Cerebox\Vote;
 use Illuminate\Http\Request;
 use Session;
+use Redirect;
 
 class HomeController extends Controller
 {
@@ -83,14 +84,14 @@ class HomeController extends Controller
                                     ->get();
 
             $need_to_validate_vote = $votes->count() == 1;
-        }
 
-        $user = \Auth::user();
-        $project = Project::where('author_id', $user->id)->where('contest_id', $contest->id)->get()->first();
+            $user = \Auth::user();
+            $project = Project::where('author_id', $user->id)->where('contest_id', $contest->id)->get()->first();
+        }
 
         return view('app.contest')->with([
             'slug' => $slug,
-            'project' => $project,
+            'project' => isset($project) ? $project : [],
             'contest' => $contest,
             'need_to_validate_vote' => isset($need_to_validate_vote) ? $need_to_validate_vote : false,
             'votes' => isset($votes) ? $votes : []
@@ -125,7 +126,8 @@ class HomeController extends Controller
         $project = Project::where('id', $project_id)->where('contest_id', $contest->id)->get()->first();
 
         //$info = Project::where('id', $project);
-        return redirect('concurso/teste')->with([
+        
+        return redirect::route('concurso.slug',['slug'=>$slug])->with([
             'project' => $project,
             'contest' => $contest,
             'code'=> 5,

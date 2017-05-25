@@ -53,7 +53,8 @@
                         </div>
                         <div class="modal-body">
                             <p>Você está prestes a votar no seguinte projeto:</p>
-                            <img src="{{ asset('project_images/'.Session::get("project")->filename) }}"/>
+                            <img src="{{ asset('project_images/'.Session::get("project")->filename) }}"
+                            style="max-width:500px;max-height:500px;"/>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -208,7 +209,7 @@
                 @endif 
             </div>
             @if(!$contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
-                <h2>Você já está inscrito, aguarde a liberação dos envios.</h2>
+                <h2>Inscrição realizada com sucesso! Aguarde a liberação do período de envio.</h2>
             @endif
             @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
                 <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"
