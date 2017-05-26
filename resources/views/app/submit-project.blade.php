@@ -53,7 +53,7 @@
                             
                             <div class="col-md-10">
                                 <select class="form-control" id="multiplier-category-{{$vote_category->id}}" name="multiplier[{{ $vote_category->id }}]">
-                                    <option>Escolha um multiplicador</option>
+                                    <option value="1.0">Escolha um multiplicador</option>
                                     <option value="1.2">20%</option>
                                     <option value="1.15">15%</option>
                                     <option value="1.1">10%</option>
