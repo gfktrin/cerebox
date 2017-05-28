@@ -101,7 +101,7 @@
         <h1 class="text-primary">{{ $contest->title }}</h1>
         <br>
         @if($need_to_validate_vote)
-            <h2 class="text-primary"><span style="color: black">[APENAS NO PRIMEIRO VOTO]</span> Este é o seu primeiro voto no concurso. Para validá-lo, vote em outra arte.</h2>
+            <h3 class="text-primary"><span style="color: black">[APENAS NO PRIMEIRO VOTO]</span> Este é o seu primeiro voto no concurso. Para validá-lo, vote em outra arte.</h3>
             @foreach($contest->leastVotedProjects(3,$votes->pluck('project_id')) as $project)
                 <div class="col-md-4 col-xs-6">
                     <div class="panel project-card">
@@ -170,8 +170,8 @@
             </div>
                 @if($contest->isOpenForVoting() && Auth::check())
                     @if(!empty($project))
-                        <div>
-                            <h2>Compartilhe o link para votação do seu projeto:</h2>
+                        <div style="margin-top: 50px;">
+                            <h3>Compartilhe o link para votação do seu projeto:</h3>
                             <input type="text" class="form-control" id="link" value="http://cerebox.com.br/votar/{{ $slug }}/{{ $project->id }}">
                         </div>
                     @endif
@@ -184,10 +184,10 @@
                             {{ csrf_field() }}
                             <input type="hidden" name="contest_id" value="{{ $contest->id }}">
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <button type="submit" class="btn btn-primary btn-raised pull-right">Participar do concurso</button>
+                            <button type="submit" class="btn btn-primary btn-raised pull-right" style="margin-top: 25px;">Participar do concurso</button>
 
                         </form>
-                        <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
+                        <p class="pull-right text-primary" style="margin-right:10px;margin-top:20px;">
                             {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
                         </p>
                     @else
@@ -200,7 +200,7 @@
                         @endif
                     @endif
                 @elseif($contest->isOpenForRegistration() && !Auth::check())
-                    <a href="{{ url('/login') }}" class="btn btn-primary pull-right">
+                    <a href="{{ url('/login') }}" class="btn btn-primary btn-raised pull-right" style="margin-top: 25px;">
                         Você deve estar logado para entrar no concurso
                     </a>
                     <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
@@ -209,7 +209,7 @@
                 @endif 
             </div>
             @if(!$contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
-                <h2>Inscrição realizada com sucesso! Aguarde a liberação do período de envio.</h2>
+                <h3>Inscrição realizada com sucesso! Aguarde a liberação do período de envio.</h3>
             @endif
             @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
                 <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"

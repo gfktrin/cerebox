@@ -27,7 +27,7 @@
                     <p class="text-justify">
                         <strong>- Qual o formato do desenho para envio? Papel ou digital? Colorido ou preto e branco?</strong>
                         <br>
-                        Serão aceitas tanto artes criadas sobre papel quanto de forma digital, coloridas e/ou preto e brancas. O formato do papel/tela para envio é o da <strong>folha A4 (210x297mm)</strong>, artes fora deste padrão não serão aceitas. Os formatos aceitos para o arquivo de envio são: <strong>PNG, GIF e JPEG</strong>. A imagem deve ser scanneada ou enquadrada perfeitamente como foto, sem sombras externas ou presença de margens e/ou texturas do ambiente (mesas, cadeiras, mãos, material de desenho, etc.). O desenho não precisa ocupar o espaço todo da folha A4, basta estar contido na mesma.
+                        Serão aceitas tanto artes criadas sobre papel quanto de forma digital, coloridas e/ou preto e brancas. O formato do papel/tela para envio é o da <strong>folha A4 (210x297mm)</strong>, artes fora deste padrão não serão aceitas. Os formatos aceitos para o arquivo de envio são: <strong>PNG, GIF e JPEG</strong>. A imagem deve ser scanneada ou enquadrada <strong>PERFEITAMENTE</strong> sombras externas ou presença de margens e/ou texturas do ambiente (mesas, cadeiras, mãos/dedos, materiais de desenho, etc).  Caso o desenho seja feito em softwares gráficos, usar a configuração base para a confecção da arte como folha A4. O desenho não precisa ocupar o espaço todo da folha A4, basta estar contido na mesma.
 
                     </p>
                     <br>
@@ -46,13 +46,13 @@
                     <p class="text-justify">
                         <strong>- Existe algum benefício além do dinheiro para os melhores colocados?</strong>
                         <br>
-                        A equipe Cerebox planeja, futuramente, oferecer maiores vantagens, além do dinheiro, para os melhores colocados. Mas, se gostarmos de alguma arte perdida no ranking, nada impede que entremos em contato para falar de negócios!
+                        A equipe Cerebox planeja, futuramente, oferecer maiores vantagens, além do dinheiro, para os melhores colocados. Mas, se gostarmos de alguma arte, vencedora ou não de algum concurso, existe a possibilidade de que a equipe Cerebox entre em contato com o artista para falar de negócios, portanto, matenha sempre seu email atualizado no perfil.
                     </p>
                     <br>
                     <p class="text-justify">
                         <strong>- Qual é a taxa para participar do concurso?</strong>
                         <br>
-                        A entrada no concurso é feita por meio de TICKETS. Cada ticket lhe permite ter acesso a um concurso por vez. Tickets não podem ser reaproveitados e possuem valor unitário. O ticket pode ser obtido no valor de R$ 10,00 (dez reais).
+                        A entrada no concurso é feita por meio de TICKETS. Cada ticket lhe permite ter acesso a um concurso por vez. Tickets não podem ser reaproveitados e possuem valor unitário. O ticket pode ser obtido no valor de R$ 12,00 (dez reais).
                     </p>
                     <br>
                     <p class="text-justify">
@@ -65,7 +65,8 @@
                     <p class="text-justify">
                         <strong>- Como funcionarão os concursos?</strong>
                         <br>
-                        Cada concurso possuirá três palavras-chave, obtidas diretamente do Random. Seguiremos a seguinte cronologia na hora de criarmos um novo concurso:
+                        Basta escolher um concurso aberto na etapa de inscrição e que possua vagas disponíveis. Acesse-o e inscreva-se para concorrer!
+                        Cada concurso possuirá três palavras-chave, obtidas diretamente do Randomizador. Seguiremos a seguinte cronologia na hora de criarmos um novo concurso:
                         <br>
                     </p>
                     <br>
@@ -77,13 +78,12 @@
                     <br>
                     <h4>2ª FASE – PREPARO e ENVIO DA ARTE:</h4>
                     <p class="text-justify"> 
-                        <span style="color:blue"><strong>Duração: 5 (cinco) dias, 120 horas completas.</strong></span><br>
+                        <span style="color:blue"><strong>Duração: 7 (sete) dias, 148 horas completas.</strong></span><br>
                         Etapa na qual o artista deve preparar e enviar sua arte diretamente no concurso inscrito. Após finalizar sua arte no papel/digital, o usuário ao enviar para o sistema deverá escolher uma ordem de categorias que visa ganhar bônus. <br>
-                    Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico, então deverá numerar suas categorias de 1 a 4, onde 1 é a MELHOR CATEGORIA e 4 é a MENOS TRABALHADA. Em seu caso, Maria escolheria: <br>
-                        1 – Criatividade; <br>
-                        2 – Uso das palavras-chave; <br>
-                        3 – Interação com os elementos; <br>
-                        4 – Arte. <br>
+                    Por exemplo: Maria fez um desenho e julgou que sua arte foi extremamente criativa, porém, crê que não finalizou bem alguns acabamentos e deixou o resultado pouco artístico. Então, deverá atribuir os bônus mais altos para seus quesitos mais fortes naquela obra que será enviada para o concurso inscrito. No exemplo dado, Maria atribuiria o bonus de 20% ao quesito CRIATIVIDADE e para a categoria arte, 5%. Vale lembrar que esta atribuição é feita como uma AUTO AVALIAÇÃO e, se bem feita, pode garantir diversos pontos para o competidor.<br>
+<span style="color:red">OBS: A arte enviada para o concurso não poderá ser alterada. O usuário deve ter plena certeza antes de confirmar o envio para o concurso tanto no enquadramento, tamanho da tela, elementos, arte final e outros detalhes.</span><br>
+<span style="color:red">OBS2: De forma alguma serão aceitas artes fora do prazo estipulado nesta etapa.</span><br>
+
                     Os desenhos deverão ser digitalizados, scanneados ou enquadrados de modo que caiba numa folha A4 (210x297mm). É essencial que o artista só envie sua arte após tê-la revisada e em posse de plena certeza que aquela será sua arte final. Usuários que se inscreverem logo no começo do período de inscrição contam com mais tempo que os usuários inscritos de última hora! <br>
                     **De forma alguma será aceita qualquer arte após o prazo estipulado. <br>
                     <br>
@@ -93,14 +93,15 @@
                         <span style="color:blue"><strong>Duração: 2 (dois) dias, 48 horas completas.</strong></span><br>
                         Após encerrado o período de envio das artes, terá início o período de votação. O voto será aberto para todos os usuários que se cadastrarem no site. Os votos serão divididos em 4 (quatro) categorias. <br>
                     – Criatividade; <br>
-                    – Uso das palavras-chave (encaixar de forma prudente o uso das três palavras sugeridas no concurso);<br>
-                        – Interação com os elementos (arte que correlaciona todos os elementos presentes, que não deixa nada solto só para afirmar que o uso das palavras-chave foi feito); <br>
+                    – Conexão com os temas (encaixar de forma prudente o uso das três palavras sugeridas no concurso);<br>
+                        – Interação dos elementos (arte que correlaciona todos os elementos presentes, que não deixa nada solto só para afirmar que o uso das palavras-chave foi feito); <br>
                         – Arte. <br>
                         <br>
                     </p>
                     <h4>4º FASE – RESULTADOS e PREMIAÇÕES:</h4> <p class="text-justify">
                         Após o período da votação terminar, o sistema irá apurar e indicar os vencedores do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
                     </p>
+                    <br>
                     <h3>Premiações:</h3>
                     <div class="col-md-6 col-md-offset-3">
                         <table class="table table-bordered">
@@ -118,33 +119,33 @@
                             <tbody>
                             <tr>
                                 <td>20</td>
-                                <td class="text-right">R$ 60,00</td>
-                                <td class="text-right">R$ 42,00</td>
-                                <td class="text-right">R$ 18,00</td>
+                                <td class="text-right">R$ 72,00</td>
+                                <td class="text-right">R$ 50,00</td>
+                                <td class="text-right">R$ 21,00</td>
                             </tr>
                             <tr>
                                 <td>50</td>
-                                <td class="text-right">R$ 150,00</td>
-                                <td class="text-right">R$ 105,00</td>
-                                <td class="text-right">R$ 45,00</td>
+                                <td class="text-right">R$ 180,00</td>
+                                <td class="text-right">R$ 126,00</td>
+                                <td class="text-right">R$ 54,00</td>
                             </tr>
                             <tr>
                                 <td>100</td>
-                                <td class="text-right">R$ 300,00</td>
-                                <td class="text-right">R$ 210,00</td>
-                                <td class="text-right">R$ 90,00</td>
+                                <td class="text-right">R$ 360,00</td>
+                                <td class="text-right">R$ 252,00</td>
+                                <td class="text-right">R$ 108,00</td>
                             </tr>
                             <tr>
                                 <td>200</td>
-                                <td class="text-right">R$ 600,00</td>
-                                <td class="text-right">R$ 420,00</td>
-                                <td class="text-right">R$ 180,00</td>
+                                <td class="text-right">R$ 720,00</td>
+                                <td class="text-right">R$ 504,00</td>
+                                <td class="text-right">R$ 216,00</td>
                             </tr>
                             <tr>
                                 <td>250</td>
-                                <td class="text-right">R$ 750,00</td>
-                                <td class="text-right">R$ 525,00</td>
-                                <td class="text-right">R$ 225,00</td>
+                                <td class="text-right">R$ 900,00</td>
+                                <td class="text-right">R$ 630,00</td>
+                                <td class="text-right">R$ 270,00</td>
                             </tr>
                             </tbody>
                         </table>

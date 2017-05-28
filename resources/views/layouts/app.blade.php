@@ -24,7 +24,8 @@
         float:left; 
         background: #E0E0E0; 
         height:250px; 
-        text-align: center; 
+        text-align: center;
+        margin-top: 100px; 
         } 
         #social-list{ 
           list-style: none; 
@@ -135,11 +136,6 @@
             <li>
                 <a href="" class="btn btn-primary pull-right">
                     <i class="fa fa-instagram"></i>
-                </a>
-            </li>
-            <li>
-                <a href="" class="btn btn-primary pull-right">
-                    <i class="fa fa-twitter-square"></i>
                 </a>
             </li>
             <li>
