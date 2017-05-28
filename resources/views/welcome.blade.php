@@ -127,13 +127,13 @@
             @endforeach
         </section>
 
-        <section class="'row">
+        <section class="row">
             <div class="col-md-12">
                 <h2 class="text-center text-primary">Últimos ganhadores</h2>
                 <br>
-
+                <div class="panel panel-default">
                 <!-- ranking -->
-                <table class="table table-hover">
+                <table class="table table-hover" class="panel panel-default">
                     <?php
                    /*     $concursosTerminados = $array();
                         foreach ($contests as $contest){
@@ -190,6 +190,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
         </section>
 
