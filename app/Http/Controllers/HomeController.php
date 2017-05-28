@@ -34,9 +34,17 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+
+        $finalized_contests = Contest::where('is_finalized',true)->orderBy('ends_at', 'desc')->get()->take(3);
+
+        foreach ($finalized_contests as $finalized_contest) {
+            # code...
+        }
+
         return view('welcome')->with([
             'contests' => Contest::open()->get()->take(3),
+            'finalized_contests' => $finalized_contests,
         ]);
     }
 

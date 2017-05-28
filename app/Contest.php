@@ -99,4 +99,9 @@ class Contest extends Model
 
         return $this->registration_begins_at->timestamp <= $time && $this->begins_at->timestamp >= $time && $this->projects->count() < $this->max_users;
     }
+
+    public function bestProjects($limit = 3,$exclude = []){
+        $ranking = $this->projects()->withCount('votes')->whereNotIn('id',$exclude)->get()->sortByDesc('votes_count')->take($limit);
+        return $ranking;
+    }
 }
