@@ -78,7 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('usuarios', 'AdminController@users');
 		Route::get('usuario/{user}', 'AdminController@retrieveUser');
 		
-		Route::get('concursos', 'AdminController@contests');
+		Route::get('concursos', 'AdminController@contests')->name('concursos');
 		Route::get('concurso/criar', 'AdminController@createContest');
 		Route::get('concurso/{contest}', 'AdminController@retrieveContest');
 		Route::get('concurso/{contest}/computar', 'AdminController@makePositions');
@@ -98,7 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::group(['middleware' => 'admin'], function () {
 		Route::post('concurso/criar', 'ContestController@create');
 		Route::post('concurso/{contest}/editar', 'ContestController@update');
-		Route::post('concurso/{contest}/apagar', 'ContestController@delete');
+		Route::post('concurso/{contest}/apagar', 'ContestController@delete')->name('deleteContest');
 
 		Route::post('fatura/{invoice}/editar','InvoiceController@update');
 		Route::get('fatura/{invoice}/sincronizar-meio-de-pagamento','InvoiceController@updateStatus');
