@@ -48,7 +48,7 @@
                     </div>
                     <br>
                     @foreach(Cerebox\VoteCategory::all() as $vote_category)
-                        <div class="form-group">
+                        <div class="form-group" style="margin-top: 20px;">
                             <label class="control-label col-md-2" for="multiplier-category-{{$vote_category->id}}">{{ $vote_category->name }}</label>
                             
                             <div class="col-md-10">
