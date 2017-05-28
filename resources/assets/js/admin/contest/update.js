@@ -19,7 +19,7 @@ $(function(){
 
     $('#delete-contest').submit(function(ev){
         ev.preventDefault();
-
+        
         var form = $(this);
 
         App.Form.submit(form,{

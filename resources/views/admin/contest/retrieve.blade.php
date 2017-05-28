@@ -25,7 +25,7 @@
                         </div>
                     </div>
 
-                    <?php $themes = explode('/',$contest->themes)?>
+                    
                     <div class="form-inline col-md-12">
                         <div class="form-group col-md-4">
                             <label for="create-contest-themes#1" class="control-label">1º Tema: </label>
@@ -84,7 +84,7 @@
                         <label for="delete-contest-submit"
                                class="btn btn-danger btn-raised pull-left"
                                onclick="return confirm('Você realmente deseja apagar esse concurso?')">
-                            Apagar Concurso
+                            Apagar Concurso   
                         </label>
                     </div>
 

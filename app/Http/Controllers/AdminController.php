@@ -50,7 +50,8 @@ class AdminController extends Controller
         return view('admin.contest.retrieve')->with([
             'contest' => $contest,
             'pending_projects' => $pending_projects,
-            'approved_projects' => $approved_projects
+            'approved_projects' => $approved_projects,
+            'themes' => explode('/',$contest->themes)
         ]);
     }
 

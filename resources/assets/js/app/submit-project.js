@@ -17,7 +17,9 @@ $(function(){
 
             if($('option[value="'+option.attr('value')+'"]:selected',other_selects).length == 0)
                 $('option[value="'+option.attr('value')+'"]').prop('disabled',false);
-        });     
+        });
+
+
     });
 
     //todo Não sei se coloco numa função separada
@@ -62,5 +64,5 @@ $(function(){
 
         return false;
     });
-
 });
+

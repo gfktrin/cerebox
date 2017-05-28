@@ -158,5 +158,17 @@
     <script>
         $('#myModal').modal('show');
     </script>
+    <script type="text/javascript">
+        $('select').change(function() {
+            $('select').each(function() {
+            var op =$(this).val();
+            if(op !='') {                 
+                $('input[name="buttonProj"]').prop('disabled',false);
+            } else {
+                $('input[name="buttonProj"]').prop('disabled', true);
+            }   
+            });
+        });
+    </script>
 </body>
 </html>

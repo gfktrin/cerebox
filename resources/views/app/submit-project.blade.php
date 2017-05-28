@@ -53,7 +53,7 @@
                             
                             <div class="col-md-10">
                                 <select class="form-control" id="multiplier-category-{{$vote_category->id}}" name="multiplier[{{ $vote_category->id }}]">
-                                    <option value="1.0">Escolha um multiplicador</option>
+                                    <option value="">Escolha um multiplicador</option>
                                     <option value="1.2">20%</option>
                                     <option value="1.15">15%</option>
                                     <option value="1.1">10%</option>
@@ -64,7 +64,7 @@
                     @endforeach
 
                     <div class="form-group pull-right">
-                        <input type="submit" value="Enviar" class="btn btn-primary">
+                        <input type="submit" value="Enviar" class="btn btn-primary" id="buttonProj" name="buttonProj" disabled="true">
                     </div>
                 </form>
             </div>

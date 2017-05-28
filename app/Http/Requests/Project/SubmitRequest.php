@@ -28,6 +28,7 @@ class SubmitRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
             'author_id' => [
                 'required',
