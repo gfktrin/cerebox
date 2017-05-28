@@ -132,64 +132,53 @@
                 <h2 class="text-center text-primary">Últimos ganhadores</h2>
                 <br>
                 <div class="panel panel-default">
-                <!-- ranking -->
-                <table class="table table-hover" class="panel panel-default">
-                    <?php
-                   /*     $concursosTerminados = $array();
-                        foreach ($contests as $contest){
-                            if ($contest->is_finalized){
-                                array_push($concursosTerminados, $contest);
-                             }
-                        }
-
-                        $concursosTerminados->sortBy('ends_at', 'desc');
-                   */ ?>
-
-                    <thead>
-                        <th class="text-center">Concurso</th>
-                        @foreach($finalized_contests as $finalized_contest)
-                        <th class="text-center">{{ $finalized_contest->title }}</th>
-                        @endforeach
-                    </thead>
-                    <tbody class="text-center">
-                        <tr>
-                            <td>1º</td>
+                    <!-- ranking -->
+                    <table class="table table-hover" class="panel panel-default">
+                        <thead>
+                            <th class="text-center">Concurso</th>
                             @foreach($finalized_contests as $finalized_contest)
-                                @if(!empty($finalized_contest->bestProjects()[0]))
-                                <td>Nome: {{ $finalized_contest->bestProjects()[0]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[0]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[0]->points}}</td>
-                                @elseif(!empty($finalized_contest->bestProjects()[1]))
-                                <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
-                                @elseif(!empty($finalized_contest->bestProjects()[2]))
+                            <th class="text-center">{{ $finalized_contest->title }}</th>
+                            @endforeach
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <td>1º</td>
+                                @foreach($finalized_contests as $finalized_contest)
+                                    @if(!empty($finalized_contest->bestProjects()[0]))
+                                    <td>Nome: {{ $finalized_contest->bestProjects()[0]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[0]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[0]->points}}</td>
+                                    @elseif(!empty($finalized_contest->bestProjects()[1]))
+                                    <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
+                                    @elseif(!empty($finalized_contest->bestProjects()[2]))
+                                        <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
+                                    @else
+                                        <td>||</td>
+                                    @endif
+                                @endforeach
+                            </tr>
+                            <tr>
+                                <td>2º</td>
+                                @foreach($finalized_contests as $finalized_contest)
+                                    @if(!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
+                                    <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
+                                    @elseif(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1]))
+                                        <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
+                                    @else
+                                        <td>||</td>
+                                    @endif
+                                @endforeach
+                            </tr>
+                            <tr>
+                                <td>3º</td>
+                                @foreach($finalized_contests as $finalized_contest)
+                                    @if(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
                                     <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
-                                @else
-                                    <td>//</td>
-                                @endif
-                            @endforeach
-                        </tr>
-                        <tr>
-                            <td>2º</td>
-                            @foreach($finalized_contests as $finalized_contest)
-                                @if(!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
-                                <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
-                                @elseif(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1]))
-                                    <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
-                                @else
-                                    <td>//</td>
-                                @endif
-                            @endforeach
-                        </tr>
-                        <tr>
-                            <td>3º</td>
-                            @foreach($finalized_contests as $finalized_contest)
-                                @if(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
-                                <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
-                                @else
-                                <td>//</td>
-                                @endif
-                            @endforeach
-                        </tr>
-                    </tbody>
-                </table>
+                                    @else
+                                    <td>||</td>
+                                    @endif
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
