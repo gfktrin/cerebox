@@ -144,7 +144,7 @@
                             <tr>
                                 <td>1º</td>
                                 @foreach($finalized_contests as $finalized_contest)
-                                    <div>{{ $finalized_contest->bestProjects()[0] }}</div>
+                                    
                                     @if(!empty($finalized_contest->bestProjects()[0]))
                                     <td>Nome: {{ $finalized_contest->bestProjects()[0]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[0]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[0]->points}}</td>
                                     @elseif(!empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
