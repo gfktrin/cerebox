@@ -118,6 +118,6 @@ class Contest extends Model
             $project->position = $key + 1;
         }
 
-        return $ranking->sortByDesc('position')->take($limit);
+        return $ranking->sortByDesc('points')->take($limit);
     }
 }
