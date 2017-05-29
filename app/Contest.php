@@ -101,7 +101,7 @@ class Contest extends Model
     }
 
     public function bestProjects($limit = 3,$exclude = []){
-        $ranking = $this->projects()->withCount('votes')->whereNotIn('id',$exclude)->get()->sortByDesc('points')->take($limit);
+        $ranking = $this->projects()->withCount('votes')->whereNotIn('id',$exclude)->get()->sortBy('position')->take($limit);
         return $ranking;
     }
 }

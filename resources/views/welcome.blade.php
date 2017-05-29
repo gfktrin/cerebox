@@ -144,11 +144,12 @@
                             <tr>
                                 <td>1º</td>
                                 @foreach($finalized_contests as $finalized_contest)
+                                    <div>{{ $finalized_contest->bestProjects()[0] }}</div>
                                     @if(!empty($finalized_contest->bestProjects()[0]))
                                     <td>Nome: {{ $finalized_contest->bestProjects()[0]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[0]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[0]->points}}</td>
-                                    @elseif(!empty($finalized_contest->bestProjects()[1]))
+                                    @elseif(!empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
                                     <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
-                                    @elseif(!empty($finalized_contest->bestProjects()[2]))
+                                    @elseif(!empty($finalized_contest->bestProjects()[2])&&empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
                                         <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
                                     @else
                                         <td>||</td>
@@ -158,9 +159,9 @@
                             <tr>
                                 <td>2º</td>
                                 @foreach($finalized_contests as $finalized_contest)
-                                    @if(!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
+                                    @if(!empty($finalized_contest->bestProjects()[0])&&!empty($finalized_contest->bestProjects()[1]))
                                     <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
-                                    @elseif(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1]))
+                                    @elseif(!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[2])&&empty($finalized_contest->bestProjects()[0]))
                                         <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
                                     @else
                                         <td>||</td>
