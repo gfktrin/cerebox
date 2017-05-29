@@ -99,7 +99,7 @@
                         <br>
                     </p>
                     <h4>4º FASE – RESULTADOS e PREMIAÇÕES:</h4> <p class="text-justify">
-                        Após o período da votação terminar, o sistema irá apurar e indicar os vencedores do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 7 (sete) dias úteis.
+                        Após o período da votação terminar, o sistema irá apurar e indicar os vencedores do concurso. Entraremos em contato para obtermos os dados de depósito bancário, que será realizado em até 10 (dez) dias úteis.
                     </p>
                     <br>
                     <h3>Premiações:</h3>
