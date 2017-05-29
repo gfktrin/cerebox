@@ -135,7 +135,7 @@
                     <!-- ranking -->
                     <table class="table table-hover" class="panel panel-default">
                         <thead>
-                            <th class="text-center">Concurso</th>
+                            <th class="text-center">#</th>
                             @foreach($finalized_contests as $finalized_contest)
                             <th class="text-center">{{ $finalized_contest->title }}</th>
                             @endforeach
