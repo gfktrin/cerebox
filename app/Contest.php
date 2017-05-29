@@ -101,7 +101,23 @@ class Contest extends Model
     }
 
     public function bestProjects($limit = 3,$exclude = []){
-        $ranking = $this->projects()->get()->sortByDesc('position')->take($limit);
-        return $ranking;
+        $projects = $this->projects()->get();
+
+        foreach ($projects as $project) {
+            $final_grade = 0;
+
+            for ($i=1; $i < 5; $i++) { 
+                $final_grade += $project->getAverage($i);                
+            }
+            $project->points = $final_grade;
+        }
+
+        $ranking = $projects->sortByDesc('points')->values();
+
+        foreach ($projects as $key => $project) {
+            $project->position = $key + 1;
+        }
+
+        return $ranking->sortByDesc('position')->take($limit);
     }
 }
