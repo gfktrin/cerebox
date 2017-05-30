@@ -37,6 +37,9 @@
         /* To center horizontally */
         margin: 0 auto;
     }
+    #contestpage_description{
+        margin-bottom: 30px;
+    }
 </style>
     @if(!empty(Session::get('code')) && Session::get('code') == 5)
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -135,12 +138,13 @@
             <?php $themes = explode('/', $contest->themes)  ?>
                 <h3 class="text-primary text-capitalize"> Temas </h3>
           <h4 class="text-primary text-capitalize">
+                | 
               @foreach($themes as $theme)
                   {{ $theme  }} <?php echo ' | ' ?>
               @endforeach
           </h4>
           <br>
-            <p>{{ $contest->description }}</p>
+            <p id="contestpage_description">{{ $contest->description }}</p>
             <br>
             <div class="row steps">
                 @if($contest->begins_at->getTimestamp() >= time())
@@ -206,10 +210,14 @@
                     <p class="pull-right text-primary" style="margin-right:10px;margin-top:15px;">
                         {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
                     </p>
+                @elseif($contest->isOpenForSubmit() && Auth::check() && Auth::user()->registers()->where('contest_id', $contest->id)->count() <= 0)
+                    <h3>Você não está inscrito neste concurso</h3>
                 @endif 
             </div>
             @if(!$contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
-                <h3>Inscrição realizada com sucesso! Aguarde a liberação do período de envio.</h3>
+                <h3>Inscrição realizada com sucesso! Aguarde a liberação do período de envio.</h3><p class="pull-right text-primary" style="margin-right:10px;margin-top:20px;">
+                            {{ $contest->registers->count() }} inscritos de {{ $contest->max_users }} vagas
+                        </p>
             @endif
             @if($contest->isOpenForSubmit() && Auth::check() && Auth::user()->projects()->where('contest_id', $contest->id)->count() <= 0 && Auth::user()->registers()->where('contest_id', $contest->id)->count() >= 1)
                 <a href="{{ action('HomeController@submitProject', ['contest' => $contest]) }}"

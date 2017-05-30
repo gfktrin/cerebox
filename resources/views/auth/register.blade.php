@@ -1,6 +1,38 @@
     @extends('layouts.app')
 
 @section('content')
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <h4 class="modal-title" id="myModalLabel">Termos de uso</h4>
+
+                </div>
+                <div class="modal-body">
+                    <div style="overflow:scroll; width:550px; height:600px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porttitor consequat purus, eu rutrum ante. Praesent ac lorem eu magna dapibus feugiat sed non neque. Duis consequat mi tempus justo elementum iaculis. Nullam sed ligula sit amet dolor volutpat feugiat. Etiam in lobortis orci. Mauris laoreet lobortis accumsan. Etiam et porta eros. Nulla consectetur augue ut imperdiet malesuada. Aliquam interdum metus ultrices commodo venenatis. Pellentesque facilisis, arcu ac cursus commodo, odio est congue neque, in semper velit arcu nec risus. Nunc blandit maximus libero a luctus.
+
+In ligula ligula, placerat ut ex vitae, tincidunt tempor ipsum. Mauris sit amet dui suscipit, commodo leo sed, dapibus justo. Nam sit amet leo quis dolor tristique venenatis. Quisque eu pulvinar purus, sed aliquam leo. Aliquam bibendum, odio vel efficitur varius, elit felis ornare orci, sit amet lobortis urna ex ut turpis. Ut at lectus volutpat, finibus felis id, tempus sem. Proin ultricies luctus diam nec condimentum.
+
+Cras suscipit rhoncus elit, nec condimentum tellus finibus nec. Vivamus semper arcu vitae nisi porttitor, at scelerisque tellus consectetur. Nunc fermentum ligula eu lacus placerat, eget viverra sem vestibulum. Sed tincidunt, purus non ultrices pellentesque, est dolor rhoncus ligula, sit amet mollis ex mi vel libero. Cras tristique ipsum vitae lobortis bibendum. Etiam cursus congue sapien, at egestas purus bibendum eget. Pellentesque feugiat a purus ut rutrum. Vivamus elementum efficitur iaculis. Suspendisse tortor felis, suscipit ut augue eu, ullamcorper molestie tellus. Duis dapibus maximus ante, in porttitor enim ornare vel. Phasellus iaculis pharetra aliquet. Sed eu laoreet tortor. Phasellus luctus facilisis tortor ullamcorper volutpat. Sed scelerisque facilisis condimentum. Ut lacus neque, dictum non malesuada sit amet, consequat eu augue. In iaculis sollicitudin massa sit amet egestas.
+
+Mauris iaculis convallis ultrices. Sed imperdiet nulla in arcu blandit ullamcorper. Nunc sit amet risus non nulla sollicitudin mattis ut eu est. Nunc mattis nec nisl eu eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vitae diam vitae justo ultricies hendrerit. Curabitur vel neque non lacus viverra elementum. Integer turpis sem, dignissim sed enim at, blandit lobortis urna. Phasellus sed arcu suscipit, varius elit non, auctor turpis. Duis pharetra augue a tortor porttitor feugiat. Nullam congue tortor ut scelerisque laoreet. Morbi molestie id odio a consequat. Proin luctus sapien est, non feugiat nulla interdum quis. Ut viverra lectus vitae lectus dapibus finibus. Etiam id felis mattis, viverra tellus ut, facilisis quam. Nam pellentesque commodo ex in finibus.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin feugiat rutrum nibh nec imperdiet. Aenean sit amet auctor eros. Donec dictum fermentum nulla commodo placerat. Mauris et nisi vitae libero feugiat imperdiet. Suspendisse malesuada id libero et volutpat. Morbi venenatis sodales iaculis. Curabitur tincidunt rhoncus nunc a sodales. Donec ut lacus sit amet quam convallis maximus. Morbi porttitor sed eros a vestibulum. Nulla a molestie nulla, ut mollis erat. Sed faucibus, risus vel sodales rutrum, ante elit aliquet turpis, consectetur rhoncus ex turpis a velit.
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('/') }}" class="btn btn-default">Voltar</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceito os termos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
