@@ -1,5 +1,17 @@
 @extends('layouts.app')
-
+<style>
+#art_input::-webkit-input-placeholder {
+    font-size: 12px;
+}
+#art_input::-moz-placeholder {
+    color: blue;
+    font-weight: bold;
+}
+#art_input:-ms-input-placeholder {
+    color: blue;
+    font-weight: bold;
+} 
+</style>
 @section('content')
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
@@ -26,8 +38,8 @@
                         <label for="submit-project-art" class="col-md-2 control-label">Arte:</label>
 
                         <div class="col-md-10">
-                            <div class="col-md-6">
-                                <input type="text" readonly="" class="form-control" placeholder="Selecione um arquivo...">
+                            <div class="col-md-6" style="font-size: 12px;">
+                                <input type="text" readonly="" class="form-control" placeholder="Selecione um arquivo..." id="art_input">
                                 <input type="file" name="art" id="submit-project-art" multiple="">
                             </div>
                             <div class="col-md-6">
@@ -39,9 +51,9 @@
                     <div class="form-group">
                         <label class="control-label col-md-2">Descrição (opcional):</label>
 
-                        <div class="col-md-10">            
+                        <div class="col-md-10" style="margin-bottom:50px;">            
                             <textarea class="form-control" name="description" rows="8" maxlength="500"></textarea>
-                            <span class="helper-block">
+                            <span class="helper-block" style="font-size: 12px;">
                                 Imagens muito complexas sem uma descrição podem ser mal interpretadas pelos usuários que julgarão as artes
                             </span>
                         </div>
@@ -52,7 +64,7 @@
                             <label class="control-label col-md-2" for="multiplier-category-{{$vote_category->id}}">{{ $vote_category->name }}</label>
                             
                             <div class="col-md-10">
-                                <select class="form-control" id="multiplier-category-{{$vote_category->id}}" name="multiplier[{{ $vote_category->id }}]">
+                                <select class="form-control" id="multiplier-category-{{$vote_category->id}}" name="multiplier[{{ $vote_category->id }}]" style="font-size: 12px;">
                                     <option value="">Escolha um multiplicador</option>
                                     <option value="1.2">20%</option>
                                     <option value="1.15">15%</option>

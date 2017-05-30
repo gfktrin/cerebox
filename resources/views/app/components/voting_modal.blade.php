@@ -10,15 +10,17 @@
                     <div class="col-md-6">
                         <img class="project_art img-responsive" src="">
                         <br>
+                        <div class="description_container">
                         <p class="project_description"></p>
+                        </div>
+                        <p style="color: red"><strong>Incetivamos o uso de até duas casas decimais ex: 4,39; 2,1</strong></p>
                     </div>
                     <div class="col-md-6">
                         <form id="voting-form" class="form-horizontal" action="{{ action('ProjectController@vote') }}" method="POST">
                             {{ csrf_field() }}
                             <input type="hidden" name="project_id" value="">
                             
-                            <p>Distribua entre 12 e 15 pontos entre essas categorias:</p>
-                            <p style="color: red"><strong>Incetivamos o uso de até duas casas decimais ex: 4,39; 2,1</strong></p>
+                            <p>Distribua entre 12 e 15 pontos nas categorias abaixo:</p>
 
                             @foreach(Cerebox\VoteCategory::all() as $vote_category)
                                 <div class="form-group">

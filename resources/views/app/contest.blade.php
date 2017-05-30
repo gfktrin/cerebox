@@ -40,6 +40,11 @@
     #contestpage_description{
         margin-bottom: 30px;
     }
+    
+    div.description_container{
+        word-break: break-all;
+        max-width: 500px;
+    }
 </style>
     @if(!empty(Session::get('code')) && Session::get('code') == 5)
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

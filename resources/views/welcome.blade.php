@@ -115,10 +115,10 @@
                         <a href="{{ action('HomeController@contest',['slug' => $contest->slug]) }}" style="text-decoration: none">
                             <div class="panel">
                                 <div class="panel-body text-center" >
-                                    <p class="text-capitalize"> {{ $contest->title }} </p>
+                                    <p class="text-capitalize" style="margin-bottom:-10px;"> {{ $contest->title }} </p>
                                     <hr>
                                     @foreach($themes as $theme)
-                                        <ul style="list-style-type: circle" class="text-left text-capitalize"><li> {{ $theme }}</li></ul>
+                                        <ul style="list-style-type: circle;font-size:15px;" class="text-left text-capitalize"><li> {{ $theme }}</li></ul>
                                     @endforeach
                                 </div>
                             </div>
