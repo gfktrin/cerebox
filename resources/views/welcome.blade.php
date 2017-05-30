@@ -137,7 +137,7 @@
                         <thead>
                             <th class="text-center">#</th>
                             @foreach($finalized_contests as $finalized_contest)
-                            <th class="text-center">{{ $finalized_contest->title }}</th>
+                            <th class="text-center"><h4>{{ $finalized_contest->title }}</h4></th>
                             @endforeach
                         </thead>
                         <tbody class="text-center">
@@ -146,11 +146,31 @@
                                 @foreach($finalized_contests as $finalized_contest)
                                     
                                     @if(!empty($finalized_contest->bestProjects()[0]))
-                                    <td>Nome: {{ $finalized_contest->bestProjects()[0]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[0]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[0]->points}}</td>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[0]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[0]->votes->count()}}; <strong>Pontos:</strong>{{ $finalized_contest->bestProjects()[0]->points}}<br>
+                                        <strong>Arte:</strong> 
+                                    <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[0]->filename) }}"
+                                        data-lightbox="{{ $finalized_contest->id }}"
+                                        data-title="{{ $finalized_contest->bestProjects()[0]->author->nickname or $finalized_contest->bestProjects()[0]->author->name}}">
+                                        <i class="material-icons">image</i>
+                                    </a></td>
                                     @elseif(!empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
-                                    <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[1]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[1]->votes->count()}}; <strong>Pontos:</strong>{{ $finalized_contest->bestProjects()[1]->points}}<br>
+                                        <strong>Arte:</strong>
+                                        <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[1]->filename) }}"
+                                        data-lightbox="{{ $finalized_contest->id }}"
+                                        data-title="{{ $finalized_contest->bestProjects()[1]->author->nickname or $finalized_contest->bestProjects()[1]->author->name}}">
+                                        <i class="material-icons">image</i>
+                                    </a>
+                                    </td>
                                     @elseif(!empty($finalized_contest->bestProjects()[2])&&empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
-                                        <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
+                                        <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[2]->votes->count()}}; <strong>Pontos:</strong>{{ $finalized_contest->bestProjects()[2]->points}}<br>
+                                            <strong>Arte:</strong>
+                                        <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[2]->filename) }}"
+                                        data-lightbox="{{ $finalized_contest->id }}"
+                                        data-title="{{ $finalized_contest->bestProjects()[2]->author->nickname or $finalized_contest->bestProjects()[2]->author->name}}">
+                                        <i class="material-icons">image</i>
+                                    </a>
+                                        </td>
                                     @else
                                         <td>||</td>
                                     @endif
@@ -160,9 +180,23 @@
                                 <td>2º</td>
                                 @foreach($finalized_contests as $finalized_contest)
                                     @if(!empty($finalized_contest->bestProjects()[0])&&!empty($finalized_contest->bestProjects()[1]))
-                                    <td>Nome: {{ $finalized_contest->bestProjects()[1]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[1]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[1]->points}}</td>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[1]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[1]->votes->count()}}; <strong>Pontos:</strong>{{ $finalized_contest->bestProjects()[1]->points}}<br>
+                                        <strong>Arte</strong>
+                                    <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[1]->filename) }}"
+                                        data-lightbox="{{ $finalized_contest->id }}"
+                                        data-title="{{ $finalized_contest->bestProjects()[1]->author->nickname or $finalized_contest->bestProjects()[1]->author->name}}">
+                                        <i class="material-icons">image</i>
+                                    </a>
+                                    </td>
                                     @elseif(!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[2])&&empty($finalized_contest->bestProjects()[0]))
-                                        <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
+                                        <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[2]->votes->count()}}; <strong>Pontos:</strong>{{ $finalized_contest->bestProjects()[2]->points}}<br>
+                                            <strong>Arte</strong>
+                                        <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[2]->filename) }}"
+                                        data-lightbox="{{ $finalized_contest->id }}"
+                                        data-title="{{ $finalized_contest->bestProjects()[2]->author->nickname or $finalized_contest->bestProjects()[2]->author->name}}">
+                                        <i class="material-icons">image</i>
+                                    </a>
+                                        </td>
                                     @else
                                         <td>||</td>
                                     @endif
@@ -172,7 +206,14 @@
                                 <td>3º</td>
                                 @foreach($finalized_contests as $finalized_contest)
                                     @if(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
-                                    <td>Nome: {{ $finalized_contest->bestProjects()[2]->author->name}}; Votos: {{ $finalized_contest->bestProjects()[2]->votes->count()}}; Pontos:{{ $finalized_contest->bestProjects()[2]->points}}</td>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[2]->votes->count()}}; <strong>Pontos:</strong>{{ $finalized_contest->bestProjects()[2]->points}}<br>
+                                        <strong>Arte</strong>
+                                    <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[2]->filename) }}"
+                                        data-lightbox="{{ $finalized_contest->id }}"
+                                        data-title="{{ $finalized_contest->bestProjects()[2]->author->nickname or $finalized_contest->bestProjects()[2]->author->name}}">
+                                        <i class="material-icons">image</i>
+                                    </a>
+                                    </td>
                                     @else
                                     <td>||</td>
                                     @endif
