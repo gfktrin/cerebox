@@ -45,6 +45,13 @@
         word-break: break-all;
         max-width: 500px;
     }
+    .modal-body {
+    
+        overflow-y: auto;
+    }
+    #voting-modal{
+        overflow-y:scroll;
+    }
 </style>
     @if(!empty(Session::get('code')) && Session::get('code') == 5)
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
