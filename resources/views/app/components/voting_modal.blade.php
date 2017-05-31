@@ -7,10 +7,10 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="margin-bottom: 30px;">
                         <img class="project_art img-responsive" src="">
                         <br>
-                        <div class="description_container">
+                        <div class="description_container" style="margin-bottom: 30px;">
                         <p class="project_description"></p>
                         </div>
                         <p style="color: red"><strong>Incetivamos o uso de até duas casas decimais ex: 4,39; 2,1</strong></p>
