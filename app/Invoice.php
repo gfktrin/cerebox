@@ -126,7 +126,8 @@ class Invoice extends Model
 
             $payment->acceptPaymentMethod()->groups(
                 \PagSeguro\Enum\PaymentMethod\Group::CREDIT_CARD,
-                \PagSeguro\Enum\PaymentMethod\Group::BALANCE
+                \PagSeguro\Enum\PaymentMethod\Group::BALANCE,
+                \PagSeguro\Enum\PaymentMethod\Group::BOLETO
             );
 
             try{
