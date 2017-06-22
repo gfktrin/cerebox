@@ -179,7 +179,7 @@
                     </p>
                     <br>
                     <p class="text-justify">
-                        2 - Elaborado sistema se votação e julgamento, de modo que não haja empates, nem o uso de macros, bots ou formas ilegais de angariar votos sem que seja necessário o uso de CAPTCHA CODE (blerrrgh).
+                        2 - Elaborado sistema de votação e julgamento, de modo que não haja empates, nem o uso de macros, bots ou formas ilegais de angariar votos sem que seja necessário o uso de CAPTCHA CODE (blerrrgh).
                     </p>
                     <br>
                     <p class="text-justify">
