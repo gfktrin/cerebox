@@ -79,7 +79,6 @@
                         <!-- Authentication Links -->
                         <li><a href="{{ action('HomeController@howToParticipate') }}">Como participar</a></li>
                         <li><a href="{{ action('HomeController@openContests') }}">Concursos abertos</a></li>
-                        <li><a href="http:\\randomizador.cerebox.com.br">Randomizador</a></li>
                         <li><a href="{{ action('ContactController@index') }}">Contato</a></li>
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
