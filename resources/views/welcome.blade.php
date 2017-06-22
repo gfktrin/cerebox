@@ -18,7 +18,9 @@
                 <p class="caption">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p> --}}
+                <a href="{{ action('HomeController@openContests') }}" id="concursosAbertos">
                 <img src="{{ asset('images/banner2.jpg') }}" width="100%">
+                </a>
             </div>
         </div>
 
@@ -146,31 +148,40 @@
                                 @foreach($finalized_contests as $finalized_contest)
                                     
                                     @if(!empty($finalized_contest->bestProjects()[0]))
-                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[0]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[0]->votes->count()}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[0]->points, 3, ',', '') }}<br>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[0]->author->name}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[0]->points, 3, ',', '') }}<br>
                                         <strong>Arte:</strong> 
                                     <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[0]->filename) }}"
                                         data-lightbox="{{ $finalized_contest->id }}"
                                         data-title="{{ $finalized_contest->bestProjects()[0]->author->nickname or $finalized_contest->bestProjects()[0]->author->name}}">
                                         <i class="material-icons">image</i>
-                                    </a></td>
+                                    </a>
+                                        <strong>Descrição:</strong>
+                                        <a href="#rankingModal" data-target="#rankingModal" data-toggle="modal" data-descricao="{{ $finalized_contest->bestProjects()[0]->description}}"><i class="material-icons">textsms</i>
+                                        </a>
+                                    </td>
                                     @elseif(!empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
-                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[1]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[1]->votes->count()}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[1]->points, 3, ',', '')}}<br>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[1]->author->name}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[1]->points, 3, ',', '')}}<br>
                                         <strong>Arte:</strong>
                                         <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[1]->filename) }}"
                                         data-lightbox="{{ $finalized_contest->id }}"
                                         data-title="{{ $finalized_contest->bestProjects()[1]->author->nickname or $finalized_contest->bestProjects()[1]->author->name}}">
                                         <i class="material-icons">image</i>
                                     </a>
+                                        <strong>Descrição:</strong>
+                                        <a href="#rankingModal" data-target="#rankingModal" data-toggle="modal" data-descricao="{{ $finalized_contest->bestProjects()[1]->description}}"><i class="material-icons">textsms</i>
+                                        </a>
                                     </td>
                                     @elseif(!empty($finalized_contest->bestProjects()[2])&&empty($finalized_contest->bestProjects()[1])&&empty($finalized_contest->bestProjects()[0]))
-                                        <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[2]->votes->count()}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[2]->points, 3, ',', '')}}<br>
+                                        <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[2]->points, 3, ',', '')}}<br>
                                             <strong>Arte:</strong>
                                         <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[2]->filename) }}"
                                         data-lightbox="{{ $finalized_contest->id }}"
                                         data-title="{{ $finalized_contest->bestProjects()[2]->author->nickname or $finalized_contest->bestProjects()[2]->author->name}}">
                                         <i class="material-icons">image</i>
                                     </a>
-                                        </td>
+                                    <strong>Descrição:</strong>
+                                        <a href="#rankingModal" data-target="#rankingModal" data-toggle="modal" data-descricao="{{ $finalized_contest->bestProjects()[2]->description}}"><i class="material-icons">textsms</i>
+                                        </a>
                                     @else
                                         <td>||</td>
                                     @endif
@@ -180,22 +191,28 @@
                                 <td>2º</td>
                                 @foreach($finalized_contests as $finalized_contest)
                                     @if(!empty($finalized_contest->bestProjects()[0])&&!empty($finalized_contest->bestProjects()[1]))
-                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[1]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[1]->votes->count()}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[1]->points, 3, ',', '')}}<br>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[1]->author->name}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[1]->points, 3, ',', '')}}<br>
                                         <strong>Arte</strong>
                                     <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[1]->filename) }}"
                                         data-lightbox="{{ $finalized_contest->id }}"
                                         data-title="{{ $finalized_contest->bestProjects()[1]->author->nickname or $finalized_contest->bestProjects()[1]->author->name}}">
                                         <i class="material-icons">image</i>
                                     </a>
+                                    <strong>Descrição:</strong>
+                                        <a href="#rankingModal" data-target="#rankingModal" data-toggle="modal" data-descricao="{{ $finalized_contest->bestProjects()[1]->description}}"><i class="material-icons">textsms</i>
+                                        </a>
                                     </td>
                                     @elseif(!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[2])&&empty($finalized_contest->bestProjects()[0]))
-                                        <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[2]->votes->count()}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[2]->points, 3, ',', '')}}<br>
+                                        <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[2]->points, 3, ',', '')}}<br>
                                             <strong>Arte</strong>
                                         <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[2]->filename) }}"
                                         data-lightbox="{{ $finalized_contest->id }}"
                                         data-title="{{ $finalized_contest->bestProjects()[2]->author->nickname or $finalized_contest->bestProjects()[2]->author->name}}">
                                         <i class="material-icons">image</i>
                                     </a>
+                                    <strong>Descrição:</strong>
+                                        <a href="#rankingModal" data-target="#rankingModal" data-toggle="modal" data-descricao="{{ $finalized_contest->bestProjects()[2]->description}}"><i class="material-icons">textsms</i>
+                                        </a>
                                         </td>
                                     @else
                                         <td>||</td>
@@ -206,13 +223,16 @@
                                 <td>3º</td>
                                 @foreach($finalized_contests as $finalized_contest)
                                     @if(!empty($finalized_contest->bestProjects()[2])&&!empty($finalized_contest->bestProjects()[1])&&!empty($finalized_contest->bestProjects()[0]))
-                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Votos:</strong> {{ $finalized_contest->bestProjects()[2]->votes->count()}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[2]->points, 3, ',', '')}}<br>
+                                    <td><strong>Nome:</strong> {{ $finalized_contest->bestProjects()[2]->author->name}}; <strong>Pontos:</strong>{{ number_format($finalized_contest->bestProjects()[2]->points, 3, ',', '')}}<br>
                                         <strong>Arte</strong>
                                     <a  href="{{ asset('project_images/'.$finalized_contest->bestProjects()[2]->filename) }}"
                                         data-lightbox="{{ $finalized_contest->id }}"
                                         data-title="{{ $finalized_contest->bestProjects()[2]->author->nickname or $finalized_contest->bestProjects()[2]->author->name}}">
                                         <i class="material-icons">image</i>
                                     </a>
+                                    <strong>Descrição:</strong>
+                                        <a href="#rankingModal" data-target="#rankingModal" data-toggle="modal" data-descricao="{{ $finalized_contest->bestProjects()[2]->description}}"><i class="material-icons">textsms</i>
+                                        </a>
                                     </td>
                                     @else
                                     <td>||</td>
@@ -224,6 +244,19 @@
                 </div>
             </div>
         </section>
+        <div id="rankingModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Descrição</h4>
+              </div>
+              <div class="modal-body">
+                <textarea disabled name="descricao" class="form-control" rows="5" value="" style="border: 0;overflow: auto;cursor:default;"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <section class="row">
             <div class="col-md-12">
@@ -234,5 +267,4 @@
             </div>
         </section>
     </div>
-    
 @stop

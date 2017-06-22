@@ -186,7 +186,7 @@
             </div>
                 @if($contest->isOpenForVoting() && Auth::check())
                     @if(!empty($project))
-                        <div style="margin-top: 50px;">
+                        <div style="margin-top: 70px;margin-bottom: 70px;">
                             <h3>Compartilhe o link para votação do seu projeto:</h3>
                             <input type="text" class="form-control" id="link" value="http://cerebox.com.br/votar/{{ $slug }}/{{ $project->id }}">
                         </div>

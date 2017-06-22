@@ -129,7 +129,7 @@
         <h3>Nossas redes sociais</h3>
         <ul id="social-list">
             <li>
-                <a href="" class="btn btn-primary pull-right">
+                <a href="https://www.facebook.com/cerebox/" class="btn btn-primary pull-right">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -165,6 +165,12 @@
             }   
             });
         });
+    </script>
+    <script>
+    $('#rankingModal').on('show.bs.modal', function(e) {
+    var descricao = $(e.relatedTarget).data('descricao');
+    $(e.currentTarget).find('textarea[name="descricao"]').val(descricao);
+    });
     </script>
 </body>
 </html>
