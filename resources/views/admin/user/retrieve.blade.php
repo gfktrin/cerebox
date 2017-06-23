@@ -126,9 +126,12 @@
                     <tbody>
                         @php($projects = $user->projects()->with('contest')->get())
                         @foreach($projects as $project)
+                            @if(!is_null($project))
                             <tr>
                                 <td>{{ $project->id }}</td>
+                                @if(!is_null($project->contest->title))
                                 <td>{{ $project->contest->title }}</td>
+                                @endif
                                 <td>
                                     <a href="{{ asset('project_images/'.$project->filename) }}"
                                        data-lightbox="projects"
@@ -143,6 +146,7 @@
                                     <td></td>
                                 @endif
                             </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>
