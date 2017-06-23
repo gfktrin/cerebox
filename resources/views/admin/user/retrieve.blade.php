@@ -124,7 +124,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @if(!is_null($user->projects()->with('contest')->get()))
                         @php($projects = $user->projects()->with('contest')->get())
                         @foreach($projects as $project)
                             @if(!is_null($project))
@@ -149,7 +148,6 @@
                             </tr>
                             @endif
                         @endforeach
-                    @endif
                     </tbody>
                 </table>
             </div>

@@ -229,6 +229,11 @@ class Invoice extends Model
 
         $this->status = $response->getStatus();
 
+        if($this->status == 3){
+            $this->purchase->approved();
+            $this->attributes['payed_at'] = date('Y-m-d H:i:s');
+        }
+
         if(is_null($this->payment_method))
             $this->payment_method = $response->getPaymentMethod()->getCode();
         
