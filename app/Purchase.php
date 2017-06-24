@@ -68,7 +68,6 @@ class Purchase extends Model
     			'created_at' => date('Y-m-d H:i:s'),
     			'updated_at' => date('Y-m-d H:i:s')
 			]);
-    		$this->user->tickets += $tickets->pivot->quantity;
 
             \DB::table('users')->where('id', $this->user->id)->increment('tickets', $tickets->pivot->quantity);
     	}

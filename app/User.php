@@ -90,10 +90,6 @@ class User extends Authenticatable
         return $this->hasMany(Register::class,'user_id');
     }
 
-    public function tickets(){
-        return $this->belongsToMany(Product::class, 'tickets')->withPivot(['quantity']);
-    }
-
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
