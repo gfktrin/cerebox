@@ -70,7 +70,7 @@ class Purchase extends Model
 			]);
     		$this->user->tickets += $tickets->pivot->quantity;
 
-            \DB::table('users')->increment('tickets', $tickets->pivot->quantity, ['id' => $this->user->id]);
+            \DB::table('users')->->where('id', $this->user->id)->increment('tickets', $tickets->pivot->quantity);
     	}
     }
 
