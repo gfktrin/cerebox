@@ -39,6 +39,7 @@
     }
     #contestpage_description{
         margin-bottom: 30px;
+        margin-left: -10px;
     }
     
     div.description_container{
@@ -51,6 +52,16 @@
     }
     #voting-modal{
         overflow-y:scroll;
+    }
+    pre{
+        border-style: none;
+        background-color: rgb(245,248,250);
+        color: rgb(132,138,142);
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap; 
+    }
+    #inner_pre{
+        font-size: 12px;
     }
 </style>
     @if(!empty(Session::get('code')) && Session::get('code') == 5)
@@ -156,7 +167,7 @@
               @endforeach
           </h4>
           <br>
-            <p id="contestpage_description">{{ $contest->description }}</p>
+            <pre id="contestpage_description"><span id="inner_pre">{{ $contest->description }}</span></pre>
             <br>
             <div class="row steps">
                 @if($contest->begins_at->getTimestamp() >= time())
